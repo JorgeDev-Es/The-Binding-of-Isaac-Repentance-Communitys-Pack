@@ -1,0 +1,145 @@
+<ItemPools>
+	<Pool Name="treasure">
+		<Item Name="Lil Slot Machine" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Lil Fortune Teller" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Lil Blood Bank" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Card Sleeve" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+
+	</Pool>
+	
+	<Pool Name="shop">
+        <Item Name="Poker Mat" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Shredder" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="boss">
+        <Item Name="Calendar" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="devil">
+        <Item Name="Soul of Envy" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="angel">
+
+	</Pool>
+	
+	<Pool Name="secret">
+        <Item Name="Card Sleeve" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Scrawl" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="library">
+
+	</Pool>
+
+	<Pool Name="shellGame">
+
+	</Pool>
+
+	<Pool Name="goldenChest">
+
+	</Pool>
+
+	<Pool Name="redChest">
+
+	</Pool>
+
+	<Pool Name="beggar">
+
+	</Pool>
+
+	<Pool Name="demonBeggar">
+
+	</Pool>
+
+	<Pool Name="curse">
+        <Item Name="Poker Mat" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Soul of Envy" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Ace of Hearts" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="keyMaster">
+		
+	</Pool>
+
+	<Pool Name="batteryBum">
+
+	</Pool>
+	
+	<Pool Name="greedTreasure">
+		<Item Name="Lil Slot Machine" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Lil Fortune Teller" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Lil Blood Bank" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Card Sleeve" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="greedBoss">
+        <Item Name="Calendar" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="greedShop">
+        <Item Name="Poker Mat" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Shredder" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="greedCurse">
+        <Item Name="Poker Mat" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Soul of Envy" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Ace of Hearts" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="greedDevil">
+        <Item Name="Soul of Envy" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+	
+	<Pool Name="greedAngel">
+
+	</Pool>
+
+	<Pool Name="greedSecret">
+        <Item Name="Card Sleeve" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Shredder" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="craneGame">
+		<Item Name="Lil Slot Machine" Weight="0.5" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Lil Fortune Teller" Weight="0.5" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Lil Blood Bank" Weight="0.5" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Poker Mat" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Card Sleeve" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="ultraSecret">
+		<Item Name="Lil Slot Machine" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Lil Blood Bank" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Calendar" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Ace of Hearts" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="bombBum">
+
+	</Pool>
+
+	<Pool Name="planetarium">
+
+	</Pool>
+
+	<Pool Name="oldChest">
+
+	</Pool>
+
+	<Pool Name="babyShop">
+		<Item Name="Lil Slot Machine" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Lil Fortune Teller" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+        <Item Name="Lil Blood Bank" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="woodenChest">
+
+	</Pool>
+
+	<Pool Name="rottenBeggar">
+		
+	</Pool>
+</ItemPools>

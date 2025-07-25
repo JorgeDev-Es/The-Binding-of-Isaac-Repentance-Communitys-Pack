@@ -1,0 +1,18 @@
+<items gfxroot="gfx/items/" deathanm2="gfx/death_items.anm2" version="1">
+	<passive name="Isaac's Blessing" description="Your future is in your hands" tags="" gfx="isaacs_blessing.png" id="1" quality="2"/>
+	<passive name="Maggy's Blessing" description="Your future feels healthier" tags="" gfx="maggys_blessing.png" id="1" quality="2"/>
+	<passive name="Cain's Blessing" description="Your future feels luckier" tags="" gfx="cains_blessing.png" id="1" quality="2"/>
+	<passive name="Judas' Blessing" description="Your future is plotting against you" tags="" gfx="judas_blessing.png" id="1" quality="2"/>
+	<passive name="???'s Blessing" description="Your future feels stinkier" tags="" gfx="qqqs_blessing.png" id="1" quality="2"/>
+	<passive name="Eve's Blessing" description="Your future feels corrupted" tags="" gfx="eves_blessing.png" id="1" quality="2"/>
+	<passive name="Samson's Blessing" description="Your future is filled with violence" tags="" gfx="samsons_blessing.png" id="1" quality="2"/>
+	<passive name="Azazel's Blessing" description="Your future feels fleeting" tags="" gfx="azazels_blessing.png" id="1" quality="2"/>
+	<passive name="Lazarus' Blessing" description="Your future feels uncertain" tags="" gfx="lazarus_blessing.png" id="1" quality="2"/>
+	<passive name="The Lost's Blessing" description="Your future feels ethereal" tags="" gfx="losts_blessing.png" id="1" quality="2"/>
+	<passive name="Lilith's Blessing" description="Your future feels consumated" tags="" gfx="liliths_blessing.png" id="1" quality="2"/>
+	<passive name="Keeper's Blessing" description="Your future feels more profitable...?" tags="" gfx="keepers_blessing.png" id="1" quality="2"/>
+	<passive name="Apollyon's Blessing" description="Your future feels cataclysmic" tags="" gfx="apollyons_blessing.png" id="1" quality="2"/>
+	<passive name="The Forgotten's Blessing" description="Your future feels hollow" tags="" gfx="theforgottens_blessing.png" id="1" quality="2"/>
+	<passive name="Bethany's Blessing" description="Your future feels sanctified" tags="" gfx="bethanys_blessing.png" id="1" quality="2"/>
+	<passive name="Jacob and Esau's Blessing" description="Your future feels duplicitous" tags="" gfx="jacob_and_esaus_blessing.png" id="1" quality="2"/>
+</items>

@@ -1,0 +1,54 @@
+<data>
+	<stage Name="Womb">
+		<Gfx>
+			<Entity ID="813" Variant="0" SubType="0" Image="resources/Entities/Antibirth/813.0.1 - Blurb (womb).png" />
+			<Entity ID="244" Variant="1" SubType="0" Image="resources/Entities/244.1.0 - Tube Worm_womb.png" />
+			<Entity ID="244" Variant="3" SubType="0" Image="resources/Entities/244.3.0 - Tainted Tube Worm_womb.png" />
+
+			<Entity ID="666" Variant="101" SubType="0" Image="resources/Entities/drunkworm_womb" />
+		</Gfx>
+	</stage>
+	<stage Name="Utero">
+		<Gfx>
+			<Entity ID="813" Variant="0" SubType="0" Image="resources/Entities/Antibirth/813.0.1 - Blurb (womb).png" />
+			<Entity ID="244" Variant="1" SubType="0" Image="resources/Entities/244.1.0 - Tube Worm_womb.png" />
+			<Entity ID="244" Variant="3" SubType="0" Image="resources/Entities/244.3.0 - Tainted Tube Worm_womb.png" />
+
+			<Entity ID="666" Variant="101" SubType="0" Image="resources/Entities/drunkworm_womb" />
+		</Gfx>
+	</stage>
+	<stage Name="Scarred Womb">
+		<Gfx>
+			<Entity ID="813" Variant="0" SubType="0" Image="resources/Entities/Antibirth/813.0.1 - Blurb (womb).png" />
+			<Entity ID="244" Variant="1" SubType="0" Image="resources/Entities/244.1.0 - Tube Worm_womb.png" />
+			<Entity ID="244" Variant="3" SubType="0" Image="resources/Entities/244.3.0 - Tainted Tube Worm_womb.png" />
+			<Entity ID="56" Variant="0" SubType="0" Image="resources/Entities/56.0.0 - Lump_scarred womb.png" />
+
+			<Entity ID="666" Variant="101" SubType="0" Image="resources/Entities/drunkworm_womb" />
+			<Entity ID="150" Variant="16" SubType="10" Image="resources/Entities/WaitingLump_scarred_womb.png" />
+		</Gfx>
+	</stage>
+	<stage Name="Mines">
+		<Gfx>
+			<Entity ID="10" Variant="0" SubType="0" Image="resources/Entities/Antibirth/10.0.101 - Frowning Gaper (mines).png" />
+			<Entity ID="10" Variant="1" SubType="0" Image="resources/Entities/Antibirth/10.1.101 - Gaper (mines).png" />
+			<Entity ID="11" Variant="0" SubType="0" Image="resources/Entities/Antibirth/11.0.101 - Gusher (mines).png" />
+			<Entity ID="11" Variant="1" SubType="0" Image="resources/Entities/Antibirth/11.1.101 - Pacer (mines).png" />
+
+			<Entity ID="160" Variant="50" Image="resources/Entities/morsel_mines.png" />
+			<Entity ID="160" Variant="820" SubType="0" Image="resources/Entities/slim_mines.png" />
+			<Entity ID="160" Variant="820" SubType="2" Image="resources/Entities/limb_mines.png" />
+			<Entity ID="160" Variant="1210" SubType="0" Image="resources/Entities/magGaper_mines.png" />
+		</Gfx>
+	</stage>
+	<stage Name="Corpse">
+		<Gfx>
+			<Entity ID="14" Variant="1" SubType="0" Image="resources/Entities/Antibirth/14.1.0 - Super Pooter (corpse).png" />
+			<Entity ID="56" Variant="0" SubType="0" Image="resources/Entities/Antibirth/56.0.0 - Lump (corpse).png" />
+			<Entity ID="58" Variant="0" SubType="0" Image="resources/Entities/Antibirth/58.0.0 - Para-Bite (corpse).png" />
+
+			<Entity ID="150" Variant="16" SubType="6" Image="resources/Entities/WaitingPara_corpse.png" />
+			<Entity ID="150" Variant="16" SubType="10" Image="resources/Entities/WaitingLump_corpse.png" />
+		</Gfx>
+	</stage>
+</data>

@@ -1,0 +1,5 @@
+<challenges version="1">
+    <challenge name="Only AXE!!" endstage="6" altpath="false" roomfilter="4" difficulty="0" startingitems="153,62,157,486,100" playertype="Sim" canshoot="false" soulhp="6" />
+    <challenge name="Traffic Light" endstage="6" altpath="false" roomfilter="0" difficulty="0" playertype="0" />
+    <challenge name="Locust King" endstage="12" altpath="false" roomfilter="0" difficulty="0" playertype="34" startingitems="" />
+</challenges>

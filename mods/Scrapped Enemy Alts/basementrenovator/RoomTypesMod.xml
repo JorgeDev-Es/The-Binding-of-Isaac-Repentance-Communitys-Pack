@@ -1,0 +1,21 @@
+<data>
+	<room Name="Mines Entrance">
+		<Gfx>
+			<Entity ID="10" Variant="0" SubType="0" Image="resources/Entities/Antibirth/10.0.101 - Frowning Gaper (mines).png" />
+			<Entity ID="10" Variant="1" SubType="0" Image="resources/Entities/Antibirth/10.1.101 - Gaper (mines).png" />
+			<Entity ID="11" Variant="0" SubType="0" Image="resources/Entities/Antibirth/11.0.101 - Gusher (mines).png" />
+			<Entity ID="11" Variant="1" SubType="0" Image="resources/Entities/Antibirth/11.1.101 - Pacer (mines).png" />
+
+			<Entity ID="160" Variant="50" Image="resources/Entities/morsel_mines.png" />
+			<Entity ID="160" Variant="820" SubType="0" Image="resources/Entities/slim_mines.png" />
+			<Entity ID="160" Variant="820" SubType="2" Image="resources/Entities/limb_mines.png" />
+			<Entity ID="160" Variant="1210" SubType="0" Image="resources/Entities/magGaper_mines.png" />
+		</Gfx>
+	</room>
+	<room Name="Morbus Backdrop">
+		<Gfx>
+			<Entity ID="56" Variant="0" Subtype="0" Image="resources/Entities/56.0.0 - Lump_morbus.png" />
+			<Entity ID="150" Variant="16" SubType="10" Image="resources/Entities/WaitingLump_morbus.png" />
+		</Gfx>
+	</room>
+</data>

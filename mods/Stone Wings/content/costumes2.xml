@@ -1,0 +1,3 @@
+<costumes anm2root="gfx/characters/">
+	<costume id="0" anm2path="stone_wings.anm2" type="passive" isFlying="true" hasSkinAlt="true" />
+</costumes>

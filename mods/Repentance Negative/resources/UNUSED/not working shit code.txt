@@ -1,0 +1,115 @@
+local Mod = RegisterMod("pickups", 1)
+local sound = SFXManager()
+local game = Game()
+
+PickupVariant.SANDS = Isaac.GetEntityVariantByName("Stone")
+SANDS = {
+    SUBTYPE_STONE = 1,
+	SUBTYPE_STICK = 2
+}
+UILayout = {
+    STICK_FRAME = 11,
+	STONE_FRAME = 12,
+    STICK_ICON = Vector(28,32),
+	STONE_ICON = Vector(28,44),
+	STICK_NUM = Vector(42,36),
+	STONE_NUM = Vector(42,48)
+}
+
+function SaveState()
+    local player = Isaac.GetPlayer(0)
+	local SaveData = ""
+	if player:GetData().Sticks < 10 then
+	    SaveData = SaveData .. "0"
+	end
+	SaveData = SaveData .. player:GetData().Sticks
+	if player:GetData().Stone < 10 then
+	    SaveData = SaveData .. "0"
+	end
+	SaveData = SaveData .. player:GetData().Stones
+	Isaac.DebugString("Save Data: " .. SaveData)
+	Mod:SaveData(SaveData)
+end 
+
+function Mod:onUpdata(player)
+    if game:GetFrameCount() == 1 then
+	    player:GetData().Stiks = 0
+		player:GetData().Stones = 0
+	elseif player.FrameCount == 1 and Mod:HasData() then
+	    local ModData = Mod:LoadData()
+		player:GetData().Sticks = tonumber(ModData:sub(1,2))
+		player:GetData().Stones = tonumber(ModData:sub(3,4))
+	end 
+	
+	for _, entity in pairs(Isaac.GetRoomEntities()) do
+	    if entity.Type == EntityType.ENTITY_PICKUP
+		and (player.Position - entity.Position):Length() < player.Size + entity.Size
+		then 
+		-- пикап
+		    if entity.Variant == PickupVariant.SANDS
+			and entity:GetSprite():IsPlaying("Idle")
+			and entity:GetData().Picked == nil then
+		--подбор
+		        entity:GetData().Picked = true
+				entity.EntityCollisionClass = EntityCollisionClass.ENTCOLL_NONE
+				entity:GetSprite():Play("Collect", true)
+				sound:Play(SoundEffect.SOUND_PLOP, 1, 0, false, 1)
+				if entity.SubType == SANDS.SUBTYPE_STONE then
+				    player:GetData().Stones = math.min(99, player:GetData().Stones + 1)
+				elseif entity.SubType == SANDS.SUBTYPE_STICK then
+				    player:GetData().Sticks = math.min(99, player:GetData().Sticks + 1)
+				end
+				SaveState()
+			end
+		
+		--чек
+		    if entity:GetSprite():IsPlaying("Collect")
+			and entity:GetData().Picked == nil then
+			    entity:GetData().Picked = true
+			    if entity.Variant == PickupVariant.PICKUP_COIN then
+				--aff
+				    player:AddBlueSpider(player.Position)
+				elseif entity.Variant == PickupVariant.PICKUP_HEART then
+				--fejfk
+				    player:AddBlueFlies(player.Position, nil)
+				elseif entity.Variant == PickupVariant.PICKUP_LIL_BATTERY then
+                   --efef				
+	            end
+			end 
+		end 
+		
+        if entity.Type == EntityType.ENTITY_PICKUP
+        and entity:GetData().Picked == true
+        and entity:GetSprite():GetFrame() == 6
+        then
+            entity:Remove()
+        end
+    end
+end 	
+	    
+Mod:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, Mod.onUpdate)
+
+local HudPickups = Sprite()
+HudPickups:Load("gfx/ui/hudpickups.anm2", true)
+
+local HudNumbers = Sprite()
+HudNumbers:Load("gfx/ui/hudnumbers.anm2", true)
+
+function RenderNumber(n, Position)
+    if n == nil then n = 0 end
+    HudNumbers:SetFrame("Idle", math.floor(n/10))
+   	HudNumbers:RenderLayer(0,Position)
+	HudNumbers:SetFrame("Idle", n % 10)
+	HudNumbers:RenderLayer(0,Position + Vector(6,0))
+end 
+
+function Mod:onRender()
+
+    local player = Isaac.GetPlayer(0)
+	HudPickups:SetFrame("Idle",UILayout.STICK_FRAME)
+	HudPickups:RenderLayer(0, UILayout.STICK_ICON)
+	HudPickups:SetFrame("Idle",UILayout.STONE_FRAME)
+	HudPickups:RenderLayer(0, UILayout.STONE_ICON)
+	RenderNumbers:(player:GetData().Sticks, UILayout.STICK_NUM)
+	RenderNumbers:(player:GetData().Sticks, UILayout.STONE_NUM)
+end 

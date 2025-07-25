@@ -1,0 +1,14 @@
+<achievements gfxroot="gfx/ui/achievement/">
+
+	<!-- characters -->
+	<achievement name="Frosty" text='Frosty' gfx="achievementfrosty.png" />
+	<achievement name="FrostySatan" text='FrostySatan' gfx="achievementfrostysatan.png" />
+	<achievement name="FrozenHearts" text='FrozenHearts' gfx="achievementfrozenhearts.png" />
+	<achievement name="improved_cards" text='improved_cards' gfx="achievementimproved_cards.png" />
+	<achievement name="NumbHeart" text='NumbHeart' gfx="numb_heart_ach.png" />
+	<achievement name="RotAch" text='RotAch' gfx="rot_ach.png" />
+	<achievement name="SimDelirium" text='SimDelirium' gfx="sim_delirium.png" />
+	<achievement name="Frosty_B" text='Frosty_B' gfx="achievementfrostyb.png" />
+	<achievement name="RubyChest" text='RubyChest' gfx="rubychest.png" />
+<achievement name="BLOCKED!" text='' gfx="rubychest.png" />
+</achievements>

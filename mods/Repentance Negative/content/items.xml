@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<items version="1" gfxroot="gfx/items/" deathanm2="gfx/death_items.anm2">
+<!-- Items -->
+    <passive id="2" name="Strawberry Milk" description="Confuse your enemies" gfx="strawberry milk.png" cache="tearcolor" quality="2" /> 
+	<active id="10" name="Book of Tales" description="Zzzz..." gfx="book of tails.png" maxcharges="4" quality="2" />
+	<active id="12" maxcharges="2" description="Well that backfired..." gfx="prokamikadze.png" name="Advanced Kamikaze" quality="4" />
+	<passive id="11" name="Holy shell" description="Help from above!" gfx="holyshell.png" quality="2" />
+	<active id="13" maxcharges="4" description="...with Lyte..." gfx="Curious heart.png" name="Curious Heart" quality="1" />
+
+	<passive id="4" cache="damage" name="Leaky Bucket" description="It oozes..." gfx="leaky bucket.png" quality="3" />
+	<passive name="Delirious Tech" description="Mad science" gfx="techdel.png" cache="tearcolor" id="5" quality="4" />
+	<passive id="15" name = "Minus" description = "Don't you dare take it!" gfx="minus.png" quality="0" />
+    <active id="16" name = "Pixelated Cube" description = "Where babies come from"  gfx = "pixelated cube.png" maxcharges="6" quality="1" />
+    <passive id="17" name = "110V" description = "High voltage" gfx = "110V.png" quality="1" />
+    <passive id="18" name = "Deliriums Eye" description = "I'm seeing double" gfx = "Dilirium eye.png" cache="tearcolor" quality="2" />
+	<passive id="19" name = "Flower Tea" description = "Is this calming?" gfx = "flower.png" quality="1" cache="all" hearts="24" />
+	<passive id="20" name="Holy Master Key" description="Eternal roulette" gfx="otmich.png" quality="2" />
+	<passive id="21" name="Sandwich" description="Tasty!" gfx="buter.png" maxhearts="2" cache="all" quality="1" />
+	<passive id="7" name="Faustian Bargain" description="All stats up! But at what cost?" gfx="golovabarana.png" cache="all" quality="2" />
+	<passive id="22" name="VHS Cassette" description="Old filter" gfx="vhs.png" cache="all" quality="1" />
+	<active id="23" name = "Bloody Negative" description = "Wrong negative, stupid!"  gfx = "minmin.png" maxcharges="0" cache="all" quality="1" />
+	<active id="24" name="Necronomicon Vol. 3" description="Death serves you" gfx="NEGROMANTIA2.png" maxcharges="4" quality="2" />
+	<passive id="25" name="Rot" description="Eww..." gfx="rot.png" achievement= "RotAch" quality="1" />
+	<familiar id="26" name="Frozen Flies" description="They give you the cold shoulder" gfx="frozen_flys.png" quality="3" />
+	<active id="27" name="Numb Heart" description="Reusable apathy" gfx="Numb Heart.png" maxcharges="6" achievement= "NumbHeart" quality="2" />
+	<passive id="28" name="Friendly Rocks" description="I loves my rocks!" gfx="Friendly Rocks.png" quality = "1"/>
+	<passive id="29" name="Like" description="Farm for them" gfx="Like.png" quality="2" />
+	<active id="30" name="Sim's Axe" description="Timber!" gfx="Sim Axe.png" achievement= "SimDelirium" quality="2" chargetype="timed" maxcharges="100" />
+	<passive id="31" name="Frozen Food" description="HP up + brain freeze" gfx="frozen food.png" cache="damage" quality="1" />
+	<passive id = "8" name="Siren Horns" description="Come hither" gfx="Siren Horns.png" tags="baby" quality="3" />
+	<passive id="32" name="Strong Spirit" description="Let's settle this!" gfx="SSItem.png" quality="2"/>
+	<active id="33" name="How To Dig" description="Time to dig!" gfx="how to dig.png" maxcharges = "3" quality="2" />
+	<active id="34" name="Battered Lighter" description="Still working" gfx="battered lighter.png" hidden="true" maxcharges = "1" quality="2" />
+	<active id="35" name="Holy Lighter" description="Baptism by fire" gfx="holy lighter.png" maxcharges = "6" hidden="true" chargetype = "normal" quality="2" />
+	<active id="36" name="Portal D6" description="Portal?" gfx="portald6.png" maxcharges = "6" quality="4" />
+
+	<passive id="37" name="Saw Shield" cache="familiars" description="Tear them at distance!" tags="offensive" gfx="ShieldSaw.png" quality="3" />
+<!-- Trinkets -->
+	<trinket name="Micro Amplifier" description="STOP!" gfx="microamplifier.png" />
+	<trinket name="Burnt Clover" description="The treasury is surprising" gfx="Clover.png" />
+	<trinket name="Pocket Technology" description="Like tech...but...not?" gfx="PocketTechology.png" />
+	<trinket name="MORE OPTIONS" description="Why isn't this in the game? :(" gfx="MORE OPTIONS.png" />
+	<trinket name="Hammer" description="Boink!" cache="tearflag" gfx="hammer.png" />
+	<trinket name="Frozen Polaroid" description="They preserved you in ice" hidden="true" gfx="frozen_polaroid.png" />
+	<trinket name="Ice Penny" description="Wealth of chill" gfx="ice penny.png" />
+
+	<null id="250" name="Siren's Singing" persistent="false" cooldown="90" />
+	<null name="Minus Shard" persistent="true" />
+	<null name="Minus Shard Bonus Positive" persistent="true" />
+	<null name="Minus Shard Bonus Negative" persistent="true" />
+	<null name="Impoved Rev. Strenght" cache="speed"/>
+	<null name="How to Dig" cache="speed flying color" persistent="true" cooldown="630"/>
+</items>

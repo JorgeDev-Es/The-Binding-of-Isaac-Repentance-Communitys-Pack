@@ -1,0 +1,3 @@
+<items gfxroot="gfx/items/" deathanm2="gfx/death items.anm2" version="1">
+    <active id="1" name="Delirious Skin" gfx="delirious_skin.png" description="All your desires fulfilled?" chargetype="normal" maxcharges="3" quality="4" devilprice="2"/>
+</items>

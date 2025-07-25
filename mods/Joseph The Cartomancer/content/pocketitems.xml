@@ -1,0 +1,6 @@
+<pocketitems>
+    <card name="XX - The Aeon" pickup="3301" 
+        type="tarot" hud="TheAeon" achievement="The Aeon"
+        mimiccharge="4" weight="0.5"
+    description="May you redeem your past" />
+</pocketitems>

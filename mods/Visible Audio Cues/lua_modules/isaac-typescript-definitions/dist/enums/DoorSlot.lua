@@ -1,0 +1,21 @@
+local ____exports = {}
+____exports.DoorSlot = {}
+____exports.DoorSlot.NO_DOOR_SLOT = -1
+____exports.DoorSlot[____exports.DoorSlot.NO_DOOR_SLOT] = "NO_DOOR_SLOT"
+____exports.DoorSlot.LEFT_0 = 0
+____exports.DoorSlot[____exports.DoorSlot.LEFT_0] = "LEFT_0"
+____exports.DoorSlot.UP_0 = 1
+____exports.DoorSlot[____exports.DoorSlot.UP_0] = "UP_0"
+____exports.DoorSlot.RIGHT_0 = 2
+____exports.DoorSlot[____exports.DoorSlot.RIGHT_0] = "RIGHT_0"
+____exports.DoorSlot.DOWN_0 = 3
+____exports.DoorSlot[____exports.DoorSlot.DOWN_0] = "DOWN_0"
+____exports.DoorSlot.LEFT_1 = 4
+____exports.DoorSlot[____exports.DoorSlot.LEFT_1] = "LEFT_1"
+____exports.DoorSlot.UP_1 = 5
+____exports.DoorSlot[____exports.DoorSlot.UP_1] = "UP_1"
+____exports.DoorSlot.RIGHT_1 = 6
+____exports.DoorSlot[____exports.DoorSlot.RIGHT_1] = "RIGHT_1"
+____exports.DoorSlot.DOWN_1 = 7
+____exports.DoorSlot[____exports.DoorSlot.DOWN_1] = "DOWN_1"
+return ____exports

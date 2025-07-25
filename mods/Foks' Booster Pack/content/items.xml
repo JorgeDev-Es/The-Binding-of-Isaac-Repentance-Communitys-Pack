@@ -1,0 +1,253 @@
+<items gfxroot="gfx/items/" deathanm2="gfx/deathitems.anm2" version="1">
+	
+	<!-- Collectibles -->
+	<passive name="Toy Soldier" description="Your front line" id="0" 
+		gfx="collectible_toysoldier.png" 
+		
+		addcostumeonpickup="false" 
+		cleareffectsonremove="false" 
+		persistent="true" 
+		devilprice="2" 
+		
+		quality="2" 
+		craftquality="2" 
+		customtags="nometronome" 
+		tags="summonable"/>
+	
+	<passive name="Ephemeral Torch" description="Light it up" id="1" 
+		gfx="collectible_ephemeraltorch.png" 
+		
+		cache="luck" 
+		persistent="true" 
+		
+		quality="1" 
+		craftquality="1" 
+		tags="summonable nolostbr"/>
+	
+	<active name="Clay Jar" description="Break it!" id="2" 
+		gfx="collectible_clayjar.png" 
+		
+		maxcharges="1" 
+		
+		quality="1" 
+		craftquality="1" 
+		tags="offensive"/>
+	
+	<active name="Baal's Altar" description="What's left to give?" id="3" 
+		gfx="collectible_baalsaltar.png" 
+		
+		quality="2" 
+		craftquality="2" 
+		customtags="nometronome" 
+		tags="nocantrip offensive"/>
+	
+	<familiar name="Asherah Pole" description="False idol" id="4" 
+		gfx="collectible_asherahpole.png" 
+		
+		quality="1" 
+		craftquality="1" 
+		tags="summonable offensive uniquefamiliar"/>
+	
+	<passive name="Covenant" description="Trust his words" id="5" 
+		gfx="collectible_covenant.png" 
+		
+		quality="3" 
+		craftquality="3" 
+		customtags="nometronome" 
+		tags="summonable offensive angel lazarussharedglobal"/>
+	
+	<passive name="Battle Banner" description="Keep moving forward" id="6" 
+		gfx="collectible_battlebanner.png" 
+		
+		cache="damage" 
+		persistent="true" 
+		
+		quality="3" 
+		craftquality="3" 
+		tags="summonable offensive"/>
+	
+	<passive name="Demise of the Faithful" description="They stand no chance" id="7" 
+		gfx="collectible_demiseofthefaithful.png" 
+		
+		cache="damage range" 
+		
+		quality="3" 
+		craftquality="3" 
+		tags="summonable offensive"/>
+	
+	<passive name="Appetizer" description="HP up!" id="8" 
+		gfx="collectible_appetizer.png" 
+		
+		maxhearts="2" 
+		hearts="4" 
+		
+		quality="2" 
+		craftquality="2" 
+		tags="nolostbr nocantrip food"/>
+	
+	<familiar name="Happy Fly" description="She's lovable" id="9" 
+		gfx="collectible_happyfly.png" 
+		
+		quality="1" 
+		craftquality="1" 
+		tags="summonable monstermanual fly"/>
+	
+	<passive name="Grocery Bag" description="For your convenience" id="10" 
+		gfx="collectible_grocerybag.png" 
+		
+		customcache="maxcoins maxbombs maxkeys" 
+		shopprice="5" 
+		
+		quality="3" 
+		craftquality="3" 
+		customtags="nometronome" 
+		tags="summonable offensive nocantrip lazarussharedglobal"/>
+	
+	<active name="Toy Shovel" description="Finders keepers" id="11" 
+		gfx="collectible_toyshovel.png" 
+		
+		maxcharges="2" 
+		
+		quality="1" 
+		craftquality="1" 
+		tags="offensive"/>
+	
+	<active name="Del Key" description="Junk remover" id="12" 
+		gfx="collectible_delkey.png" 
+		
+		shopprice="50" 
+		devilprice="2" 
+		
+		quality="4" 
+		craftquality="4" 
+		tags="offensive"/>
+	
+	<passive name="Cracked Mirror" description="Years of bad luck" id="13" 
+		gfx="collectible_crackedmirror.png" 
+		
+		cache="luck" 
+		
+		quality="2" 
+		craftquality="2" 
+		tags="summonable offensive"/>
+	
+	<active name="Box Cutter" description="What's inside?" id="14" 
+		gfx="collectible_boxcutter.png" 
+		
+		tags="nolostbr"/>
+	
+	<passive name="Plastic Brick" description="Watch your step" id="15" 
+		gfx="collectible_plasticbrick.png" 
+		
+		quality="1" 
+		craftquality="1" 
+		customtags="nometronome" 
+		tags="summonable nolostbr"/>
+	
+	<passive name="Dirge Bell" description="It tolls for thee" id="16" 
+		gfx="collectible_dirgebell.png" 
+		
+		quality="1" 
+		craftquality="1" 
+		tags="summonable offensive"/>
+	
+	<passive name="Dead Orange" description="Rotten humour" id="17" 
+		gfx="collectible_deadorange.png" 
+		
+		cache="firedelay" 
+		maxhearts="2" 
+		
+		quality="2" 
+		craftquality="2" 
+		tags="summonable nolostbr tearsup dead"/>
+	
+	<passive name="Snared Fox" description="Everything rots" id="18" 
+		gfx="collectible_snaredfox.png" 
+		
+		quality="3" 
+		craftquality="3" 
+		tags="summonable offensive dead"/>
+	
+	<active name="Spicy Bean" description="Hot toots" id="19" 
+		gfx="collectible_spicybean.png" 
+		
+		maxcharges="1" 
+		
+		quality="1" 
+		craftquality="1" 
+		customtags="bean" 
+		tags="offensive"/>
+	
+	<active name="Dad's Dumbbell" description="Persistence is key" id="20" 
+		gfx="collectible_dadsdumbbell.png" 
+		
+		maxcharges="8" 
+		initcharge="0" 
+		
+		cache="speed size" 
+		passivecache="true" 
+		persistent="true" 
+		
+		quality="1" 
+		craftquality="1" 
+		tags="offensive"/>
+	
+	<passive name="Cometa" description="Wish upon a star" id="21" 
+		gfx="collectible_cometa.png" 
+		
+		cache="familiars luck" 
+		
+		quality="2" 
+		craftquality="2" 
+		tags="summonable offensive stars"/>
+	
+	<passive name="Pebble" description="Take a piece" id="22" 
+		gfx="collectible_pebble.png" 
+		
+		quality="1" 
+		craftquality="1" 
+		tags="summonable"/>
+	
+	<!-- Trinkets -->
+	<trinket name="Trumpet" description="Cast terror into their hearts" id="0" 
+		gfx="trinket_trumpet.png" 
+		
+		tags="nogreed"/>
+	
+	<trinket name="White Flag" description="I give up" id="1" 
+		gfx="trinket_whiteflag.png"/>
+	
+	<trinket name="Threshed Wheat" description="Bountiful harvest" id="2" 
+		gfx="trinket_threshedwheat.png"/>
+	
+	<trinket name="Lucky Bug" description="Feels lucky?" id="3" 
+		gfx="trinket_luckybug.png" 
+		
+		cache="luck" 
+		persistent="true"/>
+	
+	<trinket name="Mom's Telephone" description="You know the number" id="4" 
+		gfx="trinket_momstelephone.png" 
+		
+		tags="mom"/>
+	
+	<trinket name="Caution Sign" description="Stay away" id="5" 
+		gfx="trinket_cautionsign.png"/>
+	
+	<trinket name="Rune Stone" description="Seek the truth" id="6" 
+		gfx="trinket_runestone.png"/>
+	
+	<trinket name="Grenade Pin" description="Halt!" id="7" 
+		gfx="trinket_grenadepin.png"/>
+	
+	<trinket name="Moxie's Yarn" description="Swarm friends" id="8" 
+		gfx="trinket_moxiesyarn.png"/>
+	
+	<trinket name="Devil's Tongue" description="Watch them burn" id="9" 
+		gfx="trinket_devilstongue.png"/>
+	
+	<trinket name="Spare Battery" description="Saved for another time" id="10" 
+		gfx="trinket_sparebattery.png" 
+		
+		tags="battery"/>
+</items>

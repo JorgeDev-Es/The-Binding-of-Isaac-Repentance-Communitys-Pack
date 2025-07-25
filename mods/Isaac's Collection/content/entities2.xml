@@ -1,0 +1,4 @@
+<entities anm2root="gfx/" version="5">
+	<entity anm2path="effect_whitebow_flash.anm2" id="1000" name="White Bow Flash" />
+	<entity anm2path="effect_eat.anm2" id="1000" name="Eat"	/>
+</entities>

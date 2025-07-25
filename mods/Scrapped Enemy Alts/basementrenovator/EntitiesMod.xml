@@ -1,0 +1,35 @@
+<data>
+	<group Name="Downpour Enemies">
+		<entity Name="Lil' Haunt"/>
+	</group>
+
+	<group Name="Mines Enemies">
+		<group Name="Default Gapers"/>
+		<group Name="Default Gushers"/>
+
+		<entity Name="Slim" />
+		<entity Name="Limb" />
+		<entity Name="Morsel" />
+	</group>
+
+	<group Name="Chapter 4 (Main Path) Enemies">
+		<entity Name="Blurb"/>
+		<entity Name="Tube Worm"/>
+
+		<entity Name="Drunk Worm"/>
+	</group>
+
+	<group Name="Corpse Enemies">
+		<entity Name="Super Pooter"/>
+		<entity Name="Lump"/>
+		<entity Name="Para-Bite"/>
+
+		<entity Name="Lump (Waiting)" />
+		<entity Name="Parabite (Waiting)" />
+	</group>
+
+	<group Name="FF Morbus Backdrop Enemies" Label="Morbus Enemies">
+		<entity Name="Lump" />
+		<entity Name="Lump (Waiting)" />
+	</group>
+</data>

@@ -1,0 +1,77 @@
+<entities anm2root="gfx/" version="5">
+    <entity anm2path="simaxeactive.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="75" friction="1" id="1000" name="Sim Axe Active" numGridCollisionPoints="0" shadowSize="0" stageHP="0" variant="2063">
+		<gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+	
+	<entity anm2path="familiars/lilbeast.anm2" tags="cansacrifice" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionInterval="14" collisionMass="1" collisionRadius="13" friction="1" id="3" name="Little Beast" numGridCollisionPoints="12" shadowSize="22" stageHP="0" variant="87">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+	</entity>
+
+    <entity anm2path="260.010_Lil Haunt.anm2" baseHP="25" boss="0" nosplit="false" champion="0" collisionDamage="0" collisionMass="0" collisionRadius="13" friction="1" gridCollision="none" id="976" name="Lil Stalker" numGridCollisionPoints="12" portrait="173" shadowSize="11" shutdoors="false " stageHP="0" tags="noreroll" variant="0" bestiaryAnim="FloatChase">
+        <gibs amount="6" blood="1" bone="0" eye="0" gut="0" large="0" />
+	</entity>
+	
+    <entity anm2path="dicegar.anm2" reroll="true" baseHP="10" boss="0" champion="0" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="Dice Garper" numGridCollisionPoints="12" shadowSize="14" stageHP="0" variant="1" subtype="5" portrait="0">
+        <bestiary anim="WalkVert" overlay="Head" transform="0,0,1"/>
+        <gibs amount="0" blood="2" bone="0" eye="0" gut="0" large="0" />
+        <preload-snd id="165" /> <!-- SOUND_ZOMBIE_WALKER_KID -->
+        <devolve id="10.1.6" weight="0.7" />
+        <devolve id="10.1.0" weight="0.4" />
+    </entity>
+	
+	<entity anm2path="dicegarbrok.anm2" reroll="true" baseHP="6" boss="0" champion="0" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="Broken Dice Garper"  numGridCollisionPoints="12" shadowSize="14" stageHP="0" variant="1" subtype="6" portrait="1">
+        <bestiary anim="WalkVert" overlay="Head" transform="0,0,1"/>
+        <gibs amount="0" blood="2" bone="0" eye="0" gut="0" large="0" />
+        <preload-snd id="165" /> <!-- SOUND_ZOMBIE_WALKER_KID -->
+        <devolve id="5.300.49" weight="0.3" />
+        <devolve id="11.0.0" weight="0.5" />
+    </entity>
+	
+    <entity id="27" variant="106" name="Thumper" reroll="true" baseHP="15" stageHP="0" boss="0" champion="1" collisionDamage="0" collisionMass="22" collisionRadius="16" friction="1" numGridCollisionPoints="12" shadowSize="26" portrait="2" anm2path="monsters/NEGA/Thumper.anm2">
+        <bestiary transform="0,0,1" anim="Shoot" />
+        <gibs amount="6" blood="1" bone="1" eye="0" gut="0" large="0" worm="1" />
+    </entity>
+	
+	<entity anm2path="items/pick ups/frozen_heart.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" id="5" name="Frozen Heart (REP MIN)" numGridCollisionPoints="24" shadowSize="17" stageHP="0" variant="10" subtype = "1022">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <entity anm2path="items/pick ups/half_frozen_heart.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" id="5" name="Frozen Heart (half) (REP MIN)" numGridCollisionPoints="24" shadowSize="17" stageHP="0" variant="10" subtype = "1023">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+	
+	<entity anm2path="MinusShard.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" id="5" name="Minus Shard" numGridCollisionPoints="24" shadowSize="16" stageHP="0" variant="300" subtype="1011">
+        <preload-snd id="201" />
+    </entity>
+
+    <entity anm2path="familiars/tsunfly.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="7" friction="1" id="3" name="Tsun_Fly" numGridCollisionPoints="12" shadowSize="6" stageHP="0" variant="128">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity> 
+
+    <entity anm2path="ice_clot.anm2" baseHP="15" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="13" friction="1" id="3" name="Ice Clot" numGridCollisionPoints="12" shadowSize="10" stageHP="0" tags="cansacrifice" variant="238" subtype="210" />
+
+    <entity anm2path="items/slots/fountain.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" id="6" name="Fountain of Confession" numGridCollisionPoints="24" shadowSize="35" stageHP="0" variant="15824">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <entity anm2path="items/pick ups/sim_axe.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" id="5" name="Sim Axe Pickup" numGridCollisionPoints="24" shadowSize="17" stageHP="0" variant="1352" subtype = "1">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <entity anm2path="items/pick ups/eechest.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="0.85" id="5" variant="59" name="EEE Chest" numGridCollisionPoints="24" shadowSize="28" stageHP="0" shutdoors="false">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <entity anm2path="frosty_alt_rift.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="0" collisionRadius="40" friction="1" id="1000" name="Frosty Rift" numGridCollisionPoints="0" shadowSize="0" stageHP="0" variant="15352" subtype = "1">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0"/>
+    </entity>
+
+    <entity anm2path="items/pick ups/HammerHead.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" id="5" name="Hammer Card" numGridCollisionPoints="24" shadowSize="16" stageHP="0" variant="300" subtype="9999">
+        <preload-snd id="8"/>
+    </entity>
+
+    <entity anm2path="shieldsaw.anm2" craftquality="2" tags="lazarusshared uniquefamiliar offensive" collisionDamage="0" collisionInterval="5" collisionMass="3" collisionRadius="13" friction="1" id="3" name="Saw Shield" numGridCollisionPoints="12" shadowSize="22" variant="12521">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+	</entity>
+	<entity name="Saw Shield Fire Effect" anm2path="firemindteareffect.anm2" id="1000" variant="18943"/>
+</entities>

@@ -1,0 +1,35 @@
+<sounds root="sfx/">
+	<sound name="Servant Bell">
+		<sample path="sound_servantbell1.wav" weight="1"/>
+		<sample path="sound_servantbell2.wav" weight="1"/>
+		<sample path="sound_servantbell3.wav" weight="1"/>
+	</sound>
+	<sound name="Glass Break">
+		<sample path="sound_glassbreak.wav" weight="1"/>
+	</sound>
+	<sound name="Glitch">
+		<sample path="sound_glitch.wav" weight="1"/>
+	</sound>
+	<sound name="Mom Phone">
+		<sample path="sound_momphone1.wav" weight="1"/>
+		<sample path="sound_momphone2.wav" weight="1"/>
+		<sample path="sound_momphone3.wav" weight="1"/>
+	</sound>
+	<sound name="Trumpet Doot">
+		<sample path="sound_trumpetdoot.wav" weight="1"/>
+	</sound>
+	<sound name="Wood Creak">
+		<sample path="sound_woodcreak1.wav" weight="1"/>
+		<sample path="sound_woodcreak2.wav" weight="1"/>
+		<sample path="sound_woodcreak3.wav" weight="1"/>
+	</sound>
+	<sound name="Covenant Choir">
+		<sample path="sound_covenantchoir.wav" weight="1"/>
+	</sound>
+	<sound name="Metal Hit">
+		<sample path="sound_metalhit.wav" weight="1"/>
+	</sound>
+	<sound name="Metal Deflect">
+		<sample path="sound_metaldeflect.wav" weight="1"/>
+	</sound>
+</sounds>

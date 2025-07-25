@@ -1,0 +1,14 @@
+<data>
+	<entity BaseHP="10" Tags="DefaultGaper" ID="10" Image="resources/Dice Garper.png" Group="Monsters" Kind="Repentance-" Name="Dice Garper" Subtype="5" Variant="1" />
+	<entity BaseHP="6" Tags="DefaultGaper" ID="10" Image="resources/Broken Dice Garper.png" Group="Monsters" Kind="Repentance-" Name="Broken Dice Garper" Subtype="6" Variant="1" />
+	<entity BaseHP="15" ID="27" Image="resources/Thumper.png" Group="Monsters" Kind="Repentance-" Name="Thumper" Subtype="0" Variant="106" />
+
+	<group Name="Special Enemies">
+    	<entity Name="Dice Garper"/>
+    	<entity Name="Broken Dice Garper"/>
+	</group>
+
+	<group Name="Mausoleum Enemies">
+		<entity Name="Thumper"/>
+	</group>
+</data>

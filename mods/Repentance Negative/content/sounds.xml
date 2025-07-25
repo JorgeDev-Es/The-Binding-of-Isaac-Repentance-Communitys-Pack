@@ -1,0 +1,33 @@
+<sounds root="sfx/">
+	<sound name="vhs">
+		<sample weight="1" path="vhs.wav" />
+	</sound>
+	<sound name="fountain">
+		<sample weight="1" path="fountain_ambience.wav" />
+	</sound>
+	<sound name="blizz_sound">
+		<sample weight="1" path="wind_export.wav" />
+	</sound>
+	<sound name="siren_sound">
+		<sample weight="1" path="sirenhorns.wav" />
+	</sound>
+	<sound name="lighter_sound">
+		<sample weight="1" path="lighter.wav" />
+	</sound>
+
+	<sound name="sh_pickup">
+		<sample weight="1" path="shpickup.wav" />
+	</sound>
+	<sound name="sh_wall_crash">
+		<sample weight="1" path="shcrashing1.wav" />
+		<sample weight="1" path="shcrashing2.wav" />
+		<sample weight="1" path="shcrashing3.wav" />
+	</sound>
+	<sound name="sh_bounce">
+		<sample weight="1" path="shbounce.wav" />
+	</sound>
+	<sound name="sh_shredding">
+		<sample weight="1" path="shdamage1.wav" />
+		<sample weight="1" path="shdamage2.wav" />
+	</sound>
+</sounds>

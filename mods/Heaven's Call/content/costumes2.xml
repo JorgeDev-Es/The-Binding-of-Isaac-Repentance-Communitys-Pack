@@ -1,0 +1,22 @@
+<costumes anm2root="hc/gfx/characters/">
+    <costume id="0" anm2path="costume_mercurius.anm2" type="passive" hasSkinAlt="true" priority="50" isFlying="true" />
+    <costume id="2" anm2path="costume_terra.anm2" type="passive"/>
+    <costume id="3" anm2path="costume_mars.anm2" type="active" hasSkinAlt="true" priority="48" />
+    <costume id="4" anm2path="costume_jupiter.anm2" type="passive"/>
+    <costume id="6" anm2path="costume_uranus.anm2" type="passive" hasSkinAlt="true" priority="2" />
+
+    <costume id="17" anm2path="costume_engine.anm2" type="passive" priority="100" />
+    <costume id="41" anm2path="costume_panspermia.anm2" type="passive" hasSkinAlt="true" priority="2" />
+    <costume id="23" anm2path="costume_spacejam.anm2" type="passive" />
+    <costume id="22" anm2path="costumes_goldentelescope.anm2" type="passive" />
+    <costume id="38" anm2path="costume_mochi.anm2" type="passive" hasSkinAlt="true" priority="1" />
+    <costume id="39" anm2path="costume_eye.anm2" type="passive" priority="2" />
+
+    <costume type="none" anm2path="costume_engineActive.anm2" priority="100" hasOverlay="true"/>
+    <costume type="none" anm2path="costume_stallion.anm2" priority="999"/>
+
+    <costume type="none" anm2path="costume_Antichrist.anm2" priority="999"/>
+    
+    <costume id="43" anm2path="costume_cursedHead.anm2" type="passive" priority="999" />
+    <costume id="44" anm2path="costume_cursedBody.anm2" type="passive" priority="999" isFlying="true" />
+</costumes>

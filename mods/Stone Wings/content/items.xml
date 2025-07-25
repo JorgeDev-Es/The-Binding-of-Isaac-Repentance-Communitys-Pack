@@ -1,0 +1,3 @@
+<items gfxroot="gfx/items/" version="1" deathanm2="gfx/death items.anm2">
+	<passive id="0" achievement="128" gfx="collectibles_StoneWings.png" name="Stone Wings" description="The weight of fate" cache="all" devilprice="2" quality="3" tags="summonable offensive" />
+</items>

@@ -1,0 +1,9 @@
+<sounds root="sfx/">
+	<sound name="shield flash">
+		<sample weight="1" path="shield flash.wav" />
+	</sound>
+	<sound name="eat">
+		<sample weight="1" path="eat.wav" />
+		<sample weight="1" path="eat 1.wav" />
+	</sound>
+</sounds>

@@ -1,0 +1,18 @@
+<items gfxroot="gfx/items/" deathanm2="gfx/death_items.anm2" version="1">
+    <familiar   id="1" name="Lil Slot Machine" description="Portable gambling" achievement="Lil Slotmachine" gfx="lil_slot_machine.png" tags="offensive summonable" cache="familiars" quality="0" craftquality="0"/>
+    <familiar   id="2" name="Lil Fortune Teller" description="Portable fortune" achievement="Lil Slotmachine" gfx="lil_fortune_teller.png" tags="offensive summonable" cache="familiars" quality="1" craftquality="1"/>
+    <familiar   id="3" name="Lil Blood Bank" description="It wants to take your life" achievement="Lil Bloodmachine" gfx="lil_blood_bank.png" tags="offensive summonable nogreed" cache="familiars" quality="0" craftquality="0"/>
+    <active     id="4" name="Magic Skin " description="All your desires fulfilled" gfx="collectibles_642_magicskin.png" hidden="true" tags="noeden" cache="familiars" quality="2" craftquality="-1"/>
+    <active     id="5" name="Card Sleeve" description="Preserve the future" maxcharges="6" gfx="collectibles_tarotSleeve.png" achievement="Card Sleeve" tags="offensive" quality="4" craftquality="4"/>
+    <passive    id="6" name="Calendar" description="Check the date" gfx="collectibles_calendar.png" achievement="Calendar" cache="firedelay damage speed" tags="offensive summonable" quality="2" craftquality="2"/>
+    <passive    id="7" name="Scrawl" description="Endless draw" gfx="scrawl.png" achievement="Scrawl" tags="offensive summonable" quality="4" craftquality="4"/>
+    <passive    id="8" name="Poker Mat" description="Luck of the draw" gfx="poker_mat.png" achievement="Poker Mat" tags="offensive summonable" quality="2" craftquality="2"/>
+    <active     id="9" name="Shredder" description="Reusable deck thinner" gfx="shredder.png" achievement="Shredder" tags="offensive" quality="2" craftquality="2"/>
+    <passive   id="10" name="Soul of Envy" description="The poor envies the rich" gfx="soul_of_envy.png" achievement="Soul of Envy" cache="damage" tags="offensive summonable" quality="2" craftquality="2"/>
+    <passive   id="11" name="Ace of Hearts" description="Heart of the cards" achievement="Ace of Hearts" gfx="trinket_aceOfHearts.png" tags="offensive summonable lazarusshared" quality="1" craftquality="2"/>
+
+    <!-- Trinkets -->
+    <trinket name="Cup of Joe" description="When did you get this?" achievement="Cup of Joe" gfx="trinket_silvercup.png" />
+    <trinket name="Ear of Grain" description="Famine approaches" achievement="Ear of Grain" gfx="trinket_earOfGrain.png" />
+
+</items>

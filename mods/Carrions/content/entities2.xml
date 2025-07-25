@@ -1,0 +1,46 @@
+<entities anm2root="gfx/" version="5">
+
+    <entity anm2path="010.003_rotten gaper05.anm2" baseHP="24" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="6" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper06.anm2" baseHP="24" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="7" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper07.anm2" baseHP="24" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="8" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper08.anm2" baseHP="60" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="9" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper09.anm2" baseHP="60" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="10" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper10.anm2" baseHP="60" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="11" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper11.anm2" baseHP="60" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="12" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper12.anm2" baseHP="24" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="13" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper13.anm2" baseHP="24" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="14" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper14.anm2" baseHP="24" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="15" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper15.anm2" baseHP="24" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="16" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper16.anm2" baseHP="40" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="17" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper17.anm2" baseHP="24" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="18" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+    <entity anm2path="010.003_rotten gaper18.anm2" baseHP="24" boss="0" champion="1" collisionDamage="1" collisionMass="5" collisionRadius="13" friction="1" id="10" name="#ROTTEN_GAPER" numGridCollisionPoints="12" portrait="270" shadowSize="14" stageHP="0" subtype="19" variant="3">
+        <gibs amount="6" blood="1" bone="1" eye="1" gut="1" large="0" worm="1"/>
+	</entity>
+
+</entities>

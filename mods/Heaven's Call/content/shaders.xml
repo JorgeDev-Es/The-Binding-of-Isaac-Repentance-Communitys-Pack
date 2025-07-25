@@ -1,0 +1,1706 @@
+<shaders>
+    
+    <shader name="Ouroboros">
+        <parameters>
+            <param name="Enabled" type="float"/>
+        </parameters>
+        <vertex><![CDATA[
+            attribute vec3 Position;
+            attribute vec4 Color;
+            attribute vec2 TexCoord;
+            attribute vec4 RenderData;
+            attribute float Scale;
+            attribute float Enabled;
+            varying vec4 Color0;
+            varying vec2 TexCoord0;
+            varying vec4 RenderDataOut;
+            varying float ScaleOut;
+            varying float EnabledOut;
+            uniform mat4 Transform;
+            void main(void)
+            {
+                RenderDataOut = RenderData;
+                ScaleOut = Scale;           // Passing data to fragment shader
+                EnabledOut = Enabled;             // Passing data to fragment shader
+                Color0 = Color;
+                TexCoord0 = TexCoord;
+
+                if (EnabledOut > 0.0){
+                    TexCoord0 *= 2.0;
+                }
+
+                gl_Position = Transform * vec4(Position.xyz, 1.0);
+            }
+        ]]></vertex>
+
+        <fragment><![CDATA[
+            varying vec4 Color0;
+            varying vec2 TexCoord0;
+            varying vec4 RenderDataOut;
+            varying float ScaleOut;
+            varying float EnabledOut;
+            uniform sampler2D Texture0;
+
+            void main(void)
+            {
+                vec2 tCoord = TexCoord0;
+                gl_FragColor = texture2D(Texture0, tCoord);
+
+                if (EnabledOut > .0) {
+
+                    vec2 v = vec2(gl_FragCoord.x / RenderDataOut.x, gl_FragCoord.y / RenderDataOut.y);
+                    vec2 b = RenderDataOut.xy/RenderDataOut.zw;
+
+                    vec2 vv = b;
+
+                    if (v.x > .5 && v.y > .5){
+                        gl_FragColor = texture2D(Texture0, tCoord - vv);
+                    }
+                    if (v.x > .5 && v.y <= .5){
+                        gl_FragColor = texture2D(Texture0, tCoord - vec2(vv.x,0.));
+                    }
+                    if (v.x <= .5 && v.y > .5){
+                        gl_FragColor = texture2D(Texture0, tCoord - vec2(0.,vv.y));
+                    }
+                }
+            }
+        ]]></fragment>
+    </shader>
+
+    <shader name="Apocalypse">
+        <parameters>
+            <param name="Enabled" type="float"/>
+            <param name="Time" type="float"/>
+        </parameters>
+        <vertex><![CDATA[
+            attribute vec3 Position;
+            attribute vec4 Color;
+            attribute vec2 TexCoord;
+            attribute vec4 RenderData;
+            attribute float Scale;
+            attribute float Enabled;
+            attribute float Time;
+            varying vec4 Color0;
+            varying vec2 TexCoord0;
+            varying vec4 RenderDataOut;
+            varying float ScaleOut;
+            varying float EnabledOut;
+            varying float TimeOut;
+            uniform mat4 Transform;
+            void main(void)
+            {
+                RenderDataOut = RenderData;
+                ScaleOut = Scale;           // Passing data to fragment shader
+                EnabledOut = Enabled;             // Passing data to fragment shader
+                TimeOut = Time;             // Passing data to fragment shader
+                Color0 = Color;
+                TexCoord0 = TexCoord;
+                gl_Position = Transform * vec4(Position.xyz, 1.0);
+            }
+        ]]></vertex>
+
+        <fragment><![CDATA[
+            varying vec4 Color0;
+            varying vec2 TexCoord0;
+            varying vec4 RenderDataOut;
+            varying float ScaleOut;
+            varying float EnabledOut;
+            varying float TimeOut;
+            uniform sampler2D Texture0;
+            void main(void)
+            {
+                vec4 Color = Color0 * texture2D(Texture0, TexCoord0);
+                if (EnabledOut > 0.0) {
+                    //Color.r += 0.2;
+
+                    float intensity = min(1.0, TimeOut/240.0);
+                    float time = TimeOut/100.0;
+
+                    float C = intensity * 30.0;
+                    float contrastFactor = 259.0*(255.0+C)/ (255.0*(259.0-C));
+
+                    Color.r = (contrastFactor*(Color.r - 128.0/255.0) + 128.0/255.0);
+                    Color.g = (contrastFactor*(Color.g - 128.0/255.0) + 128.0/255.0);
+                    Color.b = (contrastFactor*(Color.b - 128.0/255.0) + 128.0/255.0);
+
+                    Color.r += intensity * (0.05 * (1.0 + sin(time))/2.0 + 0.05);
+
+                    float ltime = time;
+                    float lightning = sin(ltime * sin(ltime * 30.)/300.);
+                    float lightningTime = mod(ltime, 10.) / 9.9;
+                    lightning *= 1. - smoothstep(.0, .1, lightningTime) + smoothstep(.9, 1., lightningTime);
+                    Color *= (1. + lightning/3.);
+    
+                }
+                gl_FragColor = Color;
+            }
+        ]]></fragment>
+    </shader>
+
+    <shader name="Weather">
+        <parameters>
+            <param name="Intensity" type="float"/>
+            <param name="Flags" type="float"/>
+            <param name="Charge" type="float"/>
+            <param name="Time" type="float"/>
+        </parameters>
+
+        <vertex><![CDATA[
+                attribute vec3 Position; 
+                attribute vec4 Color; 
+                attribute vec2 TexCoord; 
+                attribute vec4 RenderData; 
+                attribute float Scale;
+
+                attribute float Intensity;
+                attribute float Flags;
+                attribute float Charge;
+                attribute float Time;
+                
+                varying vec4 Color0; 
+                varying vec2 TexCoord0; 
+                varying vec4 RenderDataOut; 
+                varying float ScaleOut;
+
+                varying float IntensityOut;
+                varying float FlagsOut;
+                varying float ChargeOut;
+                varying float TimeOut;
+
+                uniform mat4 Transform; 
+
+                void main(void) 
+                {
+                    RenderDataOut = RenderData;
+                    ScaleOut = Scale;           // Passing data to fragment shader
+                    
+                    IntensityOut = Intensity;             // Passing data to fragment shader
+                    FlagsOut = Flags;             // Passing data to fragment shader
+                    ChargeOut = Charge;             // Passing data to fragment shader
+                    TimeOut = Time;             // Passing data to fragment shader
+
+                    vec2 coord = TexCoord;
+                    
+                    if ( (FlagsOut > 0.0) && (mod(floor(FlagsOut / 8.0), 2.0) >= 1.0)){
+
+                        float _Strength = 0.005;
+                        float _Frequency = 1000.0; 
+                        float _Speed = 0.025;
+
+                        float sineNoise = sin(_Frequency * TexCoord.x - Time * _Speed);
+                        float cosNoise = cos(_Frequency * TexCoord.y - Time * _Speed);
+                        float offset = sineNoise * cosNoise * _Strength; 
+                        coord.x += offset;
+                        coord.y += offset;
+                    }
+
+                    TexCoord0 = coord;
+                    gl_Position = Transform * vec4(Position.xyz, 1.0);
+
+                    Color0 = Color;
+                }
+
+        ]]></vertex>
+
+        <fragment><![CDATA[
+            varying vec4 Color0; 
+            varying vec2 TexCoord0; 
+            varying vec4 RenderDataOut;
+            varying float ScaleOut;
+
+            varying float IntensityOut;
+            varying float FlagsOut;
+            varying float ChargeOut;
+            varying float TimeOut;
+
+            uniform sampler2D Texture0;
+
+            bool isBitSet(float flags, int bitIndex) {
+                return mod(floor(flags / pow(2.0, float(bitIndex))), 2.0) >= 1.0;
+            }
+
+            // Blizzard:
+            float ball(vec2 p) {
+                float size = 0.1; // Overall size of the snowflake
+                p = 3.0 * (p - vec2(0.5)); // Center the UV coordinates around (0,0)
+
+                // Convert to polar coordinates
+                float r = length(p);
+                float angle = atan(p.y, p.x);
+
+                // Create a snowflake effect by modulating the radius
+                float spikes = 6.0; // Number of symmetric arms (6 for snowflakes)
+                float distortion = 0.15; // Intensity of the arm effect
+                float modulatedRadius = size + distortion * abs(sin(spikes * angle)) * pow(cos(spikes * angle * 0.5), 2.0);
+
+                // Distance field for the snowflake shape
+                float d = r - modulatedRadius*modulatedRadius;
+
+                //return smoothstep(0.01, 1.0, d); // Smooth edges
+                return smoothstep(size, size - 0.1, d);
+            }
+
+            float N11(float n) {
+                return fract(sin(n * 871.213) * 3134.422);
+            }
+
+            float N21(vec2 uv) {
+                return N11(N11(uv.x) + uv.y);
+            }
+
+            float snow(vec2 uv, float t) {
+                vec2 org_uv = vec2(uv.x, uv.y);
+                float z = 10.;
+                uv.y += t * .5;
+                vec2 gv = fract(uv*z);
+                vec2 id = floor(uv*z); 
+                gv.x += (sin(N21(id) * 256. + t) * .4);
+                gv.y += (sin(N11(N21(id)) * 128. + t) * .4);
+                
+                float dots = ball(gv);
+                return dots;
+            }
+            //https://www.shadertoy.com/view/wt3GWH
+            
+
+            // Rain:
+
+            vec3 N13(float p) {
+                //  from DAVE HOSKINS
+                vec3 p3 = fract(vec3(p) * vec3(.1031,.11369,.13787));
+                p3 += dot(p3, p3.yzx + 19.19);
+                return fract(vec3((p3.x + p3.y)*p3.z, (p3.x+p3.z)*p3.y, (p3.y+p3.z)*p3.x));
+            }
+
+            vec4 N14(float t) {
+                return fract(sin(t*vec4(123., 1024., 1456., 264.))*vec4(6547., 345., 8799., 1564.));
+            }
+            float N(float t) {
+                return fract(sin(t*12345.564)*7658.76);
+            }
+
+            float Saw(float b, float t) {
+                return smoothstep(0., b, t)*smoothstep(1., b, t);
+            }
+
+            vec2 DropLayer2(vec2 uv, float t) {
+                vec2 UV = uv;
+                
+                uv.y += t*0.75;
+                vec2 a = vec2(6., 1.);
+                vec2 grid = a*2.;
+                vec2 id = floor(uv*grid);
+                
+                float colShift = N(id.x); 
+                uv.y += colShift;
+                
+                id = floor(uv*grid);
+                vec3 n = N13(id.x*35.2+id.y*2376.1);
+                vec2 st = fract(uv*grid)-vec2(.5, 0);
+                
+                float x = n.x-.5;
+                
+                float y = UV.y*20.;
+                float wiggle = sin(y+sin(y));
+                x += wiggle*(.5-abs(x))*(n.z-.5);
+                x *= .7;
+                float ti = fract(t+n.z);
+                y = (Saw(.85, ti)-.5)*.9+.5;
+                vec2 p = vec2(x, y);
+                
+                float d = length((st-p)*a.yx);
+                
+                float mainDrop = smoothstep(.4, .0, d);
+                
+                float r = sqrt(smoothstep(1., y, st.y));
+                float cd = abs(st.x-x);
+                float trail = smoothstep(.23*r, .15*r*r, cd);
+                float trailFront = smoothstep(-.02, .02, st.y-y);
+                trail *= trailFront*r*r;
+                
+                y = UV.y;
+                float trail2 = smoothstep(.2*r, .0, cd);
+                float droplets = max(0., (sin(y*(1.-y)*120.)-st.y))*trail2*trailFront*n.z;
+                y = fract(y*10.)+(st.y-.5);
+                float dd = length(st-vec2(x, y));
+                droplets = smoothstep(.3, 0., dd);
+                float m = mainDrop+droplets*r*trailFront;
+                
+                //m += st.x>a.y*.45 || st.y>a.x*.165 ? 1.2 : 0.;
+                return vec2(m, trail);
+            }
+
+            float StaticDrops(vec2 uv, float t) {
+                uv *= 40.;
+                
+                vec2 id = floor(uv);
+                uv = fract(uv)-.5;
+                vec3 n = N13(id.x*107.45+id.y*3543.654);
+                vec2 p = (n.xy-.5)*.7;
+                float d = length(uv-p);
+                
+                float fade = Saw(.025, fract(t+n.z));
+                float c = smoothstep(.3, 0., d)*fract(n.z*10.)*fade;
+                return c;
+            }
+
+            vec2 Drops(vec2 uv, float t, float l0, float l1, float l2) {
+                float s = StaticDrops(uv, t)*l0; 
+                vec2 m1 = DropLayer2(uv, t)*l1;
+                vec2 m2 = DropLayer2(uv*1.85, t)*l2;
+                
+                float c = s+m1.x+m2.x;
+                c = smoothstep(.3, 2., c);
+                
+                return vec2(c, max(m1.y*l0, m2.y*l1));
+            }
+            //https://www.shadertoy.com/view/ltffzl
+
+            // Underwater:
+            //https://glslsandbox.com/e#106046.0
+
+            mat2 rotate2D(float r) {
+                return mat2(cos(r), sin(r), -sin(r), cos(r));
+            }
+
+            // based on the follow tweet:
+            // https://twitter.com/zozuar/status/1621229990267310081
+            
+            void main(void)
+            {
+                vec4 Color = Color0 * texture2D(Texture0, TexCoord0);
+
+                if (FlagsOut > 0.0){
+                    if (isBitSet(FlagsOut, 1))// Rain
+                    {
+						// Normalized pixel coordinates (from 0 to 1)
+						vec2 uv = vec2(gl_FragCoord.x / RenderDataOut.x, gl_FragCoord.y / RenderDataOut.y) * 0.3;
+						uv.x *= 1.4;
+
+						float T = -TimeOut * 0.5;
+						float grado = min(1.0, TimeOut / 120.0);
+
+						float t = T * 0.005;
+
+						float rainAmount = (sin(T) * 0.2 + 8.0) * 0.03 * grado;
+
+						float maxBlur = 10.0;
+						float minBlur = 1.0;
+
+						float staticDrops = smoothstep(0.0, 1.0, rainAmount);
+						float layer1 = smoothstep(0.25, 0.75, rainAmount);
+						float layer2 = smoothstep(0.0, 0.5, rainAmount);
+
+						// Original value
+						vec2 c = Drops(uv, t, staticDrops, layer1, layer2);
+
+						// Pixel size in uv space (1 pixel step)
+						vec2 pixel = vec2(1.0 / RenderDataOut.x, 1.0 / RenderDataOut.y);
+
+						// Approximate derivatives with finite differences
+						float dc_dx = Drops(uv + vec2(pixel.x, 0.0), t, staticDrops, layer1, layer2).x - Drops(uv - vec2(pixel.x, 0.0), t, staticDrops, layer1, layer2).x;
+						float dc_dy = Drops(uv + vec2(0.0, pixel.y), t, staticDrops, layer1, layer2).x - Drops(uv - vec2(0.0, pixel.y), t, staticDrops, layer1, layer2).x;
+
+						vec2 n = vec2(dc_dx, dc_dy) * 0.5; // central difference approx
+
+						float focus = mix(maxBlur - c.y, minBlur, smoothstep(0.1, 0.2, c.x));
+						Color = Color0 * texture2D(Texture0, TexCoord0 + n * focus);
+
+                    }
+                    if (isBitSet(FlagsOut, 2))// Heat
+                    {
+
+                        vec2 uv = TexCoord0.xy;
+
+                        float intesity = 0.003;
+                        float freq = 0.000005;
+
+                        float c1 = TimeOut * freq;
+                        float c2 = TimeOut * freq;
+                        float in_x = uv.x + 20.;
+                        float in_y = uv.y + 20.;
+                        float distortion_x = sin(in_x*in_x*c2) * intesity;
+                        float distortion_y = sin(in_y*in_y*c1) * intesity;
+
+                        float grado = min(1., TimeOut / 120.);
+
+                        float ratio = TimeOut * 0.025 * grado;
+                        uv.x += distortion_y * sin(ratio);
+                        uv.y += distortion_x * (1.-cos(ratio));
+                                    
+                        Color = Color0 * texture2D(Texture0, uv);
+
+                        Color += uv.y*(0.75 + 0.25 * sin(TimeOut*0.05)) * vec4(1.,0.3,0.,1.) * grado;
+                        Color += uv.y*(0.75 + 0.25 * cos(TimeOut*0.05)) * vec4(0.,0.,0.4,1.) * grado;
+                        
+                    }
+                    if (isBitSet(FlagsOut, 0))// Blizzard
+                    {
+
+                        //Color.x = 0.;
+
+                        // Normalized pixel coordinates (from 0 to 1)
+                        vec2 uv = vec2(gl_FragCoord.x / RenderDataOut.x, gl_FragCoord.y / RenderDataOut.y) * 0.7;
+
+                        uv.x *= RenderDataOut.x / RenderDataOut.y;
+                        float t = -TimeOut * .002;
+                        float grado = min(1., TimeOut / 120.);
+                        
+                        if (true){
+
+                            float angle = radians(-30.0); // Convert 45 degrees to radians
+                        
+                            float cosAngle = cos(angle);
+                            float sinAngle = sin(angle);
+
+                            // 2D rotation matrix
+                            mat2 rotationMatrix = mat2(
+                                cosAngle, -sinAngle,
+                                sinAngle,  cosAngle
+                            );
+
+                            // Apply the rotation
+                            uv = rotationMatrix * uv;
+                        }
+
+                        vec2 gh_uv = uv;
+                        
+                        // Time varying pixel color
+                        vec3 col = vec3(0.);
+                        
+                        float m = 0.;
+                        
+                        for (int _i = 0; _i < 9; _i++) {
+                            float i = float(_i) / 8.0;
+                            float z = mix(1., .1, i);
+                            vec2 offset = vec2(N11(i), N11(N11(i)));
+                            m += snow((uv + offset) * z, t) * .5;
+                        }
+                        
+                        
+                        col = vec3(m);
+                        col *= 5. * vec3(.85, .90, 1.5) * mix(.5, 1., uv.y);
+
+                        // Output to screen
+                        Color += grado * vec4(col, 1.0);
+                    }
+                    if (isBitSet(FlagsOut, 3))// Underwater
+                    {
+                        if ((500. - (sqrt(TimeOut)*50.) + 12.*(sin(gl_FragCoord.x/30. + TimeOut/4.) + 2.*cos(gl_FragCoord.x/120. + TimeOut/6.))) < gl_FragCoord.y) {
+
+                            float aspect = RenderDataOut.z/RenderDataOut.w;
+                            
+                            vec2 center = vec2(RenderDataOut.x / 2.0, RenderDataOut.y / 2.0);
+                            vec2 path = vec2(center.x - gl_FragCoord.x,center.y - gl_FragCoord.y) / 2000.0;
+                            
+                            // Normalized pixel coordinates (from 0 to 1)
+                            vec2 uv = (vec2(path.x*1.0 , path.y*1.5)) * vec2(1.0,1.0);
+                            //vec2 uv = (path.xy) * vec2(aspect, 1.0) / aspect * 2.0;
+                            
+                            vec3 col = vec3(0.);
+                            float t = (TimeOut)/50.0;
+
+                            vec2 n = vec2(0.);
+                            vec2 q = vec2(0.);
+                            vec2 p = uv*2.5;
+                            float d = dot(p,p);
+                            float S = 20.;
+                            float a = -0.005;
+                            mat2 m = rotate2D(1.9);
+
+                            for (float j = 0.; j < 5.; j++) {
+                                p *= m;
+                                n *= m;
+                                q = p * S + t * 2.5 + 3.*j - 1.25*n; // wtf???
+                                a += 2.0*dot(cos(q)/S, vec2(.15));
+                                n -= sin(q);
+                                S *= 1.5;
+                            }
+
+                            col = vec3(1.5, 3., 4.5) * (a + .182) + 9.*a + a + d;
+                            col *= col;
+                            //col = round(col);
+
+                            float extra = 1.;
+
+                            //col = col*3.;
+                            //col.x = round(col.x);
+                            //col.y = round(col.x);
+                            //col.z = round(col.x);
+                            
+                            float maxx = 0.5;
+                            Color.r *= max(maxx, col.x * 3.0 * extra);
+                            Color.g *= max(maxx, col.y * 3.0 * extra);
+                            Color.b *= max(maxx, col.z * 3.0 * extra);
+            
+                        }
+                    }
+                    if (isBitSet(FlagsOut, 5))// Timestuck
+                    {
+                        Color.r = 1.5-Color.r*1.0;
+                        Color.g = 0.75-Color.g*2.0;
+                        Color.b = 0.75-Color.b*2.0;
+                    }
+                    if (isBitSet(FlagsOut, 6))// Martian
+                    {
+                        float aspect = RenderDataOut.z/RenderDataOut.w;
+
+                        vec2 center = vec2(RenderDataOut.x / 2.0, RenderDataOut.y / 2.0);
+                        vec2 path = vec2(center.x - gl_FragCoord.x,center.y - gl_FragCoord.y) / 2000.0;
+                        vec2 dist = vec2(abs(path.x), abs(path.y));
+                        
+                        float time = TimeOut/2.0;
+                        vec4 fragColor = vec4(0.0);
+
+                        float dispersion = .01;
+                        float distortion = .04;
+                        float bendscale = 0.25;
+
+                        vec2 uv = (path.xy) * vec2(aspect, 1.0) / aspect * 2.0;
+
+                        vec2 disp = uv;
+                        disp *= sqrt(length(disp));
+                        uv += disp * bendscale;
+
+                        vec2 uvr = uv * (1.0 - dispersion) + vec2(dispersion)/2.0;
+                        vec2 uvg = uv * 1.0;
+                        vec2 uvb = uv * (1.0 + dispersion) - vec2(dispersion)/2.0;
+
+                        float r = 0.25;
+                        float g = 0.0;
+                        float b = 0.0;
+                        
+                        if (uv.x > -1.0 && uv.x < 1.0 && uv.y > -1.0 && uv.y < 1.0) {
+                            float stripes = sin(uv.y * 600.0 * aspect + time);
+                            vec3 col = vec3(r, g, b);
+                            col = mix(col, vec3(.8), stripes / 20.0);
+                            fragColor = vec4(col, 1.0);
+                        } else {
+                            Color = vec4(0.0, 0.0, 0.0, 1.0);	
+                        }
+
+
+                        Color.r += fragColor.r;
+                        Color.g += fragColor.g;
+                        Color.b += fragColor.b;
+
+                        float p = 8.0;
+                        if (pow(dist.x / 1.85 , p) + pow(dist.y, p) > pow(0.06 * ScaleOut, p))
+                        {
+                            Color.r = dist.x/2.0;
+                            Color.g = 0.0;
+                            Color.b = 0.0;
+                        }
+
+                        if (0.1013 < path.x && path.x < 0.1877 &&
+                        0.09 > -path.y && -path.y > 0.080){
+                            Color.r = dist.x/2.0;
+                            Color.g = 0.0;
+                            Color.b = 0.0;
+
+                            // 0.102 == 100%
+                            // 0.19 == 0%
+                            float charge = -0.088 * ChargeOut + 0.19;
+                            if (charge < path.x && path.x < 0.19 &&
+                        0.088 > -path.y && -path.y > 0.082){
+                                Color.r = 1.0 * (1.0+sin(path.x*1033.5));
+                            }
+                        }
+                    }
+                }
+                
+                gl_FragColor = Color;
+            }
+        ]]></fragment>
+
+    </shader>
+
+    <shader name="DarknessOther">
+        <parameters>
+            <param name="EnabledStatic" type="float"/>
+            <param name="EnabledZoom" type="float"/>
+            <param name="Position0" type="vec3"/>
+            <param name="Position1" type="vec3"/>
+            <param name="Time" type="float"/>
+            <param name="Distance" type="float"/>
+            <param name="Red" type="float"/>
+            <param name="WarpCheck" type="vec2"/>
+        </parameters>
+
+        <vertex><![CDATA[
+            attribute vec3 Position; 
+            attribute vec4 Color; 
+            attribute vec2 TexCoord; 
+            attribute vec4 RenderData; 
+            attribute float Scale;
+            attribute float EnabledStatic;
+            attribute float EnabledZoom;
+            attribute vec3 Position0;
+            attribute vec3 Position1;
+            attribute float Time;
+            attribute float Distance;
+            attribute float Red;
+            attribute vec2 WarpCheck;
+            
+            varying vec4 Color0; 
+            varying vec2 TexCoord0; 
+            varying vec4 RenderDataOut; 
+            varying float ScaleOut;
+            varying float EnabledStaticOut;
+            varying float EnabledZoomOut;
+            varying vec3 Position0Out;
+            varying vec3 Position1Out;
+            varying float TimeOut;
+            varying float DistanceOut;
+            varying float RedOut;
+            uniform mat4 Transform; 
+
+            void main(void) 
+            {
+                RenderDataOut = RenderData;
+                ScaleOut = Scale;           // Passing data to fragment shader
+                EnabledStaticOut = EnabledStatic;             // Passing data to fragment shader
+                EnabledZoomOut = EnabledZoom;             // Passing data to fragment shader
+                Position0Out = Position0;             // Passing data to fragment shader
+                Position1Out = Position1;             // Passing data to fragment shader
+                TimeOut = Time;             // Passing data to fragment shader
+                DistanceOut = Distance;             // Passing data to fragment shader
+                RedOut = Red;             // Passing data to fragment shader
+
+                Color0 = Color;
+                if (EnabledZoom > 0.){
+                    
+                    vec2 TargetPos = (Position0.xy / RenderData.zw) * Scale;
+                    
+                    vec2 WarpChecker = (WarpCheck.xy / RenderData.zw) * Scale;
+                    float xDistance = distance(vec2(WarpChecker.x, TargetPos.y), TargetPos.xy);
+                    float yDistance = distance(vec2(TargetPos.x, WarpChecker.y), TargetPos.xy);
+                    float YWarping = xDistance / yDistance;
+                    
+
+                    TexCoord0.xy = TexCoord.xy*(.5) + TargetPos.xy*0.5;
+                }
+                else{
+                    TexCoord0 = TexCoord;
+                }
+                gl_Position = Transform * vec4(Position.xyz, 1.0);
+            }
+
+        ]]></vertex>
+
+        <fragment><![CDATA[
+            varying vec4 Color0; 
+            varying vec2 TexCoord0; 
+            varying vec4 RenderDataOut;
+            varying float ScaleOut; 
+            varying float EnabledStaticOut; 
+            varying float EnabledZoomOut; 
+            varying vec3 Position0Out;
+            varying vec3 Position1Out;
+            varying float TimeOut;
+            varying float DistanceOut; 
+            varying float RedOut; 
+            uniform sampler2D Texture0; 
+            void main(void)
+            {
+                vec4 Color = Color0 * texture2D(Texture0, TexCoord0);
+                
+                if (EnabledStaticOut > 0.){
+                    float aspect = RenderDataOut.z/RenderDataOut.w;
+                    float time = TimeOut/1000.0;
+                    float timeFlor = floor(time) + (time * 0.5);
+
+                    vec2 coord = (TexCoord0.xy) * vec2(aspect,1.0);
+                    coord = floor(coord * 300.0/aspect) * 4.0;
+
+                    float staticCol = (sin(fract(sin(dot((coord / timeFlor), vec2(12.9898, 78.233))) * 43758.5453)) * 0.25) + 0.5;
+                    
+                    staticCol = staticCol*staticCol*staticCol * 25. / DistanceOut;
+
+                    vec2 pos = (Position0Out.xy / RenderDataOut.zw) * ScaleOut ;
+                    float dist = length((TexCoord0 - pos) * vec2(aspect,1.0)); //Distance from pixel to pos
+                    dist *= 2.;
+
+                    Color += vec4(RedOut*0.5*Color.r + RedOut*0.5, 0,0,0);
+
+                    Color.r += staticCol*dist;
+                    Color.g += staticCol*dist;
+                    Color.b += staticCol*dist;
+                }
+                gl_FragColor = Color;
+            }
+        ]]></fragment>
+
+    </shader>
+
+    <shader name="Darkness">
+        <parameters>
+			<param name="ActiveIn" type="float"/>
+			<param name="TargetPosition0" type="vec4"/>
+			<param name="TargetPosition1" type="vec4"/>
+			<param name="TargetPosition2" type="vec4"/>
+			<param name="TargetPosition3" type="vec4"/>
+			<param name="TargetPosition4" type="vec4"/>
+			<param name="TargetPosition5" type="vec4"/>
+            <param name="WarpCheck" type="vec2"/>
+		</parameters>
+        <vertex><![CDATA[
+            attribute vec3 Position;
+            attribute vec4 Color;
+            attribute vec2 TexCoord;
+            attribute vec4 RenderData;
+            attribute float Scale;
+
+            varying vec4 Color0;
+            varying vec2 TexCoord0;
+            varying vec4 RenderDataOut;
+            varying float ScaleOut;
+
+            attribute float ActiveIn;
+            varying float Active;
+
+            attribute vec4 TargetPosition0;
+            attribute vec4 TargetPosition1;
+            attribute vec4 TargetPosition2;
+            attribute vec4 TargetPosition3;
+            attribute vec4 TargetPosition4;
+            attribute vec4 TargetPosition5;
+
+            varying vec3 TargetPositionOut0;
+            varying vec3 TargetPositionOut1;
+            varying vec3 TargetPositionOut2;
+            varying vec3 TargetPositionOut3;
+            varying vec3 TargetPositionOut4;
+            varying vec3 TargetPositionOut5;
+
+            attribute vec2 WarpCheck;
+            varying float YWarping;
+
+            uniform mat4 Transform;
+            void main(void) {
+                RenderDataOut = RenderData;
+                Color0 = Color;
+                TexCoord0 = TexCoord;
+
+                gl_Position = Transform * vec4(Position.xyz, 1.0);
+
+                Active = ActiveIn;
+
+                if (Active > 0.) {
+                    vec4 TargetPos;
+
+                    TargetPos.xy = (TargetPosition0.xy / RenderData.zw) * Scale;
+                    TargetPos.zw =  (TargetPosition0.zw / RenderData.zw) * Scale;
+                    TargetPositionOut0 = vec3(TargetPos.xy, distance(TargetPos.xy, TargetPos.zw));
+                    
+                    vec2 WarpChecker = (WarpCheck.xy / RenderData.zw) * Scale;
+                    float xDistance = distance(vec2(WarpChecker.x, TargetPos.y), TargetPos.xy);
+                    float yDistance = distance(vec2(TargetPos.x, WarpChecker.y), TargetPos.xy);
+                    YWarping = xDistance / yDistance;
+                    
+                    //---------------------------
+
+                    TargetPos.xy = (TargetPosition1.xy / RenderData.zw) * Scale;
+                    TargetPos.zw = (TargetPosition1.zw / RenderData.zw) * Scale;
+                    TargetPositionOut1 = vec3(TargetPos.xy, distance(TargetPos.xy, TargetPos.zw));
+                    
+                    TargetPos.xy = (TargetPosition2.xy / RenderData.zw) * Scale;
+                    TargetPos.zw = (TargetPosition2.zw / RenderData.zw) * Scale;
+                    TargetPositionOut2 = vec3(TargetPos.xy, distance(TargetPos.xy, TargetPos.zw));
+                    
+                    TargetPos.xy = (TargetPosition3.xy / RenderData.zw) * Scale;
+                    TargetPos.zw = (TargetPosition3.zw / RenderData.zw) * Scale;
+                    TargetPositionOut3 = vec3(TargetPos.xy, distance(TargetPos.xy, TargetPos.zw));
+                    
+                    TargetPos.xy = (TargetPosition4.xy / RenderData.zw) * Scale;
+                    TargetPos.zw = (TargetPosition4.zw / RenderData.zw) * Scale;
+                    TargetPositionOut4 = vec3(TargetPos.xy, distance(TargetPos.xy, TargetPos.zw));
+                    
+                    TargetPos.xy = (TargetPosition5.xy / RenderData.zw) * Scale;
+                    TargetPos.zw = (TargetPosition5.zw / RenderData.zw) * Scale;
+                    TargetPositionOut5 = vec3(TargetPos.xy, distance(TargetPos.xy, TargetPos.zw));
+                }
+            }
+            ]]>
+        </vertex>
+
+        <fragment><![CDATA[
+            varying vec4 Color0;
+            varying vec2 TexCoord0;
+            varying vec4 RenderDataOut;
+            varying float ScaleOut;
+            uniform sampler2D Texture0;
+
+            varying float Active;
+            varying vec3 TargetPositionOut0;
+            varying vec3 TargetPositionOut1;
+            varying vec3 TargetPositionOut2;
+            varying vec3 TargetPositionOut3;
+            varying vec3 TargetPositionOut4;
+            varying vec3 TargetPositionOut5;
+            varying float YWarping;
+
+            float warpedDistance(vec2 a, vec2 b) {
+                vec2 diff = a - b;
+                float distanceSquared = (diff.x * diff.x) + (diff.y * diff.y * YWarping * YWarping);
+                return sqrt(distanceSquared);
+            }
+
+            void main(void) {
+                vec4 Color = Color0 * texture2D(Texture0, TexCoord0);
+                if (Active > 0.) {
+                    vec4 newColor = vec4(vec3(0.),1.);
+
+                    float dist = warpedDistance(TexCoord0.xy, TargetPositionOut0.xy);
+                    float intensity   = dist / TargetPositionOut0.z / 1.8;
+                    newColor = max(newColor, Color*0.8 - intensity*intensity);
+
+                    dist = warpedDistance(TexCoord0, TargetPositionOut1.xy);
+                    intensity   = dist / TargetPositionOut1.z / 1.8;
+                    newColor = max(newColor, Color*0.8 - intensity*intensity);
+
+                    dist = warpedDistance(TexCoord0, TargetPositionOut2.xy);
+                    intensity   = dist / TargetPositionOut2.z / 1.8;
+                    newColor = max(newColor, Color*0.8 - intensity*intensity);
+
+                    dist = warpedDistance(TexCoord0, TargetPositionOut3.xy);
+                    intensity   = dist / TargetPositionOut3.z / 1.8;
+                    newColor = max(newColor, Color*0.8 - intensity*intensity);
+
+                    dist = warpedDistance(TexCoord0, TargetPositionOut4.xy);
+                    intensity   = dist / TargetPositionOut4.z / 1.8;
+                    newColor = max(newColor, Color*0.8 - intensity*intensity);
+
+                    dist = warpedDistance(TexCoord0, TargetPositionOut5.xy);
+                    intensity   = dist / TargetPositionOut5.z / 1.8;
+                    newColor = max(newColor, Color*0.8 - intensity*intensity);
+
+                    Color = newColor;
+                }
+                gl_FragColor = Color;
+            }
+      ]]></fragment>
+    </shader>
+    
+	<shader name="Sol">
+        <parameters>
+            <param name="Enabled" type="float"/>
+            <param name="SolPosition" type="vec3"/>
+            <param name="Time" type="float"/>
+            
+            <param name="HealthAngleAngle" type="vec3"/>
+            <param name="AngleAngleAngle" type="vec3"/>
+            
+            <param name="CoronaColor" type="vec3"/>
+            <param name="SolColor" type="vec3"/>
+            
+            <param name="WarpCheck" type="vec2"/>
+
+        </parameters>
+
+        <vertex><![CDATA[
+                attribute vec3 Position; 
+                attribute vec4 Color; 
+                attribute vec2 TexCoord; 
+                attribute vec4 RenderData; 
+                attribute float Scale;
+
+                attribute float Enabled;
+                attribute vec3 SolPosition;
+                attribute float Time;
+                
+                attribute vec3 CoronaColor;
+                attribute vec3 SolColor;
+                
+                attribute vec3 HealthAngleAngle;
+                attribute vec3 AngleAngleAngle;
+                
+                varying vec4 Color0; 
+                varying vec2 TexCoord0; 
+                varying vec4 RenderDataOut; 
+                varying float ScaleOut;
+
+                varying float EnabledOut;
+                varying vec3 SolPositionOut;
+                varying float TimeOut;
+                
+                varying float HealthOut;
+                
+                varying vec3 CoronaColorOut;
+                varying vec3 SolColorOut;
+                
+                varying float Angle1Out;
+                varying float Angle2Out;
+                varying float Angle3Out;
+                varying float Angle4Out;
+                varying float Angle5Out;
+
+
+                attribute vec2 WarpCheck;
+                varying float YWarping;
+                
+                uniform mat4 Transform; 
+
+                void main(void) 
+                {
+                    RenderDataOut = RenderData;
+                    ScaleOut = Scale;           // Passing data to fragment shader
+
+                    EnabledOut = Enabled;
+
+                    TimeOut = Time;
+
+                    vec4 TargetPos;
+                    TargetPos.xy = (SolPosition.xy / RenderData.zw) * Scale;
+                    TargetPos.zw = (SolPosition.zy / RenderData.zw) * Scale;
+                    SolPositionOut = vec3(TargetPos.xy, distance(TargetPos.xy, TargetPos.zw));
+                    SolPositionOut = SolPosition;
+                    
+                    HealthOut = HealthAngleAngle.x;
+                    
+                    CoronaColorOut = CoronaColor;
+                    SolColorOut = SolColor;
+                    
+                    Angle1Out = HealthAngleAngle.y;
+                    Angle2Out = HealthAngleAngle.z;
+                    Angle3Out = AngleAngleAngle.x;
+                    Angle4Out = AngleAngleAngle.y;
+                    Angle5Out = AngleAngleAngle.z;
+                    
+                    vec2 WarpChecker = (WarpCheck.xy / RenderData.zw) * Scale;
+                    float xDistance = distance(vec2(WarpChecker.x, TargetPos.y), TargetPos.xy);
+                    float yDistance = distance(vec2(TargetPos.x, WarpChecker.y), TargetPos.xy);
+                    YWarping = xDistance / yDistance;
+
+                    Color0 = Color;
+                    TexCoord0 = TexCoord;
+                    gl_Position = Transform * vec4(Position.xyz, 1.0);
+                }
+
+        ]]></vertex>
+
+        <fragment><![CDATA[
+            varying vec4 Color0; 
+            varying vec2 TexCoord0; 
+            varying vec4 RenderDataOut;
+            varying float ScaleOut;
+
+            varying float EnabledOut; 
+            varying vec3 SolPositionOut;
+            varying float TimeOut;
+            
+            varying float HealthOut;
+            
+            varying vec3 CoronaColorOut;
+            varying vec3 SolColorOut;
+            
+            varying float Angle1Out;
+            varying float Angle2Out;
+            varying float Angle3Out;
+            varying float Angle4Out;
+            varying float Angle5Out;
+            varying float YWarping;
+
+            uniform sampler2D Texture0;
+
+            float warpedDistance(vec2 a, vec2 b) {
+                vec2 diff = a - b;
+                float distanceSquared = (diff.x * diff.x) + (diff.y * diff.y * YWarping * YWarping);
+                return sqrt(distanceSquared);
+            }
+
+            float angleTo1_360 (float angle){
+				float floorAngle = floor(angle);
+				float modAngle = mod(floorAngle, 360.0);
+				angle = modAngle + (angle - floorAngle);
+
+                if(angle>0.0){
+                    return angle;
+                }
+                else{
+                    return angle + 360.0;
+                }
+            }
+			
+			float atan2_c(float y, float x){
+				if (x>0.0) {
+					return atan(y/x);
+				} else if (x<0.0) {
+					return atan(y/x) + (y >= 0.0 ? 3.14159 : -3.14159);
+				} else {
+					return (y > 0.0) ? 0.5 * 3.14159 : ((y<0.0) ? -0.5 * 3.14159 : 0.0);
+				}
+			}
+			
+            bool pointInAngles(float a, float b, vec2 v){
+                a = angleTo1_360(a);
+                b = angleTo1_360(b);
+                float c = atan2_c(v.y,v.x) * 180.0/3.14159265;
+                float N = angleTo1_360(c);
+
+                if (a < b){
+					return a <= N && N <= b;
+                }
+                else{
+					return a <= N || N <= b;
+                }
+                return false;
+            }
+            
+            bool lightRayEval(float a1, float a2, float a3, float a4, float a5, vec2 v, float segment, float offset, float healthScale){
+                segment = segment*2.5*(healthScale);
+                a1 += offset;
+                a2 += offset;
+                a3 += offset;
+                a4 += offset;
+                a5 += offset;
+                return (pointInAngles(a1 - segment, a1 + segment, v) || 
+                    pointInAngles(a2 - segment, a2 + segment, v) ||
+                    pointInAngles(a3 - segment, a3 + segment, v) ||
+                    pointInAngles(a4 - segment, a4 + segment, v) ||
+                    pointInAngles(a5 - segment, a5 + segment, v));
+            }
+
+            mat2 rotate2D(float r) {
+                return mat2(cos(r), sin(r), -sin(r), cos(r));
+            }
+
+            //https://www.shadertoy.com/view/ltBfDt
+            float random (in vec2 p) { 
+                vec3 p3  = fract(vec3(p.xyx) * .1031);
+                p3 += dot(p3, p3.yzx + 33.33);
+                return fract((p3.x + p3.y) * p3.z);
+            }
+
+            float noise (in vec2 _st) {
+                vec2 i = floor(_st);
+                vec2 f = fract(_st);
+
+                // Four corners in 2D of a tile
+                float a = random(i);
+                float b = random(i + vec2(1.0, 0.0));
+                float c = random(i + vec2(0.0, 1.0));
+                float d = random(i + vec2(1.0, 1.0));
+
+                vec2 u = f * f * (3. - 2.0 * f);
+
+                return mix(a, b, u.x) + 
+                        (c - a)* u.y * (1. - u.x) + 
+                        (d - b) * u.x * u.y;
+            }
+
+            float light(in vec2 pos,in float size,in float radius,in float inner_fade,in float outer_fade){
+                float len = length(pos/size);
+                return pow(clamp((1.0 - pow( clamp(len-radius,0.0,1.0) , 1.0/inner_fade)),0.0,1.0),1.0/outer_fade);
+            }
+
+            float flare(in float angle,in float alpha,in float time){
+                float t = time;
+                float n = noise(vec2(t+0.5+abs(angle)+pow(alpha,0.6),t-abs(angle)+pow(alpha+0.1,0.6))*7.0);
+                //	n = 1.0;
+                float split = (15.0+sin(t*2.0+n*4.0+angle*20.0+alpha*1.0*n)*(.3+.5+alpha*.6*n));
+            
+                float rotate = sin(angle*20.0 + sin(angle*15.0+alpha*4.0+t*30.0+n*5.0+alpha*4.0))*(.5 + alpha*1.5);
+            
+                float g = pow((2.0+sin(split+n*1.5*alpha+rotate)*1.4)*n*4.0,n*(1.5-0.8*alpha));
+                
+                g *= alpha * alpha * alpha * .5;
+                g += alpha*.7 + g * g * g;
+                return g;
+            }
+
+            #define INNER_FADE .8
+            #define OUTER_FADE 0.02
+
+            //aie
+            bool pointNearLine(vec2 point, float a, float b, float c, float density){
+                if (abs(a*point.x + b*point.y + c)/sqrt(a*a+b*b) < density){
+                    return true;
+                }
+                return false;
+            }
+
+            //--------------------------------------------------------------------
+            // Shader      : PhyroclasticFireball 
+            // see also    : https://www.shadertoy.com/view/MtXSzS
+            // port from   : http://glslsandbox.com/e#8625.0 by Duke 
+            // Description : Array and textureless GLSL 2D/3D/4D simplex
+            //               noise functions.
+            //      Author : Ian McEwan, Ashima Arts.
+            //     Lastmod : 20110822 (ijm)
+            //     License : Copyright (C) 2011 Ashima Arts. All rights reserved.
+            //               Distributed under the MIT License. See LICENSE file.
+            //               https://github.com/ashima/webgl-noise
+            //--------------------------------------------------------------------
+
+            // Quality Settings
+            #define MarchSteps 4
+
+            // Scene Settings
+            #define ExpPosition vec3(0.0)
+            #define Radius 2.0
+            #define Background vec3(0.1, 0.0, 0.0)
+
+            // Noise Settings
+            #define NoiseSteps 1
+            #define NoiseAmplitude 0.06
+            #define NoiseFrequency 4.0
+            #define Animation vec3(0.0, -3.0, 0.5)
+
+            // Colour Gradient
+            #define Color1 vec3(1.0, 1.0, 1.0)
+            #define Color2 vec3(1.0, 0.8, 0.2)
+            #define Color3 vec3(1.0, 0.03, 0.0)
+            #define Color4 vec3(0.05, 0.02, 0.0)
+
+            // help functions
+
+            vec3 mod289(vec3 x) {
+				return x - floor(x * (1.0 / 289.0)) * 289.0;
+			}
+
+			vec4 mod289(vec4 x) {
+				return x - floor(x * (1.0 / 289.0)) * 289.0;
+			}
+
+			vec4 permute(vec4 x) {
+				return mod289(((x * 34.0) + 1.0) * x);
+			}
+
+			vec4 taylorInvSqrt(vec4 r) {
+				return 1.79284291400159 - 0.85373472095314 * r;
+			}
+
+			float snoise(vec3 v) {
+				const vec2  C = vec2(1.0 / 6.0, 1.0 / 3.0);
+				const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
+
+				vec3 i = floor(v + dot(v, C.yyy));
+				vec3 x0 = v - i + dot(i, C.xxx);
+
+				vec3 g = step(x0.yzx, x0.xyz);
+				vec3 l = 1.0 - g;
+				vec3 i1 = min(g, l.zxy);
+				vec3 i2 = max(g, l.zxy);
+
+				vec3 x1 = x0 - i1 + C.xxx;
+				vec3 x2 = x0 - i2 + C.yyy;
+				vec3 x3 = x0 - D.yyy;
+
+				i = mod289(i);
+				vec4 p = permute(
+					permute(
+						permute(i.z + vec4(0.0, i1.z, i2.z, 1.0)) +
+						i.y + vec4(0.0, i1.y, i2.y, 1.0)
+					) + i.x + vec4(0.0, i1.x, i2.x, 1.0)
+				);
+
+				float n_ = 1.0 / 7.0;
+				vec3 ns = n_ * D.wyz - D.xzx;
+
+				vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+				vec4 x_ = floor(j * ns.z);
+				vec4 y_ = floor(j - 7.0 * x_);
+
+				vec4 x = x_ * ns.x + ns.yyyy;
+				vec4 y = y_ * ns.x + ns.yyyy;
+				vec4 h = 1.0 - abs(x) - abs(y);
+
+				vec4 b0 = vec4(x.xy, y.xy);
+				vec4 b1 = vec4(x.zw, y.zw);
+
+				vec4 s0 = floor(b0) * 2.0 + 1.0;
+				vec4 s1 = floor(b1) * 2.0 + 1.0;
+				vec4 sh = -step(h, vec4(0.0));
+
+				vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+				vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+
+				vec3 p0 = vec3(a0.xy, h.x);
+				vec3 p1 = vec3(a0.zw, h.y);
+				vec3 p2 = vec3(a1.xy, h.z);
+				vec3 p3 = vec3(a1.zw, h.w);
+
+				vec4 norm = taylorInvSqrt(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+				p0 *= norm.x;
+				p1 *= norm.y;
+				p2 *= norm.z;
+				p3 *= norm.w;
+
+				vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
+				m *= m;
+
+				return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
+			}
+
+			float Turbulence(vec3 position, float minFreq, float maxFreq, float qWidth) {
+				float value = 0.0;
+				float cutoff = clamp(0.5 / qWidth, 0.0, maxFreq);
+				float fade;
+				float freq = minFreq;
+
+				for (int i = NoiseSteps; i >= 0; i--) {
+					if (freq >= 0.5 * cutoff) break;
+					freq *= 2.0;
+					value += abs(snoise(position * freq)) / freq;
+				}
+
+				fade = clamp(2.0 * (cutoff - freq) / cutoff, 0.0, 1.0);
+				return 1.0 - value - fade * abs(snoise(position * freq)) / freq;
+			}
+
+			float SphereDist(vec3 position) {
+				return (length(position - ExpPosition) - Radius) * 7.5;
+			}
+
+			vec3 Shade(float distance) {
+				float c1 = clamp(distance * 5.0 + 0.5, 0.0, 1.0);
+				float c2 = clamp(distance * 5.0 - 0.25, 0.0, 1.0);
+				float c3 = clamp(distance * 3.4 - 0.5, 0.0, 1.0);
+
+				vec3 a = mix(Color1, Color2, c1);
+				vec3 b = mix(a, Color3, c2);
+				return mix(b, Color4, c3);
+			}
+			
+			float RenderScene(vec3 position, out float distance) {
+				float time = TimeOut / 10.0;
+				float noise = Turbulence(position * NoiseFrequency + Animation * time * 0.4, 0.1, 1.5, 0.03) * NoiseAmplitude;
+				noise = clamp(abs(noise), 0.0, 1.0);
+				distance = SphereDist(position) - noise;
+				return noise;
+			}
+
+			vec3 March(vec3 rayOrigin, vec3 rayStep) {
+				vec3 position = rayOrigin;
+				float distance, displacement;
+
+				for (int step = MarchSteps; step >= 0; --step) {
+					displacement = RenderScene(position, distance);
+					if (distance < 0.05) break;
+					position += rayStep * distance;
+				}
+
+				return mix(Shade(displacement), Background, float(distance >= 0.5));
+			}
+
+			bool IntersectSphere(vec3 ro, vec3 rd, vec3 pos, float radius, out vec3 intersectPoint) {
+				vec3 oc = ro - pos;
+				float b = dot(oc, rd);
+				float c = dot(oc, oc) - radius * radius;
+				float discriminant = b * b - c;
+
+				if (discriminant < 0.0) return false;
+
+				intersectPoint = ro - rd * (b + sqrt(discriminant));
+				return true;
+			}
+			
+			vec3 fireball(vec2 p, float aspect) {
+				float rotx = TimeOut / 100.0;
+				float roty = TimeOut / 100.0;
+				float zoom = 10.0 / aspect;
+
+				vec3 ro = zoom * normalize(vec3(cos(roty), cos(rotx), sin(roty)));
+				vec3 ww = normalize(vec3(0.0) - ro);
+				vec3 uu = normalize(cross(vec3(0.0, 1.0, 0.0), ww));
+				vec3 vv = cross(ww, uu);
+				vec3 rd = normalize(p.x * uu + p.y * vv + 1.5 * ww);
+
+				vec3 origin, color = vec3(0.0);
+				if (IntersectSphere(ro, rd, ExpPosition, Radius + NoiseAmplitude * 6.0, origin)) {
+					color = March(origin, rd) * 0.5;
+				}
+
+				return color;
+			}
+
+			void ApplyFlare(inout vec4 Color, int i, bool notLittleFucker, vec2 uv, float radius, float dist, float aspect, float healthOut, float healthBin, float TimeOut, vec3 CoronaColorOut, float ScaleOut) {
+				vec4 fragColor = vec4(0.0);
+				float iTime = TimeOut * 0.1;
+
+				float flareBorder = 0.07 * (-0.7 * healthBin + 1.176) * ScaleOut;
+
+				float safeHealthOut = max(healthOut, 0.0001);
+				float flareSize = max(radius / safeHealthOut * 4.0 * ScaleOut, 0.0001);
+
+				float alpha = light(uv, flareSize, healthOut / 8.0, INNER_FADE * (notLittleFucker ? 1.0 : (i == 0 ? 0.5 : 1.3)), OUTER_FADE * (notLittleFucker ? 1.0 : (i == 0 ? 0.5 : 1.3)));
+				float angle = atan(uv.y, uv.x);
+				float t = iTime * 0.1;
+				float l = length(uv);
+
+				float n_noise = noise(uv * 20.0 + vec2(iTime));
+
+				float f = 0.0, f2 = 0.0;
+
+				if (dist < radius) {
+					t *= 8.0;
+					float base = (radius - dist) / radius;
+					alpha = 1.0 - pow(max(base, 0.0), 0.22) * (1.7 - healthBin);
+					alpha = clamp(alpha - light(uv, 0.2, 0.0, 1.3, 0.7) * 0.55, 0.0, 1.0);
+					f = flare(angle, alpha, -t * 0.5 + alpha);
+					f2 = flare(angle, alpha * 1.2, -t + alpha * 0.5 + 0.38134);
+				} else if (alpha > 0.001) {
+					f = flare(angle, alpha, t) * 1.3;
+				}
+
+				fragColor.rgb = vec3(
+					f * (1.0 + sin(angle - t * 4.0) * 0.3) + pow(f2, 3.0),
+					f * alpha + f2 * f2 * 2.0,
+					f * alpha * 0.5 + f2 * (1.0 + sin(angle + t * 4.0) * 0.3)
+				);
+				fragColor.a = 1.0;
+
+				bool eternal = healthOut < 0.0;
+				float avg;
+
+				if (notLittleFucker) {
+					if (eternal) {
+						avg = (fragColor.r * CoronaColorOut.x +
+							   fragColor.g * CoronaColorOut.x * max(0.5, healthBin) +
+							   fragColor.b * CoronaColorOut.x * max(0.5, healthBin)) / 3.0;
+						Color.rgb += vec3(avg);
+					} else {
+						Color.r += fragColor.r * CoronaColorOut.x;
+						Color.g += fragColor.g * CoronaColorOut.x * max(0.5, healthBin);
+						Color.b += fragColor.b * CoronaColorOut.x * max(0.5, healthBin);
+					}
+				} else {
+					float distFactor = pow(dist, 3.0) * 0.25 * (float(i) + 1.0);
+					Color.r += distFactor * fragColor.r * CoronaColorOut.x;
+					Color.g += 0.75 * distFactor * fragColor.g * CoronaColorOut.x * max(0.5, healthBin);
+					Color.b += 0.75 * distFactor * fragColor.b * CoronaColorOut.x * max(0.5, healthBin);
+				}
+			}
+			
+			void DrawTriangleAndCircle(
+				inout vec4 Color, int i, vec3 SolPositionOut, float ScaleOut,
+				float TimeOut, float radius, float healthScale,
+				float staticCol, float dist, float aspect
+			) {
+				float density = 0.45 * ScaleOut + 0.10;
+				
+				// Normalize scale
+				vec2 position = SolPositionOut.xy * ScaleOut;
+				float time = TimeOut / 30.0;
+				float angleOffset = float(i) * (2.094393333 * time);
+				float t = time + angleOffset;
+
+				// Unified line width in screen-space (pixels)
+				float lineWidth = 1.5 + 6.0 * healthScale;
+				lineWidth *= density;
+
+				// Build triangle
+				vec2 arm = 0.14 * (ScaleOut * 0.5) * ((750.0+radius) + 1000.0) * healthScale * vec2(cos(t), sin(t));
+				float angle = 2.0943951; // 120 degrees
+				mat2 rot = mat2(cos(angle), sin(angle), -sin(angle), cos(angle));
+				vec2 v1 = position + rot * arm;
+				vec2 v2 = position + rot * rot * arm;
+				vec2 v3 = position + rot * rot * rot * arm;
+
+				// Triangle edges
+				float a1 = v1.y - v2.y, b1 = v2.x - v1.x, c1 = v1.x * v2.y - v1.y * v2.x;
+				float a2 = v2.y - v3.y, b2 = v3.x - v2.x, c2 = v2.x * v3.y - v2.y * v3.x;
+				float a3 = v3.y - v1.y, b3 = v1.x - v3.x, c3 = v3.x * v1.y - v3.y * v1.x;
+
+				vec2 fc = gl_FragCoord.xy;
+
+				// Is pixel near triangle edge?
+				bool nearEdge =
+					pointNearLine(fc, a1, b1, c1, lineWidth) ||
+					pointNearLine(fc, a2, b2, c2, lineWidth) ||
+					pointNearLine(fc, a3, b3, c3, lineWidth);
+
+				// Is pixel inside triangle bounds?
+				vec2 b11 = vec2(b1, -a1), b12 = v2 - fc;
+				vec2 b21 = vec2(b2, -a2), b22 = v3 - fc;
+				vec2 b31 = vec2(b3, -a3), b32 = v1 - fc;
+
+				bool insideTriangle =
+					dot(b11, vec2(b12.y, -b12.x)) < 0.0 &&
+					dot(b21, vec2(b22.y, -b22.x)) < 0.0 &&
+					dot(b31, vec2(b32.y, -b32.x)) < 0.0;
+
+				if (nearEdge && insideTriangle) {
+					Color.rgb = vec3(staticCol);
+					Color.a = 1.0;
+				}
+
+				// --- Circle edge with same screen-space thickness ---
+				float grow = 0.1 * healthScale;
+
+				// Convert screen-space lineWidth to world-space thickness based on aspect
+				float pxToWorld = 1.0 / (ScaleOut * 750.0); // adjust 750 if needed to match triangle size scale
+				float ringThickness = lineWidth * pxToWorld * 10.5 * density;
+
+				// Because `dist` is in world space, scale `ringThickness` to match
+				if (dist > radius * (0.65 + grow) && dist < radius * (0.65 + grow + ringThickness)) {
+					Color.rgb = vec3(staticCol);
+					Color.a = 1.0;
+				}
+			}
+
+			void applyLightRays(float Angle1Out, float Angle2Out, float Angle3Out, float Angle4Out, float Angle5Out, vec2 uv, float dist, float radius, bool notLittleFucker, bool eternal, vec3 CoronaColorOut, vec3 SolColorOut, float healthOut, inout vec4 Color) {
+				float size = 0.8;
+				if(!notLittleFucker){
+					size *= 1.5;
+				}
+
+				if (lightRayEval(Angle1Out,Angle2Out,Angle3Out,Angle4Out,Angle5Out,uv,5.0, 0.0, healthOut)){
+					float intensity = 0.3*sin((dist / (1.5 * radius * size ) * 2.2) + 12.0);
+
+					if (intensity > 0.0){
+						if (eternal){
+							float avg_ = ((CoronaColorOut.x+SolColorOut.x) + (CoronaColorOut.y+SolColorOut.y) + (CoronaColorOut.z+SolColorOut.z))/3.;
+							Color.r += avg_ * intensity;
+							Color.g += avg_ * intensity;
+							Color.b += avg_ * intensity;
+						}
+						else{
+							Color.r += (CoronaColorOut.x+SolColorOut.x) * intensity;
+							Color.g += (CoronaColorOut.y+SolColorOut.y) * intensity;
+							Color.b += (CoronaColorOut.z+SolColorOut.z) * intensity;
+						}
+					}
+				}
+				if (lightRayEval(Angle1Out,Angle2Out,Angle3Out,Angle4Out,Angle5Out,uv,10.0, 120.0, healthOut)){
+					float intensity = 0.3*sin((dist / (1.5 * radius * size ) * 2.2) + 10.75);
+
+					if (intensity > 0.0){
+						if (eternal){
+							float avg_ = (SolColorOut.x + SolColorOut.y + SolColorOut.z)/3.;
+							Color.r += avg_*intensity;
+							Color.g += avg_*intensity;
+							Color.b += avg_*intensity;
+						}
+						else{
+							Color.r += SolColorOut.x*intensity;
+							Color.g += SolColorOut.y*intensity;
+							Color.b += SolColorOut.z*intensity;
+						}
+					}
+				}
+				if (lightRayEval(Angle1Out,Angle2Out,Angle3Out,Angle4Out,Angle5Out,uv,15.0, 240.0, healthOut)){
+					float intensity = 0.3*sin((dist / (1.5 * radius * size ) * 2.2) + 11.0);
+
+					if (intensity > 0.0){
+						if (eternal){
+							float avg_ = (SolColorOut.x + SolColorOut.y + SolColorOut.z)/3.;
+							Color.r += avg_*intensity;
+							Color.g += avg_*intensity;
+							Color.b += avg_*intensity;
+						}
+						else{
+							Color.r += SolColorOut.x*intensity;
+							Color.g += SolColorOut.y*intensity;
+							Color.b += SolColorOut.z*intensity;
+						}
+					}
+				}
+				
+				if (lightRayEval(Angle1Out,Angle2Out,Angle3Out,Angle4Out,Angle5Out,-uv,5.0, 90.0, healthOut)){
+					float intensity = 0.3*sin((dist / (1.5 * radius * size ) * 2.2) + 11.25);
+
+					if (intensity > 0.0){
+						if (eternal){
+							float avg_ = ((CoronaColorOut.x+SolColorOut.x) + (CoronaColorOut.y+SolColorOut.y) + (CoronaColorOut.z+SolColorOut.z))/3.;
+							float scalar = 1.0/2.0*intensity;
+							Color.r += avg_*scalar;
+							Color.g += avg_*scalar;
+							Color.b += avg_*scalar;
+						}
+						else{
+							float scalar = 1.0/2.0*intensity;
+							Color.r += (CoronaColorOut.x+SolColorOut.x)*scalar;
+							Color.g += (CoronaColorOut.y+SolColorOut.y)*scalar;
+							Color.b += (CoronaColorOut.z+SolColorOut.z)*scalar;
+						}
+					}
+				}
+				if (lightRayEval(Angle1Out,Angle2Out,Angle3Out,Angle4Out,Angle5Out,-uv,10.0, 210.0, healthOut)){
+					float intensity = 0.3*sin((dist / (1.5 * radius * size ) * 2.2) + 11.50);
+
+					if (intensity > 0.0){
+						if (eternal){
+							float avg_ = (CoronaColorOut.x + CoronaColorOut.y + CoronaColorOut.z)/3.;
+							Color.r += avg_*intensity;
+							Color.g += avg_*intensity;
+							Color.b += avg_*intensity;
+						}
+						else{
+							Color.r += CoronaColorOut.x*intensity;
+							Color.g += CoronaColorOut.y*intensity;
+							Color.b += CoronaColorOut.z*intensity;
+						}
+					}
+				}
+				if (lightRayEval(Angle1Out,Angle2Out,Angle3Out,Angle4Out,Angle5Out,-uv,15.0, 330.0, healthOut)){
+					float intensity = 0.3*sin((dist / (1.5 * radius * size ) * 2.2) + 11.75);
+
+					if (intensity > 0.0){
+						if (eternal){
+							float avg_ = (CoronaColorOut.x + CoronaColorOut.y + CoronaColorOut.z)/3.;
+							Color.r += avg_*intensity;
+							Color.g += avg_*intensity;
+							Color.b += avg_*intensity;
+						}
+						else{
+							Color.r += CoronaColorOut.x*intensity;
+							Color.g += CoronaColorOut.y*intensity;
+							Color.b += CoronaColorOut.z*intensity;
+						}
+					}
+				}
+			}
+			
+			void renderSolBody(inout vec4 Color, vec2 uv, float aspect, float dist, float radius, bool notLittleFucker, bool eternal, float healthBin, float TimeOut, float healthOut, vec3 SolColorOut, vec3 CoronaColorOut){
+				// Body
+				Color.r = SolColorOut.x;
+				Color.g = SolColorOut.y;
+				Color.b = SolColorOut.z;
+
+				// Plasma
+				if (notLittleFucker){
+					Color = vec4(fireball(uv, aspect), 1.0);
+				} else {
+					Color = vec4(fireball(uv * dist * 0.3, aspect), 1.0) * 1.5;
+				}
+
+				// Extra plasma swirl
+				vec3 col = vec3(0.);
+				float t = TimeOut / 100.0 * (20.0 * (1.0 - healthBin));
+
+				vec2 n = vec2(0);
+				vec2 q = vec2(0);
+				vec2 p = uv / aspect;
+				float d = dot(p, p);
+				float S = 15.0;
+				float a = healthBin * healthBin;
+				mat2 m = rotate2D(5.);
+
+				for (float j = 0.; j < 15.; j++) {
+					p *= m;
+					n *= m;
+					q = p * S + t + 0.8 + j + n;
+					a += dot(cos(q) / S, vec2(0.2));
+					n -= sin(q);
+					S *= 1.2;
+				}
+
+				col = vec3(8.0, 2.0, 1.0) * (2.0 * a + 0.2) - d;
+
+				if (notLittleFucker) {
+					if (eternal) {
+						float avg_ = (col.x + col.y + col.z) / 3.0;
+						Color.rgb += vec3(avg_);
+					} else {
+						Color.r += col.x;
+						Color.g += col.y;
+						Color.b += col.z;
+					}
+				} else {
+					Color.r += col.x;
+				}
+
+				// Corona
+				float intensity = 1.1 - dist * dist / (aspect * aspect) * 26.5;
+				if (!notLittleFucker) {
+					intensity = dist * dist * dist;
+				}
+
+				if (eternal) {
+					float avg_ = (2.0 * CoronaColorOut.x + CoronaColorOut.y) / 3.0;
+					Color.rgb -= vec3(intensity * avg_);
+				} else {
+					Color.r -= intensity * CoronaColorOut.y;
+					Color.g -= intensity * CoronaColorOut.x;
+					Color.b -= intensity * CoronaColorOut.x;
+				}
+			}
+			
+			void main(void)
+			{
+				vec4 color = Color0 * texture2D(Texture0, TexCoord0);
+
+				if (EnabledOut > 0.0) {
+
+					bool notLittleFucker = SolColorOut.r != -1.0;
+					bool eternal = false;
+
+					float healthOut = HealthOut;
+					if (healthOut < 0.0) {
+						eternal = true;
+						healthOut = -healthOut;
+					}
+
+					float healthScale = healthOut;
+					float healthBin = -(healthOut - 1.25) / 0.67;
+					float aspect = RenderDataOut.z / RenderDataOut.w;
+
+					float time = TimeOut;
+					float timeFloor = floor(time) + time * 0.005;
+
+					vec2 texSize = RenderDataOut.zw;
+					vec2 pixelCoord = TexCoord0 * texSize;
+
+					float gridSize = 4.0;
+					vec2 coord = floor(pixelCoord / gridSize) * gridSize;
+
+					float dotVal = dot(coord / (timeFloor + 1.0), vec2(12.9898, 78.233));
+					float staticNoise = fract(sin(dotVal) * 43758.5453);
+					float staticCol = staticNoise * staticNoise * healthBin / 1.5;
+
+					vec2 pos = (SolPositionOut.xy / RenderDataOut.zw) * ScaleOut;
+					vec2 rad = (SolPositionOut.zy / RenderDataOut.zw) * ScaleOut * 1.02;
+
+					float radius = length((rad - pos) * vec2(aspect, 1.0));
+					float dist = length((TexCoord0 - pos) * vec2(aspect, 1.0));
+					vec2 uv = (TexCoord0 - pos) * vec2(aspect, 1.0);
+
+					bool eyeCondition = (color.r == 0.0) && (color.g == 1.0) && (abs(color.b - 0.5647059) < 0.00001);
+
+					if (dist < radius * 1.7 && eyeCondition) {
+						color.r = staticCol;
+						color.g = staticCol;
+						color.b = staticCol;
+					}
+					else if (dist < radius * 3.0) {
+
+						if (dist < radius) {
+							renderSolBody(color, uv, aspect, dist, radius,
+										  notLittleFucker, eternal, healthBin,
+										  TimeOut, healthOut, SolColorOut, CoronaColorOut);
+						}
+
+						applyLightRays(Angle1Out, Angle2Out, Angle3Out, Angle4Out, Angle5Out,
+									   uv, dist, radius, notLittleFucker, eternal,
+									   CoronaColorOut, SolColorOut, healthOut, color);
+					}
+
+					if (!eyeCondition && radius > 0.0001) {
+						ApplyFlare(color, 0, notLittleFucker, uv, radius, dist, aspect,
+								   HealthOut, healthBin, TimeOut, CoronaColorOut, 2.0);
+						if (!notLittleFucker) {
+							ApplyFlare(color, 1, notLittleFucker, uv, radius, dist, aspect,
+									   HealthOut, healthBin, TimeOut, CoronaColorOut, 2.0);
+						}
+					}
+
+					if (notLittleFucker && radius > 0.0001) {
+						DrawTriangleAndCircle(color, 0, SolPositionOut, ScaleOut, TimeOut,
+											  radius, healthScale, staticCol, dist, aspect);
+						if (TimeOut < 30.0) {
+							DrawTriangleAndCircle(color, 1, SolPositionOut, ScaleOut, TimeOut,
+												  radius, healthScale, staticCol, dist, aspect);
+						}
+					}
+				}
+
+				gl_FragColor = color;
+			}
+
+        ]]></fragment>
+
+    </shader>
+
+</shaders>
