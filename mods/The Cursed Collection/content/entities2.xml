@@ -1,0 +1,41 @@
+<entities anm2root="gfx/" version="5">
+    <!-- Chained spikey familiar -->
+    <entity anm2path="animations/CURCOL_chained_spikey.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="0" collisionRadius="0" friction="1" id="3" variant="1" name="Chained spikey" numGridCollisionPoints="0" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <!-- Chained spikey nail effect -->
+    <entity name="CURCOL chained spikey nail" anm2path="animations/CURCOL_chained_spikey_nail.anm2" id="1000" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="0" collisionRadius="0" friction="1" numGridCollisionPoints="0" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0"/>
+    </entity>
+
+    <!-- Notify curse effect -->
+    <entity anm2path="animations/CURCOL_notify.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="0" collisionRadius="0" friction="1" id="1000" name="CURCOL Notify effect" numGridCollisionPoints="0" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <!-- Lil heretic -->
+    <entity anm2path="animations/CURCOL_lil_heretic.anm2" baseHP="0" boss="0" champion="0" collisionDamage="1" collisionInterval="14" collisionMass="3" collisionRadius="13" friction="1" id="3" variant="2" name="Lil heretic" numGridCollisionPoints="12" shadowSize="11" stageHP="0" tags="cansacrifice">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0"/>
+    </entity>
+
+    <!-- Blight effect -->
+    <entity name="CURCOL blight effect" anm2path="animations/CURCOL_blight_effect.anm2" id="1000" baseHP="0" boss="0" champion="0" collisionDamage="10" collisionMass="8" collisionRadius="14" friction="1" numGridCollisionPoints="0" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0"/>
+    </entity>
+
+    <!-- Status effects -->
+    <entity name="CURCOL status effects" anm2path="animations/CURCOL_statuseffects.anm2" id="1000" baseHP="0" boss="0" champion="0" collisionDamage="10" collisionMass="8" collisionRadius="14" friction="1" numGridCollisionPoints="0" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0"/>
+    </entity>
+
+    <!-- Creation effect -->
+    <entity name="CURCOL creation effect" anm2path="animations/CURCOL_creation.anm2" id="1000" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="0" collisionRadius="14" friction="1" numGridCollisionPoints="0" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0"/>
+    </entity>
+    
+    <!-- Candle grave effect -->
+    <entity name="CURCOL black candle grave effect" anm2path="animations/CURCOL_black_candle_grave.anm2" id="1000" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="0" collisionRadius="0" friction="1" numGridCollisionPoints="0" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0"/>
+    </entity>
+</entities>

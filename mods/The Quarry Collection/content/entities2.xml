@@ -1,0 +1,70 @@
+<entities anm2root="gfx/" version="5">
+    <!-- Gideon's gaze effect -->
+    <entity anm2path="animations/QUACOL_gideons_gaze.anm2" baseHP="0" boss="0" champion="0" collisionDamage="1" collisionMass="3" collisionRadius="18" friction="1" id="1000"  variant="3331" name="Gideon's gaze effect" numGridCollisionPoints="12" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <!-- Hot wheels -->
+    <entity anm2path="animations/QUACOL_hot_wheels.anm2" baseHP="0" boss="0" champion="0" collisionDamage="1" collisionMass="14" collisionRadius="14" friction="0.96" id="3" variant="1" name="Hot wheels" numGridCollisionPoints="12" shadowSize="20" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <!-- Broken shell -->
+    <entity anm2path="animations/QUACOL_broken_shell.anm2" tags="fly" baseHP="0" boss="0" champion="0" collisionDamage="15" collisionMass="14" collisionRadius="14" friction="1" id="3" variant="2" name="Broken shell" numGridCollisionPoints="12" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <!-- Rock spiders -->
+    <entity anm2path="animations/QUACOL_rock_spider_1.anm2" gridCollision="ground" tags="spider" reroll="false" baseHP="0" boss="0" champion="1" collisionDamage="0" collisionInterval="14" collisionMass="3" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="0" name="QUACOL Rock spider" numGridCollisionPoints="12" shadowSize="20" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+    <entity anm2path="animations/QUACOL_rock_spider_2.anm2" gridCollision="ground" tags="spider" reroll="false" baseHP="0" boss="0" champion="1" collisionDamage="0" collisionInterval="14" collisionMass="3" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="1" name="QUACOL Rock spider" numGridCollisionPoints="12" shadowSize="20" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+    <entity anm2path="animations/QUACOL_rock_spider_3.anm2" gridCollision="ground" tags="spider" reroll="false" baseHP="0" boss="0" champion="1" collisionDamage="0" collisionInterval="14" collisionMass="3" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="2" name="QUACOL Rock spider" numGridCollisionPoints="12" shadowSize="20" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+
+    <!-- Tinted spiders -->
+    <entity anm2path="animations/QUACOL_tinted_spider_1.anm2" gridCollision="ground" tags="spider" reroll="false" baseHP="0" boss="0" champion="1" collisionDamage="0" collisionInterval="14" collisionMass="3" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="3" name="QUACOL Tinted spider" numGridCollisionPoints="12" shadowSize="20" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+    <entity anm2path="animations/QUACOL_tinted_spider_2.anm2" gridCollision="ground" tags="spider" reroll="false" baseHP="0" boss="0" champion="1" collisionDamage="0" collisionInterval="14" collisionMass="3" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="4" name="QUACOL Tinted spider" numGridCollisionPoints="12" shadowSize="20" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+    <entity anm2path="animations/QUACOL_tinted_spider_3.anm2" gridCollision="ground" tags="spider" reroll="false" baseHP="0" boss="0" champion="1" collisionDamage="0" collisionInterval="14" collisionMass="3" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="5" name="QUACOL Tinted spider" numGridCollisionPoints="12" shadowSize="20" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+
+    <!-- Coal spiders -->
+    <entity anm2path="animations/QUACOL_coal_spider_1.anm2" gridCollision="ground" tags="spider" reroll="false" baseHP="0" boss="0" champion="1" collisionDamage="0" collisionInterval="14" collisionMass="3" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="6" name="QUACOL Coal spider" numGridCollisionPoints="12" shadowSize="20" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+    <entity anm2path="animations/QUACOL_coal_spider_2.anm2" gridCollision="ground" tags="spider" reroll="false" baseHP="0" boss="0" champion="1" collisionDamage="0" collisionInterval="14" collisionMass="3" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="7" name="QUACOL Coal spider" numGridCollisionPoints="12" shadowSize="20" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+    <entity anm2path="animations/QUACOL_coal_spider_3.anm2" gridCollision="ground" tags="spider" reroll="false" baseHP="0" boss="0" champion="1" collisionDamage="0" collisionInterval="14" collisionMass="3" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="8" name="QUACOL Coal spider" numGridCollisionPoints="12" shadowSize="20" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+
+    <!-- Coal -->
+    <entity anm2path="animations/QUACOL_coal_1.anm2" gridCollision="ground" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="5" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="0" name="QUACOL Coal" collisionInterval="14" numGridCollisionPoints="12" portrait="258" shadowSize="15" shutdoors="false" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+    <entity anm2path="animations/QUACOL_coal_2.anm2" gridCollision="ground" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="5" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="1" name="QUACOL Coal" collisionInterval="14" numGridCollisionPoints="12" portrait="258" shadowSize="15" shutdoors="false" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+    <entity anm2path="animations/QUACOL_coal_3.anm2" gridCollision="ground" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="5" collisionRadius="13" friction="0.8" id="3" variant="3320" subtype="2" name="QUACOL Coal" collisionInterval="14" numGridCollisionPoints="12" portrait="258" shadowSize="15" shutdoors="false" stageHP="0">
+        <gibs amount="4" blood="0" bone="0" eye="0" gut="0" large="0" rock_small="1"/>
+    </entity>
+
+    <!-- Fake fire jet -->
+    <entity name="QUACOL Fire jet" anm2path="animations/QUACOL_fake_jet.anm2" id="1000" baseHP="0" boss="0" champion="0" collisionDamage="10" collisionMass="8" collisionRadius="14" friction="1" numGridCollisionPoints="0" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0"/>
+    </entity>
+
+    <!-- Status effects -->
+    <entity name="QUACOL status effects" anm2path="animations/QUACOL_statuseffects.anm2" id="1000" baseHP="0" boss="0" champion="0" collisionDamage="10" collisionMass="8" collisionRadius="14" friction="1" numGridCollisionPoints="0" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0"/>
+    </entity>
+</entities>

@@ -1,0 +1,108 @@
+<ItemPools>
+	<Pool Name="treasure">
+	    <Item Name="Temptation"        		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Gold rope"         		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Shining clicker"   		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Flakes of gold"    		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Childrens fund"    		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Stolen placard"    		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	    <Item Name="Nugget"		       		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	    <Item Name="Black card"	       		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	    <Item Name="Fancy brooch"	       	 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	    <Item Name="Abundance"	       		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	    <Item Name="Spinning cent"       	 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Molten dime"       		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Golden god!"        	 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Quality stamp"     		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Ancient hourglass" 		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Silver lacquered chisel" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="greedTreasure">
+	    <Item Name="Temptation"      		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Gold rope"       		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Shining clicker" 		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Flakes of gold"  		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Childrens fund"  		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	    <Item Name="Nugget"		     		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	    <!-- <Item Name="Black card"	     		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/> -->
+	    <!-- <Item Name="Abundance"	     		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/> -->
+	    <Item Name="Fancy brooch"	     	 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	    <Item Name="Spinning cent"       	 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Molten dime"     		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<!-- <Item Name="Golden god!"      		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/> -->
+		<Item Name="Quality stamp"   		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Silver lacquered chisel" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="greedShop">
+	    <Item Name="Temptation"        		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Flakes of gold"    		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Childrens fund"    		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	    <Item Name="Fancy brooch"	       	 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	    <Item Name="Spinning cent"       	 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Molten dime"       		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Quality stamp"     		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Ancient hourglass" 		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Silver lacquered chisel" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="boss">
+		<Item Name="Flakes of gold"  Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="shop">
+        <Item Name="Molten dime" 	   		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Childrens fund"	  		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Stolen placard"	   		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Black card"	   	   		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	    <Item Name="Fancy brooch"	   	   	 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Quality stamp" 	   		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Ancient hourglass" 		 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Silver lacquered chisel" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="craneGame">
+		<Item Name="Gold rope"   	 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Nugget"		     Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="secret">
+		<Item Name="Gold rope"   	 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Shining clicker" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Golden god!"      Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="curse">
+	    <Item Name="Abundance"	     Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<!-- <Pool Name="greedCurse">
+	    <Item Name="Abundance"	     Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool> -->
+
+	<Pool Name="greedSecret">
+		<Item Name="Gold rope"   	 Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Shining clicker" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Nugget"		     Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Abundance"	     Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Golden god!"      Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="beggar">
+	    <Item Name="Temptation"  Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Molten dime" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="babyShop">
+	    <Item Name="Spinning cent" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="oldChest">
+	    <Item Name="Fancy brooch"	     Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+
+	<Pool Name="momsChest">
+	    <Item Name="Fancy brooch"	     Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+</ItemPools>

@@ -1,0 +1,19 @@
+local ____exports = {}
+____exports.SkinColor = {}
+____exports.SkinColor.PINK = -1
+____exports.SkinColor[____exports.SkinColor.PINK] = "PINK"
+____exports.SkinColor.WHITE = 0
+____exports.SkinColor[____exports.SkinColor.WHITE] = "WHITE"
+____exports.SkinColor.BLACK = 1
+____exports.SkinColor[____exports.SkinColor.BLACK] = "BLACK"
+____exports.SkinColor.BLUE = 2
+____exports.SkinColor[____exports.SkinColor.BLUE] = "BLUE"
+____exports.SkinColor.RED = 3
+____exports.SkinColor[____exports.SkinColor.RED] = "RED"
+____exports.SkinColor.GREEN = 4
+____exports.SkinColor[____exports.SkinColor.GREEN] = "GREEN"
+____exports.SkinColor.GREY = 5
+____exports.SkinColor[____exports.SkinColor.GREY] = "GREY"
+____exports.SkinColor.SHADOW = 6
+____exports.SkinColor[____exports.SkinColor.SHADOW] = "SHADOW"
+return ____exports

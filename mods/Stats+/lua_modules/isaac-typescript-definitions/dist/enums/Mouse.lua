@@ -1,0 +1,19 @@
+local ____exports = {}
+____exports.Mouse = {}
+____exports.Mouse.BUTTON_LEFT = 0
+____exports.Mouse[____exports.Mouse.BUTTON_LEFT] = "BUTTON_LEFT"
+____exports.Mouse.BUTTON_RIGHT = 1
+____exports.Mouse[____exports.Mouse.BUTTON_RIGHT] = "BUTTON_RIGHT"
+____exports.Mouse.BUTTON_MIDDLE = 2
+____exports.Mouse[____exports.Mouse.BUTTON_MIDDLE] = "BUTTON_MIDDLE"
+____exports.Mouse.BUTTON_4 = 3
+____exports.Mouse[____exports.Mouse.BUTTON_4] = "BUTTON_4"
+____exports.Mouse.BUTTON_5 = 4
+____exports.Mouse[____exports.Mouse.BUTTON_5] = "BUTTON_5"
+____exports.Mouse.BUTTON_6 = 5
+____exports.Mouse[____exports.Mouse.BUTTON_6] = "BUTTON_6"
+____exports.Mouse.BUTTON_7 = 6
+____exports.Mouse[____exports.Mouse.BUTTON_7] = "BUTTON_7"
+____exports.Mouse.BUTTON_8 = 7
+____exports.Mouse[____exports.Mouse.BUTTON_8] = "BUTTON_8"
+return ____exports

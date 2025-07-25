@@ -1,0 +1,27 @@
+<entities anm2root="gfx/" version="5">
+    <!-- Willo familiar -->
+    <entity anm2path="animations/SEWCOL_willo.anm2" tags="fly" gridCollision="none" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionInterval="2" collisionMass="3" collisionRadius="13" friction="1" id="3" name="Willo familiar" variant="1" numGridCollisionPoints="12" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <!-- Driftwood familiar -->
+    <entity anm2path="animations/SEWCOL_driftwood.anm2" gridCollision="none" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="0" friction="1" id="3" name="Driftwood familiar" variant="2" numGridCollisionPoints="12" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <!-- Glass card pickup -->
+    <entity anm2path="SEWCOL_glass_card.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" id="5" name="glassCard" numGridCollisionPoints="24" shadowSize="16" stageHP="0" variant="300" subtype="3320">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+        <preload-snd id="8" /> <!-- BOOK_PAGE_TURN_12 -->
+    </entity>
+
+    <!-- Friendly leech -->
+    <entity anm2path="animations/SEWCOL_friendly_leech.anm2" gridCollision="ground" reroll="false" baseHP="3" boss="0" champion="1" collisionDamage="0" collisionInterval="1" collisionMass="3" collisionRadius="13" friction="1" id="3" variant="3" subtype="0" name="SEWCOL friendly leech" numGridCollisionPoints="12" shadowSize="20" stageHP="0">
+        <gibs amount="4" blood="1" bone="0" eye="0" gut="1" large="0"/>
+    </entity>
+
+    <!-- Status effects -->
+    <entity name="SEWCOL status effects" anm2path="animations/SEWCOL_statuseffects.anm2" id="1000" baseHP="0" boss="0" champion="0" collisionDamage="10" collisionMass="8" collisionRadius="14" friction="1" numGridCollisionPoints="0" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0"/>
+    </entity>
+</entities>

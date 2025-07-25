@@ -1,0 +1,61 @@
+<entities anm2root="gfx/" version="5">
+    <!-- Door effect -->
+    <entity anm2path="animations/GOLCOL_greeds_mitten_door.anm2" baseHP="0" boss="0" champion="0" collisionDamage="1" collisionMass="3" collisionRadius="18" friction="1" id="1000"  variant="3320" name="Greed door effect" numGridCollisionPoints="12" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <!-- Shine effect -->
+    <entity anm2path="animations/GOLCOL_golden_god_shine.anm2" baseHP="0" boss="0" champion="0" collisionDamage="1" collisionMass="3" collisionRadius="18" friction="1" id="1000"  variant="3321" name="Golden god shine" numGridCollisionPoints="12" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <!-- Groundbreak effect -->
+    <entity anm2path="animations/GOLCOL_groundbreak.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="0" collisionRadius="0" friction="1" id="1000" name="Big fools groundbreak" numGridCollisionPoints="1" shadowSize="0" stageHP="0" variant="3322">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <!-- Black card effect -->
+    <entity anm2path="animations/GOLCOL_black_card.anm2" baseHP="0" boss="0" champion="0" collisionDamage="1" collisionMass="3" collisionRadius="18" friction="1" id="1000"  variant="3323" name="Black card effect" numGridCollisionPoints="12" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+
+    <!-- Dressing machine -->
+    <entity anm2path="items/slots/slot_dresser.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" id="6" name="GOLCOL Dresser Machine" numGridCollisionPoints="24" shadowSize="33" stageHP="0" variant="3320" subtype="0">
+		<gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+	</entity>
+
+    <!-- Spinning cent -->
+    <entity anm2path="animations/GOLCOL_spinning_cent.anm2" baseHP="0" boss="0" champion="0" collisionDamage="1" collisionMass="3" collisionRadius="18" friction="1" id="3" variant="1" name="Spinning cent" numGridCollisionPoints="12" shadowSize="0" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
+    
+    <!-- Poker Pennies -->
+    <entity name="Poker penny +" anm2path="items/pickups/golcol_poker_penny.anm2" id="5" variant="20" subtype="3320" baseHP="0" stageHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" numGridCollisionPoints="24" shadowSize="14">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" /> 
+	    <preload-snd id="438" /> <!-- SOUND_ULTRA_GREED_SLOT_WIN_LOOP_END -->
+    </entity>
+    <entity name="Poker penny -" anm2path="items/pickups/golcol_poker_penny.anm2" id="5" variant="20" subtype="3321" baseHP="0" stageHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" numGridCollisionPoints="24" shadowSize="14">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" /> 
+	    <preload-snd id="437" /> <!-- SOUND_ULTRA_GREED_SLOT_STOP -->
+    </entity>
+
+    <!-- Poker Nickels -->
+    <entity name="Poker nickel +" anm2path="items/pickups/golcol_poker_nickel.anm2" id="5" variant="20" subtype="3322" baseHP="0" stageHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" numGridCollisionPoints="24" shadowSize="14">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" /> 
+	    <preload-snd id="438" /> <!-- SOUND_ULTRA_GREED_SLOT_WIN_LOOP_END -->
+    </entity>	
+    <entity name="Poker nickel -" anm2path="items/pickups/golcol_poker_nickel.anm2" id="5" variant="20" subtype="3323" baseHP="0" stageHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" numGridCollisionPoints="24" shadowSize="14">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" /> 
+	    <preload-snd id="437" /> <!-- SOUND_ULTRA_GREED_SLOT_STOP -->
+    </entity>
+
+    <!-- Poker Dimes -->
+    <entity name="Poker dime +" anm2path="items/pickups/golcol_poker_dime.anm2" id="5" variant="20" subtype="3324" baseHP="0" stageHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" numGridCollisionPoints="24" shadowSize="14">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" /> 
+	    <preload-snd id="438" /> <!-- SOUND_ULTRA_GREED_SLOT_WIN_LOOP_END -->
+    </entity>	
+    <entity name="Poker dime -" anm2path="items/pickups/golcol_poker_dime.anm2" id="5" variant="20" subtype="3325" baseHP="0" stageHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" numGridCollisionPoints="24" shadowSize="14">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" /> 
+	    <preload-snd id="437" /> <!-- SOUND_ULTRA_GREED_SLOT_STOP -->
+    </entity>
+</entities>

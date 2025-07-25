@@ -1,0 +1,32 @@
+local ____exports = {}
+--- The possible transformations that the player can have.
+____exports.PlayerForm = {}
+____exports.PlayerForm.GUPPY = 0
+____exports.PlayerForm[____exports.PlayerForm.GUPPY] = "GUPPY"
+____exports.PlayerForm.BEELZEBUB = 1
+____exports.PlayerForm[____exports.PlayerForm.BEELZEBUB] = "BEELZEBUB"
+____exports.PlayerForm.FUN_GUY = 2
+____exports.PlayerForm[____exports.PlayerForm.FUN_GUY] = "FUN_GUY"
+____exports.PlayerForm.SERAPHIM = 3
+____exports.PlayerForm[____exports.PlayerForm.SERAPHIM] = "SERAPHIM"
+____exports.PlayerForm.BOB = 4
+____exports.PlayerForm[____exports.PlayerForm.BOB] = "BOB"
+____exports.PlayerForm.SPUN = 5
+____exports.PlayerForm[____exports.PlayerForm.SPUN] = "SPUN"
+____exports.PlayerForm.YES_MOTHER = 6
+____exports.PlayerForm[____exports.PlayerForm.YES_MOTHER] = "YES_MOTHER"
+____exports.PlayerForm.CONJOINED = 7
+____exports.PlayerForm[____exports.PlayerForm.CONJOINED] = "CONJOINED"
+____exports.PlayerForm.LEVIATHAN = 8
+____exports.PlayerForm[____exports.PlayerForm.LEVIATHAN] = "LEVIATHAN"
+____exports.PlayerForm.OH_CRAP = 9
+____exports.PlayerForm[____exports.PlayerForm.OH_CRAP] = "OH_CRAP"
+____exports.PlayerForm.BOOKWORM = 10
+____exports.PlayerForm[____exports.PlayerForm.BOOKWORM] = "BOOKWORM"
+____exports.PlayerForm.ADULT = 11
+____exports.PlayerForm[____exports.PlayerForm.ADULT] = "ADULT"
+____exports.PlayerForm.SPIDER_BABY = 12
+____exports.PlayerForm[____exports.PlayerForm.SPIDER_BABY] = "SPIDER_BABY"
+____exports.PlayerForm.STOMPY = 13
+____exports.PlayerForm[____exports.PlayerForm.STOMPY] = "STOMPY"
+return ____exports

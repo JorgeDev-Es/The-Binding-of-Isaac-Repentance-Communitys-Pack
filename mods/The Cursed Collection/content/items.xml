@@ -1,0 +1,23 @@
+<items gfxroot="gfx/items/" deathanm2="gfx/death_items.anm2" version="1">
+    <passive id="1" cache="weapon" description="Follow my voice!" name="Siren's call"  gfx="sirens_call.png"  quality="2" tags="nolostbr summonable" />
+    <passive id="2" cache="weapon damage" description="Shunned by god" name="Anathema"  gfx="anathema.png"  quality="3" tags="offensive summonable" />
+    <passive id="3" cache="weapon" description="Keep your hands off!" name="DO NOT TOUCH"  gfx="DO_NOT_TOUCH.png"  quality="4" tags="offensive summonable nogreed" />
+    <passive id="4" cache="weapon" description="Circle of summoning" name="Pentacle"  gfx="pentacle.png"  quality="1" tags="offensive summonable" />
+    <passive id="5" cache="weapon" description="Bound by our flesh" name="Fettered heart"  gfx="fettered_heart.png"  quality="2" tags="offensive summonable" />
+    <passive id="6" cache="weapon" description="I'm leaking..." name="Secretion"  gfx="secretion.png"  quality="3" tags="offensive summonable" />
+    <passive id="7" cache="weapon" description="The flames of rebirth" name="Revenir"  gfx="revenir.png"  quality="3" tags="offensive summonable" />
+    <passive id="8" cache="weapon" description="Embrace creation" name="Reverse of the tower"  gfx="reverse_of_the_tower.png"  quality="0" tags="offensive summonable" />
+    <passive id="9" cache="weapon" description="Inscribed with ancient knowledge" name="Papyrus rags"  gfx="papyrus_rags.png"  quality="2" tags="offensive summonable" />
+    <passive id="10" cache="weapon damage" description="Ink black obstruction" name="Veil of darkness" gfx="veil_of_darkness.png"  quality="4" tags="offensive summonable" blackhearts="6" devilprice="2" />
+
+    <active id="11" cache="weapon" description="Split apart!" name="Soul cleaver" gfx="soul_cleaver.png" quality="2" tags="offensive" chargetype="normal" maxcharges="6" />
+    <active id="12" cache="weapon speed firedelay luck damage shotspeed range" description="The power of sin" name="Cursed flame" gfx="cursed_flame.png" quality="2" tags="offensive" chargetype="normal" maxcharges="8" passivecache="true"/>
+    <active id="13" cache="weapon" description="Reroll the present" name="Cursed dice" gfx="cursed_dice.png" quality="4" tags="nolostbr" chargetype="normal" maxcharges="4"/>
+
+    <familiar id="14" cache="weapon" description="Rollin' around"       name="Chained spikey" gfx="chained_spikey.png" quality="2" tags="offensive summonable nogreed" />
+    <familiar id="15" cache="weapon" description="Dread him"            name="Lil heretic"    gfx="lil_heretic.png"    quality="2" tags="offensive summonable" />
+    <familiar id="16" cache="weapon" description="Finally. Knife whole" name="Mended knife"   gfx="mended_knife.png"   quality="1" tags="offensive summonable" />
+
+    <trinket cache="weapon" description="Connected by the waist" name="Sewn bond" gfx="sewn_bond.png" />
+    <trinket cache="weapon" description="Merged together" name="Amalgamation" gfx="amalgamation.png" />
+</items>

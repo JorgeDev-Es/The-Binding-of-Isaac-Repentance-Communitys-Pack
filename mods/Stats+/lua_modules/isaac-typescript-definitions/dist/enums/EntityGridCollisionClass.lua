@@ -1,0 +1,19 @@
+local ____exports = {}
+____exports.EntityGridCollisionClass = {}
+____exports.EntityGridCollisionClass.NONE = 0
+____exports.EntityGridCollisionClass[____exports.EntityGridCollisionClass.NONE] = "NONE"
+____exports.EntityGridCollisionClass.WALLS_X = 1
+____exports.EntityGridCollisionClass[____exports.EntityGridCollisionClass.WALLS_X] = "WALLS_X"
+____exports.EntityGridCollisionClass.WALLS_Y = 2
+____exports.EntityGridCollisionClass[____exports.EntityGridCollisionClass.WALLS_Y] = "WALLS_Y"
+____exports.EntityGridCollisionClass.WALLS = 3
+____exports.EntityGridCollisionClass[____exports.EntityGridCollisionClass.WALLS] = "WALLS"
+____exports.EntityGridCollisionClass.BULLET = 4
+____exports.EntityGridCollisionClass[____exports.EntityGridCollisionClass.BULLET] = "BULLET"
+____exports.EntityGridCollisionClass.GROUND = 5
+____exports.EntityGridCollisionClass[____exports.EntityGridCollisionClass.GROUND] = "GROUND"
+____exports.EntityGridCollisionClass.NO_PITS = 6
+____exports.EntityGridCollisionClass[____exports.EntityGridCollisionClass.NO_PITS] = "NO_PITS"
+____exports.EntityGridCollisionClass.PITS_ONLY = 7
+____exports.EntityGridCollisionClass[____exports.EntityGridCollisionClass.PITS_ONLY] = "PITS_ONLY"
+return ____exports

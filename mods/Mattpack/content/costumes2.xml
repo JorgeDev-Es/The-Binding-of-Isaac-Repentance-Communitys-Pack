@@ -1,0 +1,23 @@
+<costumes anm2root="gfx/characters/">
+    <costume anm2path="costume_balor.anm2" type="passive" id="0" priority="22" hasSkinAlt="true"/>
+    <costume anm2path="costume_rockcounter.anm2" type="passive" id="1" hasSkinAlt="true"/>
+    <costume anm2path="costume_rockcounter.anm2" type="passive" id="2" hasSkinAlt="true"/>
+
+    
+    <costume anm2path="costume_knifebender.anm2" type="passive" id="4" hasSkinAlt="true" priority="22"/>
+    <costume anm2path="costume_techomega.anm2" type="passive" id="5" hasSkinAlt="true" priority="250"/>
+
+    <costume anm2path="costume_boulderbottom.anm2" type="passive" id="7" hasSkinAlt="true" priority="22"/>
+    <costume anm2path="costume_benightedheart.anm2" type="passive" id="8" skinColor="1" overwriteColor="true"/>
+
+    <costume anm2path="costume_mutantmycelium.anm2" type="passive" id="10" hasSkinAlt="true" priority="22"/>
+    <costume anm2path="costume_clspoonbender.anm2" type="passive" id="11" hasSkinAlt="true" priority="22" hasOverlay="true"/>
+
+    <costume anm2path="costume_tech5090.anm2" type="passive" id="13" hasOverlay="true"/>
+
+    <costume anm2path="costume_mutantbody.anm2" type="passive" hasSkinAlt="true" id="14" priority="22"/>
+
+    <costume anm2path="costume_deadlitter.anm2" type="passive" hasSkinAlt="true" id="15" priority="22"/>
+
+    <costume anm2path="costume_divineheart.anm2" type="passive" hasSkinAlt="true" isFlying="true" id="16" priority="22"/>
+</costumes>

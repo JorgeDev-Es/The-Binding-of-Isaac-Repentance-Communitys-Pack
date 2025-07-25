@@ -1,0 +1,22 @@
+<items gfxroot="gfx/items/" version="1" deathanm2="gfx/mattpack_deathitems.anm2">
+    <!-- Items -->
+    <passive id="0" name="Balor" description="Apocalyptic Eye" gfx="item_balor.png" quality="5" tags="offensive" cache="firedelay damage range tearflag" /> <!-- Obtained by - Using Huge Growth on Polyphemus -->
+    <passive id="1" name="Rock Counter" description="Loss is Gain" gfx="item_rock_counter.png" quality="0" cache="all" hidden="true" />
+    <passive id="2" name="Alt Rock" description="You Get What You Give" gfx="item_alt_rock.png" quality="0" cache="all" hidden="true" />
+    <passive id="3" name="Devil's Yo-Yo" description="Looming Mortality" gfx="item_devils_yoyo.png" quality="5" tags="offensive" devilprice="2"/> <!-- Obtained by - Using Spin to Win on Damocles -->
+    <passive id="4" name="Knife Bender" description="Homing tears?" gfx="item_knife_bender.png" quality="5" tags="offensive" cache="firedelay shotspeed" devilprice="3"/> <!-- Obtained by - Shooting homing tears at Mom's Knife -->
+    <passive id="5" name="Tech Omega" description="Shock from a Distance" gfx="item_tech_omega.png" quality="3" tags="offensive summonable" cache="damage"/>
+    <passive id="6" name="Multi Mush" description="Double the Fun" gfx="item_multi_mush.png" quality="5" tags="offensive mushroom" cache="all"/> <!-- Obtained by - Losing a golden heart next to Magic Mushroom-->
+    <passive id="7" name="Boulder Bottom" description="Can we get much higher?" gfx="item_boulder_bottom.png" quality="5" tags="offensive" cache="all"/> <!-- Obtained by - Using Hagalaz on Rock Bottom -->
+    <passive id="8" name="Benighted Heart" description="As above, so below" gfx="item_benighted_heart.png" quality="4" tags="offensive devil summonable" cache="all" blackhearts="4" hearts="-24" maxhearts="-2" devilprice="2"/> <!-- Obtained by - Using Book of Belial or The Devil on Sacred Heart -->
+    <active id="9" name="F Key" description="F" gfx="item_f_key.png" quality="5" tags="noeden"/> <!-- it would be really funny to have it possible to randomly roll into it BUT for some reason it ALMOST ALWAYS rolls into it -->
+    <passive id="10" name="Mutant Mycelium" description="Infested?" gfx="item_mutant_mycelium.png" quality="3" tags="offensive summonable mushroom spider" cache="size firedelay damage"/>
+    <passive id="11" name="Comically Large Spoon Bender" description="Only a spoonful" gfx="item_cl_spoon_bender.png" quality="5" tags="offensive" cache="tearflag range tearcolor"/> <!-- Obtained by - Using Huge Growth on Spoon Bender -->
+    <active id="12" name="Kitchen Knife" description="Split the earth open" gfx="item_kitchen_knife.png" quality="3" tags="offensive" maxcharges="12" chargetype="special" devilprice="2"/>
+    <passive id="13" name="Tech 5090" description="Powered by persistence" gfx="item_tech_5090.png" quality="3" tags="offensive summonable"/>
+    <passive id="14" name="Bloated Body" description="Limitless bursting" gfx="item_mutant_body.png" quality="5" tags="offensive"/>
+    <passive id="15" name="Dead Litter" description="Now where's that fourth one?" gfx="item_dead_litter.png" quality="5" tags="offensive guppy" cache="damage"/>
+    <passive id="16" name="Divine Heart" description="Lingering faith" gfx="item_divine_heart_hud.png" quality="5" tags="offensive angel" cache="firedelay damage range tearcolor tearflag shotspeed flying weapon"/>
+    <passive id="17" name="Warped Legion" description="Build your army" gfx="item_warped_legion.png" quality="5" tags="offensive baby"/>
+    <null name="wl_mincubus" persistent="true" />
+</items>

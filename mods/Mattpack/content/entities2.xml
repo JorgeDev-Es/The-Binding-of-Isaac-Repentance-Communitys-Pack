@@ -1,0 +1,11 @@
+<entities anm2root="gfx/" version="1">	
+    
+    <entity anm2path="devilsyoyo.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" id="3" name="Devil's Yo-Yo" numGridCollisionPoints="0" shadowSize="0" stageHP="0" variant="2021" subtype="0"/>
+    <entity anm2path="devilsyoyo.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" id="1000" name="Devil's Yo-Yo Effect" numGridCollisionPoints="0" shadowSize="0" stageHP="0" variant="2021" subtype="0"/>
+    <entity anm2path="865.010_evis guts.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="0" collisionRadius="15" friction="1" id="865" name="Devil's Yo-Yo Cord" numGridCollisionPoints="0" shadowSize="0" shutdoors="false" stageHP="0" tags="noreroll" variant="10" subtype="2021"/>
+
+    <entity anm2path="no way half black heart.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="12" friction="1" id="5" name="Black Heart (half) (woah no way half black heart)" numGridCollisionPoints="24" shadowSize="17" stageHP="0" subtype="4102" variant="10"/>
+
+    <entity anm2path="003.080_Incubus.anm2" baseHP="0" boss="0" champion="0" collisionDamage="0" collisionMass="3" collisionRadius="13" friction="1" id="3" name="Mincubus" numGridCollisionPoints="0" shadowSize="6" stageHP="0" variant="80" subtype="1530" />
+
+</entities>

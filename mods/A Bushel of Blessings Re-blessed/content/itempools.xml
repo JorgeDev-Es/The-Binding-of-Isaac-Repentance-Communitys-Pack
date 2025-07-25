@@ -1,0 +1,44 @@
+<ItemPools>
+    <Pool Name="treasure">
+        <Item Name="Isaac's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Maggy's Blessing" Weight="0.75" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Cain's Blessing" Weight="0.75" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Judas' Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="???'s Blessing" Weight="0.75" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Eve's Blessing" Weight="0.75" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Samson's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Azazel's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Lazarus' Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="The Lost's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Lilith's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Keeper's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Apollyon's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="The Forgotten's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Bethany's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Jacob and Esau's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+    </Pool>
+	<Pool Name ="devil">
+		<Item Name="Judas' Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Eve's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Azazel's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Apollyon's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+	<Pool Name ="angel">
+		<Item Name="The Lost's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Bethany's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+	<Pool Name="goldenChest">
+		<Item Name="???'s Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Cain's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+		<Item Name="Lazarus' Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+	<Pool Name="beggar">
+		<Item Name="Maggy's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+	<Pool Name="ultraSecret">
+		<Item Name="Isaac's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+	<Pool Name="shop">
+		<Item Name="Keepers's Blessing" Weight="1" DecreaseBy="1" RemoveOn="0.1"/>
+	</Pool>
+</ItemPools>

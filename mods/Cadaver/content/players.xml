@@ -1,0 +1,18 @@
+<players root="gfx/characters/costumes/" 
+         portraitroot="gfx/ui/boss/" 
+         nameimageroot="gfx/ui/boss/" 
+         bigportraitroot="gfx/ui/stage/">
+  <player name="Cadaver" skin="cadaver_character.png" hp="0" armor="1"
+          nameimage="name.png" 
+          portrait="cadaver.png" 
+          bigportrait="cadaver.png"
+          skinColor="4" costumeSuffix="cadaver"
+          pocketActive="639"
+          birthright="Better friends" />
+  <player name="Cadaver" skin="tainted_cadaver_character.png" hp="0" armor="1" bSkinParent="Cadaver"
+          nameimage="name.png" 
+          portrait="tainted_cadaver.png" 
+          bigportrait="tainted_cadaver.png"
+          skinColor="4" costumeSuffix="cadaver"
+          birthright="Respawning friends" />
+</players>
