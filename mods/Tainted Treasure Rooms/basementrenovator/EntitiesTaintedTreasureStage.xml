@@ -1,0 +1,9 @@
+<group Label="Bums">
+	<group Name="Tainted Treasures Bums"/>
+</group>
+
+<group Name="Tainted Treasures Global">
+    <group Name="Tainted Treasures Bums">
+        <entity Name="Tainted Beggar" />
+    </group>
+</group>

@@ -1,0 +1,42 @@
+<costumes anm2root="gfx/characters/">
+    <costume id="1" anm2path="costume_badonion.anm2" type="passive" hasSkinAlt="true" />
+    <costume id="3" anm2path="costume_rawsoylent.anm2" type="passive" hasSkinAlt="true" />
+    <costume id="4" anm2path="costume_yearningpage.anm2" type="passive" />
+    <costume id="5" anm2path="costume_buzzingmagnets.anm2" type="passive" hasSkinAlt="true" />
+    <costume id="6" anm2path="costume_clandestinecard.anm2" type="passive" />
+    <costume id="8" anm2path="costume_cricketscranium.anm2" type="passive" hasSkinAlt="true" />
+    <costume id="10" anm2path="costume_consecration.anm2" type="passive" />
+    <costume id="11" anm2path="costume_crystalskull.anm2" type="passive" hasSkinAlt="true" />
+    <costume id="12" anm2path="costume_nooptions.anm2" type="passive" />
+    <costume id="15" anm2path="costume_skeletonlock.anm2" type="passive" hasSkinAlt="true" />
+    <costume id="16" anm2path="costume_saltofmagnesium.anm2" type="passive" hasSkinAlt="true" />
+    <costume id="18" anm2path="costume_eternalcandle.anm2" type="passive" />
+    <costume id="20" anm2path="costume_spiderfreak.anm2" type="passive" />
+    <costume id="21" anm2path="costume_bugulonsuperfan.anm2" type="passive" priority="23" skinColor="1" overwriteColor="true"/>
+    <costume id="22" anm2path="costume_arrowhead.anm2" type="passive" priority="1" />
+    <costume id="24" anm2path="costume_whitebelt.anm2" type="passive" />
+    <costume id="25" anm2path="costume_dpad.anm2" type="passive" hasSkinAlt="true" />
+	<costume id="26" anm2path="costume_warmaiden.anm2" type="passive" />
+    <costume id="29" anm2path="costume_polycoria.anm2" type="passive" hasSkinAlt="true" />
+    <costume id="30" anm2path="costume_coloredcontacts.anm2" type="passive" />
+    <costume id="31" anm2path="costume_thereaper.anm2" type="passive" priority="200" skinColor="5" overwriteColor="true"/>
+    <costume id="32" anm2path="costume_dryadsblessing.anm2" type="passive" />
+    <costume id="34" anm2path="costume_broodmind.anm2" type="passive" priority="100" skinColor="5" overwriteColor="true"/>
+	<costume id="35" anm2path="costume_techorganelle.anm2" type="passive" />
+	<costume id="36" anm2path="costume_gazemaster.anm2" type="passive" />
+    <costume id="37" anm2path="costume_searedclub.anm2" type="passive" />
+    <costume id="38" anm2path="costume_leviathan.anm2" type="passive" />
+    <costume id="39" anm2path="costume_ravenous.anm2" type="passive" hasSkinAlt="true" />
+    <costume id="40" anm2path="costume_sorrowfulshallot.anm2" type="passive" hasSkinAlt="true" />
+    <costume id="42" anm2path="costume_lilslugger.anm2" type="passive" priority="100" hasSkinAlt="true"/>
+	<costume id="43" anm2path="costume_bluecanary.anm2" type="passive" />
+    <costume id="46" anm2path="costume_evangelism.anm2" type="passive" hasSkinAlt="true" />
+    <costume id="50" anm2path="costume_fractalsyndrome.anm2" type="passive" />
+    
+    <!-- Conditional/Itemless costumes-->
+    <costume anm2path="costume_badonion_steam.anm2" type="none" priority="-1" hasOverlay="true" />
+    <costume anm2path="costume_whoreofgalilee.anm2" type="none" priority="1" skinColor="-1" overwriteColor="true"/>
+    <costume anm2path="costume_whoreofgalilee_hair.anm2" type="none" priority="100" />
+    <costume anm2path="costume_leviathan2.anm2" type="none" priority="1"/>
+    <costume anm2path="costume_overchargedbattery.anm2" type="none" hasOverlay="true"/>
+</costumes>

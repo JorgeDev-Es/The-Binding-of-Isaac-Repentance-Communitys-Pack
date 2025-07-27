@@ -1,0 +1,19 @@
+{
+    "files": [
+        {
+            "outputFile": "mortis_merged.xml",
+            "paths": [ "./mortis/" ],
+            "startingId": 0
+        },
+	{
+            "outputFile": "mortis_merged_bosses.xml",
+            "paths": [ "./mortis/bosses/" ],
+            "startingId": 0
+        },
+	{
+            "outputFile": "mortis_merged_ff.xml",
+            "paths": [ "./mortis/ff/" ],
+            "startingId": 0
+        }
+    ]
+}

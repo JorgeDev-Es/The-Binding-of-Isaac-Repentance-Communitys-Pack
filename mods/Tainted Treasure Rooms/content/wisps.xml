@@ -1,0 +1,10 @@
+<wisps gfxroot="gfx/familiar/wisps/">
+	<color name="default" />
+	
+	<color name="flame_white" r="460" g="460" b="420"/>
+	<color name="core_white" r="510" g="510" b="510"/>
+	<color name="tear_white" r="383" g="510" b="510" or="40" og="50" ob="50"/>
+	
+	<!-- Contract of Servitude (for Bethany) -->
+	<wisp id="49" hp="3" layer="1" damage="3" flameColor="flame_white" coreColor="core_white" tearFlags="34" tearVariant="10" count="0"/>
+</wisps>

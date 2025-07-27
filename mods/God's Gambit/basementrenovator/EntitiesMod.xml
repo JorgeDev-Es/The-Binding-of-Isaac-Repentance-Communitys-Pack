@@ -1,0 +1,35 @@
+<data>
+  <tab Name="God's Gambit"/>
+
+  <group Name="God's Gambit">
+    <group Name="God's Gambit Virtues"/>
+    <group Name="God's Gambit Plagues"/>
+  </group>
+
+  <group Name="Special Bosses">
+    <group Name="God's Gambit Minibosses" Label="God's Gambit Minibosses">
+      <group Name="God's Gambit Virtues" Label="The Virtues">
+        <entity Name="Kindness" ID="714" Variant="0" Subtype="0" Image="icons/kindness.png"/>
+        <entity Name="Super Kindness" ID="714" Variant="1" Subtype="0" Image="icons/kindnessSuper.png"/>
+        <entity Name="Chastity" ID="714" Variant="10" Subtype="0" Image="icons/chastity.png"/>
+        <entity Name="Super Chastity" ID="714" Variant="11" Subtype="0" Image="icons/chastitySuper.png"/>
+        <entity Name="Charity" ID="714" Variant="20" Subtype="0" Image="icons/charity.png"/>
+        <entity Name="Super Charity" ID="714" Variant="21" Subtype="0" Image="icons/charitySuper.png"/>
+        <entity Name="Humility" ID="714" Variant="30" Subtype="0" Image="icons/humility.png"/>
+        <entity Name="Super Humility" ID="714" Variant="31" Subtype="0" Image="icons/humilitySuper.png"/>
+        <entity Name="Diligence" ID="714" Variant="40" Subtype="0" Image="icons/diligence.png"/>
+        <entity Name="Super Diligence" ID="714" Variant="41" Subtype="0" Image="icons/diligenceSuper.png"/>
+        <entity Name="Temperance" ID="714" Variant="50" Subtype="0" Image="icons/temperance.png"/>
+        <entity Name="Super Temperance" ID="714" Variant="51" Subtype="0" Image="icons/temperanceSuper.png"/>
+        <entity Name="Patience" ID="714" Variant="60" Subtype="0" Image="icons/patience.png"/>
+        <entity Name="Super Patience" ID="714" Variant="61" Subtype="0" Image="icons/patienceSuper.png"/>
+        <entity Name="Diligent Rambler" ID="714" Variant="70" Subtype="0" Image="icons/diligentRambler.png"/>
+        <entity Name="Diligent Rattler" ID="714" Variant="71" Subtype="0" Image="icons/diligentRattler.png"/>
+        <entity Name="Diligent Stickler" ID="714" Variant="72" Subtype="0" Image="icons/diligentStickler.png"/>
+        <entity Name="Diligent Slimer" ID="714" Variant="73" Subtype="0" Image="icons/diligentSlimer.png"/>
+      </group>
+      <group Name="God's Gambit Plagues" Label="The Plagues">
+      </group>
+    </group>
+  </group>
+</data>

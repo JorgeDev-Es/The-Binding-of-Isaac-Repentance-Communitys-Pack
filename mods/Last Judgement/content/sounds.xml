@@ -1,0 +1,49 @@
+<sounds root="sfx/">
+    <sound name="HotBrimstone">
+        <sample weight="1" path="HotBrimstone.wav"/>
+    </sound>
+
+    <sound name="EmbolismBreath">
+        <sample weight="1" path="EmbolismExhale1.wav"/>
+        <sample weight="1" path="EmbolismExhale2.wav"/>
+    </sound>
+
+    <sound name="LJRainLoop">
+        <sample weight="1" path="LJRainLoop.wav"/>
+    </sound>
+
+    <sound name="DonorStart">
+        <sample weight="1" path="donor_chain_start.wav"/>
+    </sound>
+    <sound name="DonorLoop">
+        <sample weight="1" path="donor_chain_loop.wav"/>
+    </sound>
+    <sound name="DonorStop">
+        <sample weight="1" path="donor_chain_stop.wav"/>
+    </sound>
+
+    <sound name="ChubsKick">
+        <sample weight="1" path="chubskick.wav"/>
+    </sound>
+    <sound name="ChubsSkrrt">
+        <sample weight="1" path="chubsskrrt.wav"/>
+    </sound>
+    <sound name="ChubsBump">
+        <sample weight="1" path="chubsbump.wav"/>
+    </sound>
+
+    <sound name="PinkyMuscleGrow">
+        <sample weight="1" path="PinkyMuscleGrow.wav"/>
+    </sound>
+    <sound name="PinkyMuscleDeflate">
+        <sample weight="1" path="PinkyMuscleDeflate.wav"/>
+    </sound>
+
+    <!--Dead Sea Scrolls-->
+	<sound name="deadseascrolls_pop">
+        <sample weight="1" path="deadseascrolls/pop.wav"/>
+    </sound>
+    <sound name="deadseascrolls_whoosh">
+        <sample weight="1" path="deadseascrolls/whoosh.wav"/>
+    </sound>
+</sounds>

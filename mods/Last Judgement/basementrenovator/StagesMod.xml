@@ -1,0 +1,64 @@
+<data>
+	<stage Name="Mortis" Stage="3" StageType="1" StageHPNum="7" Pattern="mortis">
+		<Gfx BGPrefix="backgrounds/mortis">
+			<Entity ID="10" Variant="3" SubType="0" Image="icons/vanilla/rottengaper_mortis.png" />
+			<Entity ID="10" Variant="3" SubType="1" Image="icons/vanilla/rottengaper1_mortis.png" />
+			<Entity ID="10" Variant="3" SubType="2" Image="icons/vanilla/rottengaper2_mortis.png" />
+			<Entity ID="10" Variant="3" SubType="3" Image="icons/vanilla/rottengaper3_mortis.png" />
+			<Entity ID="10" Variant="3" SubType="4" Image="icons/vanilla/rottengaper4_mortis.png" />
+			<Entity ID="10" Variant="3" SubType="5" Image="icons/vanilla/rottengaper5_mortis.png" />
+			<Entity ID="57" Variant="2" SubType="0" Image="icons/vanilla/deadmeat_mortis.png" />
+			<Entity ID="74" Variant="0" SubType="0" Image="icons/vanilla/blastocyst_big_mortis.png" />
+			<Entity ID="75" Variant="0" SubType="0" Image="icons/vanilla/blastocyst_medium_mortis.png" />
+			<Entity ID="76" Variant="0" SubType="0" Image="icons/vanilla/blastocyst_small_mortis.png" />
+			<Entity ID="77" Variant="0" SubType="0" Image="icons/vanilla/embryo_mortis.png" />
+			<Entity ID="79" Variant="0" SubType="0" Image="icons/vanilla/gemini_mortis.png" />
+			<Entity ID="310" Variant="0" SubType="0" Image="icons/vanilla/leper_mortis.png" />
+			<Entity ID="310" Variant="0" SubType="1" Image="icons/vanilla/leper2_mortis.png" />
+			<Entity ID="310" Variant="0" SubType="2" Image="icons/vanilla/leper3_mortis.png" />
+			<Entity ID="310" Variant="0" SubType="3" Image="icons/vanilla/leper4_mortis.png" />
+			<Entity ID="743" Variant="170" SubType="0" Image="icons/coil_mortis.png" />
+			<Entity ID="850" Variant="0" SubType="0" Image="icons/vanilla/lvl2gaper_mortis.png" />
+			<Entity ID="850" Variant="1" SubType="0" Image="icons/vanilla/lvl2horf_mortis.png" />
+			<Entity ID="850" Variant="2" SubType="0" Image="icons/vanilla/lvl2gusher_mortis.png" />
+			<Entity ID="852" Variant="0" SubType="0" Image="icons/vanilla/spikeball_left_mortis.png" />
+			<Entity ID="852" Variant="0" SubType="1" Image="icons/vanilla/spikeball_up_mortis.png" />
+			<Entity ID="852" Variant="0" SubType="2" Image="icons/vanilla/spikeball_right_mortis.png" />
+			<Entity ID="852" Variant="0" SubType="3" Image="icons/vanilla/spikeball_down_mortis.png" />
+			<Entity ID="862" Variant="0" SubType="0" Image="icons/vanilla/cyst_mortis.png" />
+			<Entity ID="862" Variant="0" SubType="1" Image="icons/vanilla/cyst_left_mortis.png" />
+			<Entity ID="862" Variant="0" SubType="2" Image="icons/vanilla/cyst_up_mortis.png" />
+			<Entity ID="862" Variant="0" SubType="3" Image="icons/vanilla/cyst_right_mortis.png" />
+			<Entity ID="862" Variant="0" SubType="4" Image="icons/vanilla/cyst_down_mortis.png" />
+			<Entity ID="865" Variant="0" SubType="0" Image="icons/vanilla/evis_mortis.png" />
+			
+			<Entity ID="108" Variant="117" SubType="0" Image="icons/FF/cancerboy_mortis.png" />
+			<Entity ID="160" Variant="70" SubType="0" Image="icons/FF/motorneuron_mortis.png" />
+			<Entity ID="666" Variant="140" SubType="0" Image="icons/FF/curdle_mortis.png" />
+			<Entity ID="666" Variant="141" SubType="0" Image="icons/FF/curdleNaked_mortis.png" />
+			<Entity ID="112" Variant="0" SubType="0" Image="icons/FF/valvo_mortis.png" />
+			<Entity ID="41" Variant="450" SubType="0" Image="icons/FF/gutknight_mortis.png" />
+			<Entity ID="160" Variant="290" SubType="0" Image="icons/FF/incisor_mortis.png" />
+			<Entity ID="160" Variant="32" SubType="1" Image="icons/FF/poxH_mortis.png" />
+			<Entity ID="160" Variant="32" SubType="0" Image="icons/FF/poxV_mortis.png" />
+			<Entity ID="160" Variant="1010" SubType="0" Image="icons/FF/quack_mortis.png" />
+			<Entity ID="160" Variant="930" SubType="0" Image="icons/FF/foe_mortis.png" />
+			<Entity ID="115" Variant="140" SubType="512" Image="icons/FF/redema_mortis.png" />
+			<Entity ID="451" Variant="170" SubType="0" Image="icons/FF/vacuole_mortis.png" />
+			<Entity ID="450" Variant="20" SubType="0" Image="icons/FF/weeper_mortis.png" />
+			
+			
+
+			<Entity ID="1000" Image="../resources/gfx/grid/mortis/rocks_mortis.png" />
+			<Entity ID="1000" SubType="1" Image="../resources/gfx/grid/mortis/rocks_mortis.png" />
+			<Entity ID="1001" Image="icons/mortis_bomb.png" />
+			<Entity ID="1002" Image="icons/mortis_pot.png" />
+			<Entity ID="1009" Image="../resources/gfx/grid/mortis/rocks_mortis.png" />
+			<Entity ID="1010" Image="icons/mortis_spikerock.png" />
+			<Entity ID="1900" Image="icons/mortis_block.png" />
+			<Entity ID="1901" Image="icons/mortis_tallblock.png" />
+			<Entity ID="3000" Image="../resources/gfx/grid/mortis/grid_pit_mortis.png" />
+			<Entity ID="3009" Image="../resources/gfx/grid/mortis/grid_pit_mortis.png" />
+		</Gfx>
+	</stage>
+</data>

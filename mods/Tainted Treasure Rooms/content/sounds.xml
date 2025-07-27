@@ -1,0 +1,52 @@
+<sounds root="sfx/">
+    <sound name="TaintedTreasure">
+        <sample weight="1" path="feedback/TaintedItem.wav"/>
+    </sound>
+	<sound name="Magnet Buzz">
+        <sample weight="1" path="magnetbuzz.wav"/>
+    </sound>
+    <sound name="FartBlast">
+        <sample weight="1" path="FartBlast.wav"/>
+    </sound>
+    <sound name="AtonementThrow">
+        <sample weight="1" path="AtonementThrow.wav"/>
+    </sound>
+    <sound name="AtonementImpact">
+        <sample weight="1" path="AtonementImpact.wav"/>
+    </sound>
+    <sound name="BottleBreak">
+        <sample weight="1" path="BottleBreak.wav"/>
+    </sound>
+    <sound name="BottleBreak2">
+        <sample weight="1" path="BottleBreak2.wav"/>
+    </sound>
+    <sound name="DPadBeep1">
+        <sample weight="1" path="DPadBeep1.wav"/>
+    </sound>
+    <sound name="DPadBeep2">
+        <sample weight="1" path="DPadBeep2.wav"/>
+    </sound>
+    <sound name="DPadWin">
+        <sample weight="1" path="DPadWin.wav"/>
+    </sound>
+    <sound name="DPadFail">
+        <sample weight="1" path="DPadFail.wav"/>
+    </sound>
+    <sound name="SawAmbient">
+        <sample weight="1" path="SawAmbient.wav"/>
+    </sound>
+    <sound name="SawAttach">
+        <sample weight="1" path="SawAttach.wav"/>
+    </sound>
+    <sound name="SawShoot">
+        <sample weight="1" path="SawShoot.wav"/>
+    </sound>
+	
+	<!-- DSS -->
+	<sound name="deadseascrolls_pop">
+        <sample weight="1" path="deadseascrolls/pop.wav"/>
+    </sound>
+    <sound name="deadseascrolls_whoosh">
+        <sample weight="1" path="deadseascrolls/whoosh.wav"/>
+    </sound>
+</sounds>

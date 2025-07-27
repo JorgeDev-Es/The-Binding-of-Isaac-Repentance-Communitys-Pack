@@ -1,0 +1,55 @@
+<items gfxroot="gfx/items/" version="1" deathanm2="gfx/taintedtreasure_collection.anm2">
+	<passive name="Atlas" id="0" description="Extra rooms" quality="2" gfx="collectible_atlas.png"/>
+	<passive name="The Bad Onion" id="1" description="Rage up" quality="3" gfx="collectible_badonion.png"/>
+	<passive name="Fork Bender" id="2" description="Homing redirect" quality="2" gfx="collectible_forkbender.png"/>
+	<passive name="Raw Soylent" id="3" description="Tastes like sand..." quality="2" gfx="collectible_rawsoylent.png"/>
+	<passive name="Yearning Page" blackhearts="2" id="4" description="Evil and DMG up + It wants back" quality="3" gfx="collectible_yearningpage.png" cache="damage"/>
+	<passive name="Buzzing Magnets" id="5" description="Reverse the polarity" quality="3" gfx="collectible_buzzingmagnets.png"/>
+	<passive name="Clandestine Card" id="6" description="Beneath your feet" quality="1" gfx="collectible_clandestinecard.png"/>
+	<passive name="Glad Bombs" id="7" description="Turret bombs" quality="2" gfx="collectible_gladbombs.png" bombs="5" />
+	<passive name="Cricket's Cranium" id="8" description="DMG up?" quality="4" gfx="collectible_cricketscranium.png" cache="damage" tags="noeden"/>
+	<passive name="Dionysius" id="9" description="Their turn" quality="3" gfx="collectible_dionysius.png"/>
+	<passive name="Consecration" id="10" description="Fire wave shot" quality="3" gfx="collectible_consecration.png"/>
+	<passive name="Crystal Skull" id="11" description="You can see your fate in it" quality="1" gfx="collectible_crystalskull.png"/>
+	<passive name="No Options" id="12" description="You've run out of options" quality="3" gfx="collectible_nooptions.png"/>
+	<passive name="Steamy Surprise" id="13" description="Oh cool, a freebie!" quality="3" gfx="collectible_steamysurprise.png"/>
+	<passive name="Finale" hearts="100" id="14" description="Fate chosen..." quality="2" gfx="collectible_finale.png" tags="noeden" hidden="true"/>
+	<passive name="Skeleton Lock" id="15" description="Limited keys, better locks" quality="3" gfx="collectible_skeletonlock.png"/>
+	<passive name="Salt of Magnesium" id="16" description="You feel relaxed..." quality="2" gfx="collectible_saltofmagnesium.png" tags="poop"/>
+	<passive name="Whore of Galilee" id="17" description="Love up" quality="2" gfx="collectible_whoreofgalilee.png"/>
+	<passive name="Eternal Candle" id="18" description="Embrace the curse" quality="3" gfx="collectible_eternalcandle.png"/>
+	<passive name="Overstock" id="19" description="Shop till you drop!" quality="3" gfx="collectible_overstock.png"/>
+	<passive name="Spider Freak" id="20" description="Sextuple shot..." quality="3" gfx="collectible_spiderfreak.png" cache="firedelay"/>
+	<passive name="Bugulon Super Fan" id="21" description="We hate making games" quality="3" gfx="collectible_bugulonsuperfan.png" cache="speed luck"/>
+	<passive name="Arrowhead" id="22" description="Reversed tears" quality="3" gfx="collectible_arrowhead.png" cache="range shotspeed"/>
+	<passive name="The Bottle" id="23" description="Full charge smash!" quality="4" gfx="collectible_thebottle.png"/>
+	<passive name="White Belt" id="24" description="Go easy on me" quality="3" gfx="collectible_whitebelt.png"/>
+	<passive name="D-Pad" id="25" description="Split-second reaction" quality="2" gfx="collectible_dpad.png"/>
+	<passive name="The War Maiden" id="26" description="Unstoppable" quality="2" gfx="collectible_warmaiden.png"/>
+	<familiar name="The Basilisk" id="27" description="Hell raiser" quality="2" gfx="collectible_basilisk.png"/>
+	<passive name="The Poisoned Dart" id="28" description="Close range cripple" quality="3" gfx="collectible_poisoneddart.png"/>
+	<passive name="Polycoria" id="29" description="Cluster shot" quality="4" gfx="collectible_polycoria.png" cache="range firedelay"/>
+	<passive name="Colored Contacts" id="30" description="Prismatic tears" quality="2" gfx="collectible_coloredcontacts.png" cache="shotspeed"/>
+	<passive name="The Reaper" id="31" description="Soul searer" quality="3" gfx="collectible_reaper.png"/>
+	<passive name="Dryad's Blessing" id="32" description="The seed of life" quality="2" gfx="collectible_dryadsblessing.png"/>
+	<passive name="ATG in a Jar" id="33" description="Airstike +5 bombs" quality="2" gfx="collectible_atginajar.png" bombs="5"/>
+	<passive name="Broodmind" id="34" description="They await your command" quality="2" gfx="collectible_broodmind.png" tags="fly spider"/>
+	<passive name="Tech Organelle" id="35" description="Meatware circuit" quality="3" gfx="collectible_techorganelle.png"/>
+	<passive name="Gazemaster" id="36" description="See into the past" quality="2" gfx="collectible_gazemaster.png"/>
+	<passive name="Seared Club" id="37" description="Explosive enemies" quality="0" gfx="collectible_searedclub.png"/>
+	<passive name="The Leviathan" id="38" description="Something is brewing inside" quality="3" gfx="collectible_theleviathan.png" cache="all" />
+	<passive name="The Ravenous" id="39" description="Lean into your strength" quality="1" gfx="collectible_theravenous.png" cache="all" />
+	<passive name="The Sorrowful Shallot" id="40" description="Sorrow up" quality="3" gfx="collectible_sorrowfulshallot.png" />
+	<passive name="Overcharged Battery" id="41" description="Your hair stands on end" quality="2" gfx="collectible_overchargedbattery.png"/>
+	<passive name="Lil Slugger" id="42" description="Sawblade shot" quality="4" gfx="collectible_lilslugger.png" cache="firedelay"/>
+	<passive name="Blue Canary" id="43" description="Filibuster vigilantly" quality="2" gfx="collectible_bluecanary.png"/>
+	<familiar name="Wormwood" id="44" description="Escape the light" quality="3" gfx="collectible_wormwood.png"/>
+	<passive name="The Maelstrom" id="45" description="Double tap blade vortex" quality="2" gfx="collectible_themaelstrom.png"/>
+	<passive name="Evangelism" id="46" description="Dogmatic tears" quality="4" gfx="collectible_evangelism_white.png" cache="damage firedelay shotspeed" tags="angel"/>
+	<familiar name="Lil Abyss" id="47" description="Insatiable" quality="2" gfx="collectible_lilabyss.png"/>
+	<familiar name="The Sword" id="48" description="Fish skewer" quality="2" gfx="collectible_thesword.png"/>
+	<familiar name="Contract of Servitude" id="49" description="???" quality="3" gfx="collectible_contractofservitude.png" tags="noeden" />
+	<passive name="Fractal Syndrome" id="50" description="Recursive tears" quality="2" gfx="collectible_fractalsyndrome.png" hidden="true"/>
+
+	<trinket name="Purple Star" id="0" description="More tainted treasures" gfx="trinket_purplestar.png" />
+</items>
