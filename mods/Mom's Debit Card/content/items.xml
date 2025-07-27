@@ -1,0 +1,3 @@
+<items gfxroot="gfx/items/" version="1">
+	<active name="Mom's Debit Card" description="Mom's little spender." gfx="creditcard.png" maxcharges="12" special="true" quality="4" tags="mom"/>
+</items>
