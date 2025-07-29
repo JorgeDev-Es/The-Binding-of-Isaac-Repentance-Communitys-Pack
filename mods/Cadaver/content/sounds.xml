@@ -1,5 +1,0 @@
-<sounds root="sfx/">
-	<sound name="HalitosisVocal">
-		<sample weight="1" path="halitosis_vocal.wav" />
-	</sound>
-</sounds>

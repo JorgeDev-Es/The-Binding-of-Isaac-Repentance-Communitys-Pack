@@ -1,9 +1,0 @@
-<items gfxroot="gfx/items/" deathanm2="gfx/death_items.anm2" version="1">
-	<!-- passive items -->
-	<passive id="0" name="White Bow" description="You feel protected" gfx="collectible_whitebow.png" quality="3" tags="summonable"/>
-	<passive id="1" name="Metallophagia" description="Money hungry" gfx="collectible_metalophagia.png" quality="3" tags="offensive summonable" cache="all"/>
-	
-	<!-- trinkets -->
-	<trinket id="0" name="Ossified Penny" description="Wealth of bones" gfx="trinket_ossifiedpenny.png"/>
-	<trinket id="1" cache="familiars" name="The Orphans" description="Take care of them" gfx="trinket_theorphans.png"/>
-</items>

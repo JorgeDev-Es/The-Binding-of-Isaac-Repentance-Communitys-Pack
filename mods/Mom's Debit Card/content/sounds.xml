@@ -1,8 +1,0 @@
-<sounds root="sfx/">
-   <sound id="1" name="cash sound lol">
-       <sample weight="1" path="CashRegister1.wav"/>
-   </sound>
-   <sound id="2" name="mom is bankrupt">
-       <sample weight="1" path="money theft.wav"/>
-   </sound>
-</sounds>

@@ -1,3 +1,0 @@
-Super sins don't appear in basement, cellar, or burning basement, and as far as I'm aware they don't spawn in downpour or dross either, so the super sins sprites are not edited for those floors. If anyone encounters one in downpour or dross though, let me know!
-
-Also I'm realizing now that it's pretty useless to make sprites for greed so probably not doing that either. Just in case anyone was wondering.

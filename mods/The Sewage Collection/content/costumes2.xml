@@ -1,6 +1,0 @@
-<costumes anm2root="gfx/characters/">
-	<costume anm2path="SEWCOL_haunted_rose.anm2"   type="passive" id="1" />
-	<costume anm2path="SEWCOL_plastic_bag.anm2"    type="passive" id="2" />
-	<costume anm2path="SEWCOL_slippy_tooth.anm2"   type="passive" id="3" />
-	<costume anm2path="SEWCOL_whirling_leech.anm2" type="passive" id="4" />
-</costumes>

@@ -1,8 +1,0 @@
-<sounds root="sfx/">
-	<!-- Curse of creation spawn -->
-	<sound name="CURCOL_CREATION">
-		<sample weight="1" path="CURCOL_reverse.wav" />
-		<sample weight="1" path="CURCOL_reverse_2.wav" />
-		<sample weight="1" path="CURCOL_reverse_3.wav" />
-	</sound>
-</sounds>

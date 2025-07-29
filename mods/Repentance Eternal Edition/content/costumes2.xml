@@ -1,4 +1,0 @@
-<costumes anm2root="gfx/characters/">
-	<costume anm2path="eternal.anm2" isFlying="true" priority="99" type="none" overwriteColor="true" skinColor="0" />
-	<costume anm2path="eternal2.anm2" isFlying="true" priority="99" type="none" overwriteColor="true" skinColor="0" />
-</costumes>

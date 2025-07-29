@@ -1,3 +1,0 @@
-<music root="music/">
-	<track name="LJ Mortis" path="formaldehyde.ogg" layer="formaldehyde_layer.ogg" loop="true" layermode="2" layerfadespeed="0.005" layermul="1.3"/>
-</music>

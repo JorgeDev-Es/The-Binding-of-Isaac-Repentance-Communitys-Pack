@@ -1,3 +1,0 @@
-<music root="music/">
-    <track name="Sacrificial" intro="SacrificialIntro.ogg" path="SacrificialLoop.ogg" loop="true" />
-</music>

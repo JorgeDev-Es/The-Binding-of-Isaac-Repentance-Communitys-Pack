@@ -1,5 +1,0 @@
-<cutscenes root="gfx/cutscenes/">
-	<cutscene name="Eclipse" fadeout="true">
-		<videopart file="eclipse.ogv" />
-	</cutscene>
-</cutscenes>
