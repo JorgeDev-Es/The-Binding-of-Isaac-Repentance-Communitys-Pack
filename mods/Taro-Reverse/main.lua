@@ -2777,7 +2777,7 @@ return {
   __TS__UsingAsync = __TS__UsingAsync
 }
  end,
-["src.Compatibility.EID"] = function(...) 
+["src.compatibility.EID"] = function(...) 
 local ____exports = {}
 local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
 local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
@@ -68975,12 +68975,12 @@ local game = ____isaacscript_2Dcommon.game
 local initModFeatures = ____isaacscript_2Dcommon.initModFeatures
 local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
 local upgradeMod = ____isaacscript_2Dcommon.upgradeMod
-local ____EID = require("src.Compatibility.EID")
+local ____EID = require("src.compatibility.EID")
 local initEID = ____EID.initEID
 local ____taroReverse = require("src.features.taroReverse")
 local TaroReverse = ____taroReverse.TaroReverse
 function ____exports.main(self)
-    local DEBUG = true
+    local DEBUG = false
     local modVanilla = RegisterMod("TaroReverse", 1)
     local mod = upgradeMod(nil, modVanilla)
     local MOD_FEATURES = {TaroReverse}
