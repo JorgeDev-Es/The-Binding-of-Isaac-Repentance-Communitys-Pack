@@ -68951,9 +68951,11 @@ function TaroReverse.prototype.onTaroReverseUse(self, collectibleType, _rng, pla
     if cardId > 0 and cardId < 23 then
         player:SetCard(0, cardId + 55)
         SFXManager():Play(SoundEffect.MENU_FLIP_DARK)
+        return {Discharge = true, Remove = false, ShowAnim = true}
     elseif cardId > 55 and cardId < 78 then
         player:SetCard(0, cardId - 55)
         SFXManager():Play(SoundEffect.MENU_FLIP_LIGHT)
+        return {Discharge = true, Remove = false, ShowAnim = true}
     end
     return {Discharge = false, Remove = false, ShowAnim = false}
 end
