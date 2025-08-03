@@ -2777,102 +2777,97 @@ return {
   __TS__UsingAsync = __TS__UsingAsync
 }
  end,
-["src.features.cards"] = function(...) 
+["src.data"] = function(...) 
 local ____lualib = require("lualib_bundle")
 local Set = ____lualib.Set
 local __TS__New = ____lualib.__TS__New
+local ____exports = {}
+____exports.v = {level = {collectedCards = __TS__New(Set)}}
+return ____exports
+ end,
+["src.features.bandageCard"] = function(...) 
+local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__ClassExtends = ____lualib.__TS__ClassExtends
-local __TS__StringPadStart = ____lualib.__TS__StringPadStart
+local Set = ____lualib.Set
+local __TS__New = ____lualib.__TS__New
 local __TS__DecorateLegacy = ____lualib.__TS__DecorateLegacy
 local ____exports = {}
 local ____isaac_2Dtypescript_2Ddefinitions = require("lua_modules.isaac-typescript-definitions.dist.index")
+local CardType = ____isaac_2Dtypescript_2Ddefinitions.CardType
+local CollectibleType = ____isaac_2Dtypescript_2Ddefinitions.CollectibleType
 local EntityType = ____isaac_2Dtypescript_2Ddefinitions.EntityType
 local ModCallback = ____isaac_2Dtypescript_2Ddefinitions.ModCallback
 local PickupVariant = ____isaac_2Dtypescript_2Ddefinitions.PickupVariant
 local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
 local Callback = ____isaacscript_2Dcommon.Callback
+local CallbackCustom = ____isaacscript_2Dcommon.CallbackCustom
 local getPlayers = ____isaacscript_2Dcommon.getPlayers
+local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
 local ModFeature = ____isaacscript_2Dcommon.ModFeature
-____exports.v = {level = {collectedCards = __TS__New(Set)}}
-____exports.Cards = __TS__Class()
-local Cards = ____exports.Cards
-Cards.name = "Cards"
-__TS__ClassExtends(Cards, ModFeature)
-function Cards.prototype.____constructor(self, ...)
+local ____data = require("src.data")
+local v = ____data.v
+____exports.BandageCard = __TS__Class()
+local BandageCard = ____exports.BandageCard
+BandageCard.name = "BandageCard"
+__TS__ClassExtends(BandageCard, ModFeature)
+function BandageCard.prototype.____constructor(self, ...)
     ModFeature.prototype.____constructor(self, ...)
-    self.shouldReplaceCard = __TS__New(Set, {
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        42,
-        44,
-        46,
-        48,
-        52,
-        53,
-        54,
-        56,
-        57,
-        58,
-        59,
-        60,
-        61,
-        62,
-        63,
-        64,
-        65,
-        66,
-        67,
-        68,
-        69,
-        70,
-        71,
-        72,
-        73,
-        74,
-        75,
-        76,
-        77,
-        79
-    })
-    self.cardAnm = "gfx/VisibleCard.anm2"
+    self.ID = 0
+    self.IsEIDInitialized = false
+    self.spriteSheet = "gfx/ui/Bandage Card.png"
+    self.name = "Bandage Card"
     self.pathsChecked = __TS__New(Set)
 end
-function Cards.prototype.onPostPickupInit(self, card)
-    if not self.shouldReplaceCard:has(card.SubType) then
+function BandageCard.prototype.initEID(self)
+    if self.IsEIDInitialized then
+        return
+    end
+    if not EID then
+        return
+    end
+    self.IsEIDInitialized = true
+    EID:addCard(
+        self:getID(),
+        "{{Blank}} Agrega compañera bandita xd.",
+        nil,
+        "spa"
+    )
+end
+function BandageCard.prototype.onGameStarted(self)
+    self:initEID()
+end
+__TS__DecorateLegacy(
+    {CallbackCustom(nil, ModCallbackCustom.POST_GAME_STARTED_REORDERED, nil)},
+    BandageCard.prototype,
+    "onGameStarted",
+    true
+)
+function BandageCard.prototype.onGetCard(self, rng, cardType, _includePlayingCards, _includeRunes, onlyRunes)
+    if onlyRunes or cardType == CardType.CHAOS then
+        return
+    end
+    local num = rng:RandomInt(99) + 1
+    if 2 >= num then
+        return self:getID()
+    end
+    return
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.GET_CARD)},
+    BandageCard.prototype,
+    "onGetCard",
+    true
+)
+function BandageCard.prototype.onPickupInitFilter(self, card)
+    if card.SubType ~= self:getID() then
         return
     end
     local spawnerEntity = card.SpawnerEntity
-    if not ____exports.v.level.collectedCards:has(card.InitSeed) and EID then
+    local sprite = card:GetSprite()
+    local previousAnimation = sprite:GetAnimation()
+    sprite:Load("gfx/CardsPackDrop.anm2", false)
+    if not v.level.collectedCards:has(card.InitSeed) and EID then
         local cardDescriptionObj = EID:getDescriptionObjByEntity(card)
         if EID:getEntityData(card, "EID_DontHide") then
             return
@@ -2882,31 +2877,43 @@ function Cards.prototype.onPostPickupInit(self, card)
         if (isShopItem or obstructed) and not cardDescriptionObj.ShowWhenUnidentified then
             return
         end
-        ____exports.v.level.collectedCards:add(card.InitSeed)
+        v.level.collectedCards:add(card.InitSeed)
     end
-    if ____exports.v.level.collectedCards:has(card.InitSeed) or spawnerEntity and spawnerEntity.Type == EntityType.PLAYER then
-        local sprite = card:GetSprite()
-        local previousAnimation = sprite:GetAnimation()
-        local spritesheet = ("gfx/ui/Card_" .. __TS__StringPadStart(
-            tostring(card.SubType),
-            2,
-            "0"
-        )) .. ".png"
-        sprite:Load(self.cardAnm, false)
-        sprite:ReplaceSpritesheet(0, spritesheet)
-        sprite:ReplaceSpritesheet(1, spritesheet)
+    if v.level.collectedCards:has(card.InitSeed) or spawnerEntity and spawnerEntity.Type == EntityType.PLAYER then
+        sprite:ReplaceSpritesheet(0, self.spriteSheet)
+        sprite:ReplaceSpritesheet(1, self.spriteSheet)
         sprite:LoadGraphics()
-        sprite:Play(previousAnimation, false)
-        ____exports.v.level.collectedCards:add(card.InitSeed)
+        v.level.collectedCards:add(card.InitSeed)
+    else
+        sprite:LoadGraphics()
     end
+    sprite:Play(previousAnimation, false)
 end
 __TS__DecorateLegacy(
     {Callback(nil, ModCallback.POST_PICKUP_INIT, PickupVariant.CARD)},
-    Cards.prototype,
-    "onPostPickupInit",
+    BandageCard.prototype,
+    "onPickupInitFilter",
     true
 )
-function Cards.prototype.canPathFind(self, card)
+function BandageCard.prototype.onSteamCardUse(self, cardType, player)
+    if cardType ~= self.ID then
+        return
+    end
+    player:AddCollectible(CollectibleType.BALL_OF_BANDAGES)
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_USE_CARD)},
+    BandageCard.prototype,
+    "onSteamCardUse",
+    true
+)
+function BandageCard.prototype.getID(self)
+    if self.ID == CardType.NULL then
+        self.ID = Isaac.GetCardIdByName(self.name)
+    end
+    return self.ID
+end
+function BandageCard.prototype.canPathFind(self, card)
     if self.pathsChecked:has(card.InitSeed) then
         return true
     end
@@ -68737,23 +68744,1013 @@ function EntityTakeDmgFilter.prototype.____constructor(self)
 end
 return ____exports
  end,
+["src.features.deliriumCard"] = function(...) 
+local ____lualib = require("lualib_bundle")
+local __TS__Class = ____lualib.__TS__Class
+local __TS__ClassExtends = ____lualib.__TS__ClassExtends
+local Set = ____lualib.Set
+local __TS__New = ____lualib.__TS__New
+local __TS__DecorateLegacy = ____lualib.__TS__DecorateLegacy
+local ____exports = {}
+local ____isaac_2Dtypescript_2Ddefinitions = require("lua_modules.isaac-typescript-definitions.dist.index")
+local CardType = ____isaac_2Dtypescript_2Ddefinitions.CardType
+local CollectibleType = ____isaac_2Dtypescript_2Ddefinitions.CollectibleType
+local EntityType = ____isaac_2Dtypescript_2Ddefinitions.EntityType
+local ModCallback = ____isaac_2Dtypescript_2Ddefinitions.ModCallback
+local PickupVariant = ____isaac_2Dtypescript_2Ddefinitions.PickupVariant
+local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
+local Callback = ____isaacscript_2Dcommon.Callback
+local CallbackCustom = ____isaacscript_2Dcommon.CallbackCustom
+local getPlayers = ____isaacscript_2Dcommon.getPlayers
+local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
+local ModFeature = ____isaacscript_2Dcommon.ModFeature
+local ____data = require("src.data")
+local v = ____data.v
+____exports.DeliriumCard = __TS__Class()
+local DeliriumCard = ____exports.DeliriumCard
+DeliriumCard.name = "DeliriumCard"
+__TS__ClassExtends(DeliriumCard, ModFeature)
+function DeliriumCard.prototype.____constructor(self, ...)
+    ModFeature.prototype.____constructor(self, ...)
+    self.ID = 0
+    self.IsEIDInitialized = false
+    self.spriteSheet = "gfx/ui/Delirium Card.png"
+    self.name = "Delirium Card"
+    self.pathsChecked = __TS__New(Set)
+end
+function DeliriumCard.prototype.initEID(self)
+    if self.IsEIDInitialized then
+        return
+    end
+    if not EID then
+        return
+    end
+    self.IsEIDInitialized = true
+    EID:addCard(
+        self:getID(),
+        "{{Blank}} Agrega un compañero Delirium.",
+        nil,
+        "spa"
+    )
+end
+function DeliriumCard.prototype.onGameStarted(self)
+    self:initEID()
+end
+__TS__DecorateLegacy(
+    {CallbackCustom(nil, ModCallbackCustom.POST_GAME_STARTED_REORDERED, nil)},
+    DeliriumCard.prototype,
+    "onGameStarted",
+    true
+)
+function DeliriumCard.prototype.onGetCard(self, rng, cardType, _includePlayingCards, _includeRunes, onlyRunes)
+    if onlyRunes or cardType == CardType.CHAOS then
+        return
+    end
+    local num = rng:RandomInt(99) + 1
+    if 2 >= num then
+        return self:getID()
+    end
+    return
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.GET_CARD)},
+    DeliriumCard.prototype,
+    "onGetCard",
+    true
+)
+function DeliriumCard.prototype.onPickupInit(self, card)
+    if card.SubType ~= self:getID() then
+        return
+    end
+    local spawnerEntity = card.SpawnerEntity
+    local sprite = card:GetSprite()
+    local previousAnimation = sprite:GetAnimation()
+    sprite:Load("gfx/CardsPackDrop.anm2", false)
+    if not v.level.collectedCards:has(card.InitSeed) and EID then
+        local cardDescriptionObj = EID:getDescriptionObjByEntity(card)
+        if EID:getEntityData(card, "EID_DontHide") then
+            return
+        end
+        local isShopItem = card:IsShopItem() and not EID.UserConfig.DisplayCardInfoShop
+        local obstructed = not EID.UserConfig.DisplayObstructedCardInfo and not self:canPathFind(card)
+        if (isShopItem or obstructed) and not cardDescriptionObj.ShowWhenUnidentified then
+            return
+        end
+        v.level.collectedCards:add(card.InitSeed)
+    end
+    if v.level.collectedCards:has(card.InitSeed) or spawnerEntity and spawnerEntity.Type == EntityType.PLAYER then
+        sprite:ReplaceSpritesheet(0, self.spriteSheet)
+        sprite:ReplaceSpritesheet(1, self.spriteSheet)
+        sprite:LoadGraphics()
+        v.level.collectedCards:add(card.InitSeed)
+    else
+        sprite:LoadGraphics()
+    end
+    sprite:Play(previousAnimation, false)
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_PICKUP_INIT, PickupVariant.CARD)},
+    DeliriumCard.prototype,
+    "onPickupInit",
+    true
+)
+function DeliriumCard.prototype.onDeliriumCardUse(self, cardType, player)
+    if cardType ~= self.ID then
+        return
+    end
+    player:UseActiveItem(
+        CollectibleType.DELIRIOUS,
+        false,
+        false,
+        true,
+        false
+    )
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_USE_CARD)},
+    DeliriumCard.prototype,
+    "onDeliriumCardUse",
+    true
+)
+function DeliriumCard.prototype.getID(self)
+    if self.ID == CardType.NULL then
+        self.ID = Isaac.GetCardIdByName(self.name)
+    end
+    return self.ID
+end
+function DeliriumCard.prototype.canPathFind(self, card)
+    if self.pathsChecked:has(card.InitSeed) then
+        return true
+    end
+    for ____, player in ipairs(getPlayers(nil)) do
+        if EID and EID.UserConfig.DisableObstructionOnFlight and player.CanFly or EID and EID:HasPathToPosition(player.Position, card.Position) then
+            self.pathsChecked:add(card.InitSeed)
+            return true
+        end
+    end
+    return false
+end
+return ____exports
+ end,
+["src.features.godCard"] = function(...) 
+local ____lualib = require("lualib_bundle")
+local __TS__Class = ____lualib.__TS__Class
+local __TS__ClassExtends = ____lualib.__TS__ClassExtends
+local Set = ____lualib.Set
+local __TS__New = ____lualib.__TS__New
+local __TS__DecorateLegacy = ____lualib.__TS__DecorateLegacy
+local ____exports = {}
+local ____isaac_2Dtypescript_2Ddefinitions = require("lua_modules.isaac-typescript-definitions.dist.index")
+local CacheFlag = ____isaac_2Dtypescript_2Ddefinitions.CacheFlag
+local CardType = ____isaac_2Dtypescript_2Ddefinitions.CardType
+local EntityType = ____isaac_2Dtypescript_2Ddefinitions.EntityType
+local ModCallback = ____isaac_2Dtypescript_2Ddefinitions.ModCallback
+local PickupVariant = ____isaac_2Dtypescript_2Ddefinitions.PickupVariant
+local SoundEffect = ____isaac_2Dtypescript_2Ddefinitions.SoundEffect
+local TearFlag = ____isaac_2Dtypescript_2Ddefinitions.TearFlag
+local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
+local arrayToBitFlags = ____isaacscript_2Dcommon.arrayToBitFlags
+local Callback = ____isaacscript_2Dcommon.Callback
+local CallbackCustom = ____isaacscript_2Dcommon.CallbackCustom
+local getPlayers = ____isaacscript_2Dcommon.getPlayers
+local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
+local ModFeature = ____isaacscript_2Dcommon.ModFeature
+local ____data = require("src.data")
+local v = ____data.v
+____exports.GodCard = __TS__Class()
+local GodCard = ____exports.GodCard
+GodCard.name = "GodCard"
+__TS__ClassExtends(GodCard, ModFeature)
+function GodCard.prototype.____constructor(self, ...)
+    ModFeature.prototype.____constructor(self, ...)
+    self.ID = 0
+    self.hasTemporaryEffect = false
+    self.IsEIDInitialized = false
+    self.name = "God Card"
+    self.spriteSheet = "gfx/ui/God Card.png"
+    self.pathsChecked = __TS__New(Set)
+end
+function GodCard.prototype.initEID(self)
+    if self.IsEIDInitialized then
+        return
+    end
+    if not EID then
+        return
+    end
+    self.IsEIDInitialized = true
+    EID:addCard(
+        self:getID(),
+        "{{Blank}} Durante la habitación actual:#{{Collectible331}} Otorga lagrimas con un aura que causa daño#Lagrimas teledirigidas",
+        nil,
+        "spa"
+    )
+end
+function GodCard.prototype.onGameStarted(self)
+    self:initEID()
+end
+__TS__DecorateLegacy(
+    {CallbackCustom(nil, ModCallbackCustom.POST_GAME_STARTED_REORDERED, nil)},
+    GodCard.prototype,
+    "onGameStarted",
+    true
+)
+function GodCard.prototype.onGetCard(self, rng, cardType, _includePlayingCards, _includeRunes, onlyRunes)
+    if onlyRunes or cardType == CardType.CHAOS then
+        return
+    end
+    local num = rng:RandomInt(99) + 1
+    if 2 >= num then
+        return self:getID()
+    end
+    return
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.GET_CARD)},
+    GodCard.prototype,
+    "onGetCard",
+    true
+)
+function GodCard.prototype.onPickupInitFilter(self, card)
+    if card.SubType ~= self:getID() then
+        return
+    end
+    local spawnerEntity = card.SpawnerEntity
+    local sprite = card:GetSprite()
+    local previousAnimation = sprite:GetAnimation()
+    sprite:Load("gfx/CardsPackDrop.anm2", false)
+    if not v.level.collectedCards:has(card.InitSeed) and EID then
+        local cardDescriptionObj = EID:getDescriptionObjByEntity(card)
+        if EID:getEntityData(card, "EID_DontHide") then
+            return
+        end
+        local isShopItem = card:IsShopItem() and not EID.UserConfig.DisplayCardInfoShop
+        local obstructed = not EID.UserConfig.DisplayObstructedCardInfo and not self:canPathFind(card)
+        if (isShopItem or obstructed) and not cardDescriptionObj.ShowWhenUnidentified then
+            return
+        end
+        v.level.collectedCards:add(card.InitSeed)
+    end
+    if v.level.collectedCards:has(card.InitSeed) or spawnerEntity and spawnerEntity.Type == EntityType.PLAYER then
+        sprite:ReplaceSpritesheet(0, self.spriteSheet)
+        sprite:ReplaceSpritesheet(1, self.spriteSheet)
+        sprite:LoadGraphics()
+        v.level.collectedCards:add(card.InitSeed)
+    else
+        sprite:LoadGraphics()
+    end
+    sprite:Play(previousAnimation, false)
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_PICKUP_INIT, PickupVariant.CARD)},
+    GodCard.prototype,
+    "onPickupInitFilter",
+    true
+)
+function GodCard.prototype.onGodCardUse(self, cardType, player)
+    if cardType ~= self.ID then
+        return
+    end
+    self.hasTemporaryEffect = true
+    player:AddCacheFlags(CacheFlag.TEAR_FLAG)
+    player:EvaluateItems()
+    SFXManager():Play(SoundEffect.DOGMA_ANGEL_TRANSFORM_END)
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_USE_CARD)},
+    GodCard.prototype,
+    "onGodCardUse",
+    true
+)
+function GodCard.prototype.onEvaluateCache(self, player)
+    if self.hasTemporaryEffect then
+        player.TearFlags = arrayToBitFlags(nil, {TearFlag.HOMING, TearFlag.GLOW})
+    end
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.EVALUATE_CACHE, CacheFlag.TEAR_FLAG)},
+    GodCard.prototype,
+    "onEvaluateCache",
+    true
+)
+function GodCard.prototype.onNewRoom(self)
+    if not self.hasTemporaryEffect then
+        return
+    end
+    self.hasTemporaryEffect = false
+    for ____, player in ipairs(getPlayers(nil)) do
+        player:AddCacheFlags(CacheFlag.TEAR_FLAG)
+        player:EvaluateItems()
+    end
+end
+__TS__DecorateLegacy(
+    {CallbackCustom(nil, ModCallbackCustom.POST_NEW_ROOM_REORDERED)},
+    GodCard.prototype,
+    "onNewRoom",
+    true
+)
+function GodCard.prototype.getID(self)
+    if self.ID == CardType.NULL then
+        self.ID = Isaac.GetCardIdByName(self.name)
+    end
+    return self.ID
+end
+function GodCard.prototype.canPathFind(self, card)
+    if self.pathsChecked:has(card.InitSeed) then
+        return true
+    end
+    for ____, player in ipairs(getPlayers(nil)) do
+        if EID and EID.UserConfig.DisableObstructionOnFlight and player.CanFly or EID and EID:HasPathToPosition(player.Position, card.Position) then
+            self.pathsChecked:add(card.InitSeed)
+            return true
+        end
+    end
+    return false
+end
+return ____exports
+ end,
+["src.features.meatCard"] = function(...) 
+local ____lualib = require("lualib_bundle")
+local __TS__Class = ____lualib.__TS__Class
+local __TS__ClassExtends = ____lualib.__TS__ClassExtends
+local Set = ____lualib.Set
+local __TS__New = ____lualib.__TS__New
+local __TS__DecorateLegacy = ____lualib.__TS__DecorateLegacy
+local ____exports = {}
+local ____isaac_2Dtypescript_2Ddefinitions = require("lua_modules.isaac-typescript-definitions.dist.index")
+local CardType = ____isaac_2Dtypescript_2Ddefinitions.CardType
+local CollectibleType = ____isaac_2Dtypescript_2Ddefinitions.CollectibleType
+local EntityType = ____isaac_2Dtypescript_2Ddefinitions.EntityType
+local ModCallback = ____isaac_2Dtypescript_2Ddefinitions.ModCallback
+local PickupVariant = ____isaac_2Dtypescript_2Ddefinitions.PickupVariant
+local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
+local Callback = ____isaacscript_2Dcommon.Callback
+local CallbackCustom = ____isaacscript_2Dcommon.CallbackCustom
+local getPlayers = ____isaacscript_2Dcommon.getPlayers
+local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
+local ModFeature = ____isaacscript_2Dcommon.ModFeature
+local ____data = require("src.data")
+local v = ____data.v
+____exports.MeatCard = __TS__Class()
+local MeatCard = ____exports.MeatCard
+MeatCard.name = "MeatCard"
+__TS__ClassExtends(MeatCard, ModFeature)
+function MeatCard.prototype.____constructor(self, ...)
+    ModFeature.prototype.____constructor(self, ...)
+    self.ID = 0
+    self.IsEIDInitialized = false
+    self.spriteSheet = "gfx/ui/Meat Card.png"
+    self.name = "Meat Card"
+    self.pathsChecked = __TS__New(Set)
+end
+function MeatCard.prototype.initEID(self)
+    if self.IsEIDInitialized then
+        return
+    end
+    if not EID then
+        return
+    end
+    self.IsEIDInitialized = true
+    EID:addCard(
+        self:getID(),
+        "{{Blank}} Agrega compañero carne.",
+        nil,
+        "spa"
+    )
+end
+function MeatCard.prototype.onGameStarted(self)
+    self:initEID()
+end
+__TS__DecorateLegacy(
+    {CallbackCustom(nil, ModCallbackCustom.POST_GAME_STARTED_REORDERED, nil)},
+    MeatCard.prototype,
+    "onGameStarted",
+    true
+)
+function MeatCard.prototype.onGetCard(self, rng, cardType, _includePlayingCards, _includeRunes, onlyRunes)
+    if onlyRunes or cardType == CardType.CHAOS then
+        return
+    end
+    local num = rng:RandomInt(99) + 1
+    if 2 >= num then
+        return self:getID()
+    end
+    return
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.GET_CARD)},
+    MeatCard.prototype,
+    "onGetCard",
+    true
+)
+function MeatCard.prototype.onPickupInitFilter(self, card)
+    if card.SubType ~= self:getID() then
+        return
+    end
+    local spawnerEntity = card.SpawnerEntity
+    local sprite = card:GetSprite()
+    local previousAnimation = sprite:GetAnimation()
+    sprite:Load("gfx/CardsPackDrop.anm2", false)
+    if not v.level.collectedCards:has(card.InitSeed) and EID then
+        local cardDescriptionObj = EID:getDescriptionObjByEntity(card)
+        if EID:getEntityData(card, "EID_DontHide") then
+            return
+        end
+        local isShopItem = card:IsShopItem() and not EID.UserConfig.DisplayCardInfoShop
+        local obstructed = not EID.UserConfig.DisplayObstructedCardInfo and not self:canPathFind(card)
+        if (isShopItem or obstructed) and not cardDescriptionObj.ShowWhenUnidentified then
+            return
+        end
+        v.level.collectedCards:add(card.InitSeed)
+    end
+    if v.level.collectedCards:has(card.InitSeed) or spawnerEntity and spawnerEntity.Type == EntityType.PLAYER then
+        sprite:ReplaceSpritesheet(0, self.spriteSheet)
+        sprite:ReplaceSpritesheet(1, self.spriteSheet)
+        sprite:LoadGraphics()
+        v.level.collectedCards:add(card.InitSeed)
+    else
+        sprite:LoadGraphics()
+    end
+    sprite:Play(previousAnimation, false)
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_PICKUP_INIT, PickupVariant.CARD)},
+    MeatCard.prototype,
+    "onPickupInitFilter",
+    true
+)
+function MeatCard.prototype.onSteamCardUse(self, cardType, player)
+    if cardType ~= self.ID then
+        return
+    end
+    player:AddCollectible(CollectibleType.CUBE_OF_MEAT)
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_USE_CARD)},
+    MeatCard.prototype,
+    "onSteamCardUse",
+    true
+)
+function MeatCard.prototype.getID(self)
+    if self.ID == CardType.NULL then
+        self.ID = Isaac.GetCardIdByName(self.name)
+    end
+    return self.ID
+end
+function MeatCard.prototype.canPathFind(self, card)
+    if self.pathsChecked:has(card.InitSeed) then
+        return true
+    end
+    for ____, player in ipairs(getPlayers(nil)) do
+        if EID and EID.UserConfig.DisableObstructionOnFlight and player.CanFly or EID and EID:HasPathToPosition(player.Position, card.Position) then
+            self.pathsChecked:add(card.InitSeed)
+            return true
+        end
+    end
+    return false
+end
+return ____exports
+ end,
+["src.features.mirrorCard"] = function(...) 
+local ____lualib = require("lualib_bundle")
+local __TS__Class = ____lualib.__TS__Class
+local __TS__ClassExtends = ____lualib.__TS__ClassExtends
+local Set = ____lualib.Set
+local __TS__New = ____lualib.__TS__New
+local __TS__DecorateLegacy = ____lualib.__TS__DecorateLegacy
+local ____exports = {}
+local ____isaac_2Dtypescript_2Ddefinitions = require("lua_modules.isaac-typescript-definitions.dist.index")
+local CardType = ____isaac_2Dtypescript_2Ddefinitions.CardType
+local CollectibleType = ____isaac_2Dtypescript_2Ddefinitions.CollectibleType
+local EntityType = ____isaac_2Dtypescript_2Ddefinitions.EntityType
+local ModCallback = ____isaac_2Dtypescript_2Ddefinitions.ModCallback
+local PickupVariant = ____isaac_2Dtypescript_2Ddefinitions.PickupVariant
+local SoundEffect = ____isaac_2Dtypescript_2Ddefinitions.SoundEffect
+local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
+local Callback = ____isaacscript_2Dcommon.Callback
+local CallbackCustom = ____isaacscript_2Dcommon.CallbackCustom
+local getPlayers = ____isaacscript_2Dcommon.getPlayers
+local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
+local ModFeature = ____isaacscript_2Dcommon.ModFeature
+local ____data = require("src.data")
+local v = ____data.v
+____exports.MirrorCard = __TS__Class()
+local MirrorCard = ____exports.MirrorCard
+MirrorCard.name = "MirrorCard"
+__TS__ClassExtends(MirrorCard, ModFeature)
+function MirrorCard.prototype.____constructor(self, ...)
+    ModFeature.prototype.____constructor(self, ...)
+    self.ID = 0
+    self.IsEIDInitialized = false
+    self.spriteSheet = "gfx/ui/Mirror Card.png"
+    self.name = "Mirror Card"
+    self.pathsChecked = __TS__New(Set)
+end
+function MirrorCard.prototype.initEID(self)
+    if self.IsEIDInitialized then
+        return
+    end
+    if not EID then
+        return
+    end
+    self.IsEIDInitialized = true
+    EID:addCard(
+        self:getID(),
+        "{{Blank}} Cambia todos los objetos pasivos de Isaac.",
+        nil,
+        "spa"
+    )
+end
+function MirrorCard.prototype.onGameStarted(self)
+    self:initEID()
+end
+__TS__DecorateLegacy(
+    {CallbackCustom(nil, ModCallbackCustom.POST_GAME_STARTED_REORDERED, nil)},
+    MirrorCard.prototype,
+    "onGameStarted",
+    true
+)
+function MirrorCard.prototype.onGetCard(self, rng, cardType, _includePlayingCards, _includeRunes, onlyRunes)
+    if onlyRunes or cardType == CardType.CHAOS then
+        return
+    end
+    local num = rng:RandomInt(99) + 1
+    if 2 >= num then
+        return self:getID()
+    end
+    return
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.GET_CARD)},
+    MirrorCard.prototype,
+    "onGetCard",
+    true
+)
+function MirrorCard.prototype.onPickupInit(self, card)
+    if card.SubType ~= self:getID() then
+        return
+    end
+    local spawnerEntity = card.SpawnerEntity
+    local sprite = card:GetSprite()
+    local previousAnimation = sprite:GetAnimation()
+    sprite:Load("gfx/CardsPackDrop.anm2", false)
+    if not v.level.collectedCards:has(card.InitSeed) and EID then
+        local cardDescriptionObj = EID:getDescriptionObjByEntity(card)
+        if EID:getEntityData(card, "EID_DontHide") then
+            return
+        end
+        local isShopItem = card:IsShopItem() and not EID.UserConfig.DisplayCardInfoShop
+        local obstructed = not EID.UserConfig.DisplayObstructedCardInfo and not self:canPathFind(card)
+        if (isShopItem or obstructed) and not cardDescriptionObj.ShowWhenUnidentified then
+            return
+        end
+        v.level.collectedCards:add(card.InitSeed)
+    end
+    if v.level.collectedCards:has(card.InitSeed) or spawnerEntity and spawnerEntity.Type == EntityType.PLAYER then
+        sprite:ReplaceSpritesheet(0, self.spriteSheet)
+        sprite:ReplaceSpritesheet(1, self.spriteSheet)
+        sprite:LoadGraphics()
+        v.level.collectedCards:add(card.InitSeed)
+    else
+        sprite:LoadGraphics()
+    end
+    sprite:Play(previousAnimation, false)
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_PICKUP_INIT, PickupVariant.CARD)},
+    MirrorCard.prototype,
+    "onPickupInit",
+    true
+)
+function MirrorCard.prototype.onMirrorCardUse(self, cardType, player)
+    if cardType ~= self.ID then
+        return
+    end
+    player:UseActiveItem(
+        CollectibleType.D4,
+        false,
+        false,
+        true,
+        false
+    )
+    SFXManager():Play(SoundEffect.BEEP)
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_USE_CARD)},
+    MirrorCard.prototype,
+    "onMirrorCardUse",
+    true
+)
+function MirrorCard.prototype.getID(self)
+    if self.ID == CardType.NULL then
+        self.ID = Isaac.GetCardIdByName(self.name)
+    end
+    return self.ID
+end
+function MirrorCard.prototype.canPathFind(self, card)
+    if self.pathsChecked:has(card.InitSeed) then
+        return true
+    end
+    for ____, player in ipairs(getPlayers(nil)) do
+        if EID and EID.UserConfig.DisableObstructionOnFlight and player.CanFly or EID and EID:HasPathToPosition(player.Position, card.Position) then
+            self.pathsChecked:add(card.InitSeed)
+            return true
+        end
+    end
+    return false
+end
+return ____exports
+ end,
+["src.features.steamCard"] = function(...) 
+local ____lualib = require("lualib_bundle")
+local __TS__Class = ____lualib.__TS__Class
+local __TS__ClassExtends = ____lualib.__TS__ClassExtends
+local Set = ____lualib.Set
+local __TS__New = ____lualib.__TS__New
+local __TS__DecorateLegacy = ____lualib.__TS__DecorateLegacy
+local ____exports = {}
+local ____isaac_2Dtypescript_2Ddefinitions = require("lua_modules.isaac-typescript-definitions.dist.index")
+local CardType = ____isaac_2Dtypescript_2Ddefinitions.CardType
+local EntityType = ____isaac_2Dtypescript_2Ddefinitions.EntityType
+local ModCallback = ____isaac_2Dtypescript_2Ddefinitions.ModCallback
+local PickupVariant = ____isaac_2Dtypescript_2Ddefinitions.PickupVariant
+local RoomType = ____isaac_2Dtypescript_2Ddefinitions.RoomType
+local SoundEffect = ____isaac_2Dtypescript_2Ddefinitions.SoundEffect
+local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
+local Callback = ____isaacscript_2Dcommon.Callback
+local CallbackCustom = ____isaacscript_2Dcommon.CallbackCustom
+local game = ____isaacscript_2Dcommon.game
+local getPickups = ____isaacscript_2Dcommon.getPickups
+local getPlayers = ____isaacscript_2Dcommon.getPlayers
+local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
+local ModFeature = ____isaacscript_2Dcommon.ModFeature
+local ____data = require("src.data")
+local v = ____data.v
+____exports.SteamCard = __TS__Class()
+local SteamCard = ____exports.SteamCard
+SteamCard.name = "SteamCard"
+__TS__ClassExtends(SteamCard, ModFeature)
+function SteamCard.prototype.____constructor(self, ...)
+    ModFeature.prototype.____constructor(self, ...)
+    self.ID = 0
+    self.IsEIDInitialized = false
+    self.spriteSheet = "gfx/ui/Steam Card.png"
+    self.name = "Steam Card"
+    self.pathsChecked = __TS__New(Set)
+end
+function SteamCard.prototype.initEID(self)
+    if self.IsEIDInitialized then
+        return
+    end
+    if not EID then
+        return
+    end
+    self.IsEIDInitialized = true
+    EID:addCard(
+        self:getID(),
+        "{{Blank}} Reduce todos los precios de la tienda.",
+        nil,
+        "spa"
+    )
+end
+function SteamCard.prototype.onGameStarted(self)
+    self:initEID()
+end
+__TS__DecorateLegacy(
+    {CallbackCustom(nil, ModCallbackCustom.POST_GAME_STARTED_REORDERED, nil)},
+    SteamCard.prototype,
+    "onGameStarted",
+    true
+)
+function SteamCard.prototype.onGetCard(self, rng, cardType, _includePlayingCards, _includeRunes, onlyRunes)
+    if onlyRunes or cardType == CardType.CHAOS then
+        return
+    end
+    local num = rng:RandomInt(99) + 1
+    if 2 >= num then
+        return self:getID()
+    end
+    return
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.GET_CARD)},
+    SteamCard.prototype,
+    "onGetCard",
+    true
+)
+function SteamCard.prototype.onPickupInitFilter(self, card)
+    if card.SubType ~= self:getID() then
+        return
+    end
+    local spawnerEntity = card.SpawnerEntity
+    local sprite = card:GetSprite()
+    local previousAnimation = sprite:GetAnimation()
+    sprite:Load("gfx/CardsPackDrop.anm2", false)
+    if not v.level.collectedCards:has(card.InitSeed) and EID then
+        local cardDescriptionObj = EID:getDescriptionObjByEntity(card)
+        if EID:getEntityData(card, "EID_DontHide") then
+            return
+        end
+        local isShopItem = card:IsShopItem() and not EID.UserConfig.DisplayCardInfoShop
+        local obstructed = not EID.UserConfig.DisplayObstructedCardInfo and not self:canPathFind(card)
+        if (isShopItem or obstructed) and not cardDescriptionObj.ShowWhenUnidentified then
+            return
+        end
+        v.level.collectedCards:add(card.InitSeed)
+    end
+    if v.level.collectedCards:has(card.InitSeed) or spawnerEntity and spawnerEntity.Type == EntityType.PLAYER then
+        sprite:ReplaceSpritesheet(0, self.spriteSheet)
+        sprite:ReplaceSpritesheet(1, self.spriteSheet)
+        sprite:LoadGraphics()
+        v.level.collectedCards:add(card.InitSeed)
+    else
+        sprite:LoadGraphics()
+    end
+    sprite:Play(previousAnimation, false)
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_PICKUP_INIT, PickupVariant.CARD)},
+    SteamCard.prototype,
+    "onPickupInitFilter",
+    true
+)
+function SteamCard.prototype.onSteamCardUse(self, cardType)
+    if cardType ~= self.ID then
+        return
+    end
+    local room = game:GetLevel():GetCurrentRoom()
+    if room:GetType() ~= RoomType.SHOP then
+        return
+    end
+    for ____, pickup in ipairs(getPickups(nil)) do
+        do
+            if not pickup:IsShopItem() then
+                goto __continue19
+            end
+            pickup.AutoUpdatePrice = false
+            if pickup.Variant == PickupVariant.COLLECTIBLE then
+                pickup.Price = room:TryGetShopDiscount(pickup.ShopItemId, 3)
+            else
+                pickup.Price = room:TryGetShopDiscount(pickup.ShopItemId, 1)
+            end
+            SFXManager():Play(SoundEffect.ULTRA_GREED_COINS_FALLING)
+        end
+        ::__continue19::
+    end
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_USE_CARD)},
+    SteamCard.prototype,
+    "onSteamCardUse",
+    true
+)
+function SteamCard.prototype.getID(self)
+    if self.ID == CardType.NULL then
+        self.ID = Isaac.GetCardIdByName(self.name)
+    end
+    return self.ID
+end
+function SteamCard.prototype.canPathFind(self, card)
+    if self.pathsChecked:has(card.InitSeed) then
+        return true
+    end
+    for ____, player in ipairs(getPlayers(nil)) do
+        if EID and EID.UserConfig.DisableObstructionOnFlight and player.CanFly or EID and EID:HasPathToPosition(player.Position, card.Position) then
+            self.pathsChecked:add(card.InitSeed)
+            return true
+        end
+    end
+    return false
+end
+return ____exports
+ end,
+["src.features.fetusCard"] = function(...) 
+local ____lualib = require("lualib_bundle")
+local __TS__Class = ____lualib.__TS__Class
+local __TS__ClassExtends = ____lualib.__TS__ClassExtends
+local Set = ____lualib.Set
+local __TS__New = ____lualib.__TS__New
+local __TS__DecorateLegacy = ____lualib.__TS__DecorateLegacy
+local ____exports = {}
+local ____isaac_2Dtypescript_2Ddefinitions = require("lua_modules.isaac-typescript-definitions.dist.index")
+local CardType = ____isaac_2Dtypescript_2Ddefinitions.CardType
+local CoinSubType = ____isaac_2Dtypescript_2Ddefinitions.CoinSubType
+local CollectibleType = ____isaac_2Dtypescript_2Ddefinitions.CollectibleType
+local EntityType = ____isaac_2Dtypescript_2Ddefinitions.EntityType
+local ModCallback = ____isaac_2Dtypescript_2Ddefinitions.ModCallback
+local PickupVariant = ____isaac_2Dtypescript_2Ddefinitions.PickupVariant
+local SoundEffect = ____isaac_2Dtypescript_2Ddefinitions.SoundEffect
+local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
+local Callback = ____isaacscript_2Dcommon.Callback
+local CallbackCustom = ____isaacscript_2Dcommon.CallbackCustom
+local getPlayers = ____isaacscript_2Dcommon.getPlayers
+local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
+local ModFeature = ____isaacscript_2Dcommon.ModFeature
+local sfxManager = ____isaacscript_2Dcommon.sfxManager
+local spawnCoin = ____isaacscript_2Dcommon.spawnCoin
+local ____data = require("src.data")
+local v = ____data.v
+____exports.FetusCard = __TS__Class()
+local FetusCard = ____exports.FetusCard
+FetusCard.name = "FetusCard"
+__TS__ClassExtends(FetusCard, ModFeature)
+function FetusCard.prototype.____constructor(self, ...)
+    ModFeature.prototype.____constructor(self, ...)
+    self.ID = 0
+    self.IsEIDInitialized = false
+    self.spriteSheet = "gfx/ui/Fetus Card.png"
+    self.name = "Fetus Card"
+    self.pathsChecked = __TS__New(Set)
+    self.rng = RNG()
+end
+function FetusCard.prototype.initEID(self)
+    if self.IsEIDInitialized then
+        return
+    end
+    if not EID then
+        return
+    end
+    self.IsEIDInitialized = true
+    EID:addCard(
+        self:getID(),
+        "{{Blank}} Agrega un compañero feto..",
+        nil,
+        "spa"
+    )
+end
+function FetusCard.prototype.onGameStarted(self)
+    self:initEID()
+end
+__TS__DecorateLegacy(
+    {CallbackCustom(nil, ModCallbackCustom.POST_GAME_STARTED_REORDERED, nil)},
+    FetusCard.prototype,
+    "onGameStarted",
+    true
+)
+function FetusCard.prototype.onGetCard(self, rng, cardType, _includePlayingCards, _includeRunes, onlyRunes)
+    if onlyRunes or cardType == CardType.CHAOS then
+        return
+    end
+    local num = rng:RandomInt(99) + 1
+    if 2 >= num then
+        return self:getID()
+    end
+    return
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.GET_CARD)},
+    FetusCard.prototype,
+    "onGetCard",
+    true
+)
+function FetusCard.prototype.onPickupInitFilter(self, card)
+    if card.SubType ~= self:getID() then
+        return
+    end
+    local spawnerEntity = card.SpawnerEntity
+    local sprite = card:GetSprite()
+    local previousAnimation = sprite:GetAnimation()
+    sprite:Load("gfx/CardsPackDrop.anm2", false)
+    if not v.level.collectedCards:has(card.InitSeed) and EID then
+        local cardDescriptionObj = EID:getDescriptionObjByEntity(card)
+        if EID:getEntityData(card, "EID_DontHide") then
+            return
+        end
+        local isShopItem = card:IsShopItem() and not EID.UserConfig.DisplayCardInfoShop
+        local obstructed = not EID.UserConfig.DisplayObstructedCardInfo and not self:canPathFind(card)
+        if (isShopItem or obstructed) and not cardDescriptionObj.ShowWhenUnidentified then
+            return
+        end
+        v.level.collectedCards:add(card.InitSeed)
+    end
+    if v.level.collectedCards:has(card.InitSeed) or spawnerEntity and spawnerEntity.Type == EntityType.PLAYER then
+        sprite:ReplaceSpritesheet(0, self.spriteSheet)
+        sprite:ReplaceSpritesheet(1, self.spriteSheet)
+        sprite:LoadGraphics()
+        v.level.collectedCards:add(card.InitSeed)
+    else
+        sprite:LoadGraphics()
+    end
+    sprite:Play(previousAnimation, false)
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_PICKUP_INIT, PickupVariant.CARD)},
+    FetusCard.prototype,
+    "onPickupInitFilter",
+    true
+)
+function FetusCard.prototype.onSteamCardUse(self, cardType, player)
+    if cardType ~= self.ID then
+        return
+    end
+    local rnd = self.rng:RandomInt(100) + 1
+    if rnd <= 25 then
+        if player:HasCollectible(CollectibleType.ABEL) then
+            sfxManager:Play(SoundEffect.BOSS_2_INTRO_ERROR_BUZZ)
+            spawnCoin(
+                nil,
+                CoinSubType.PENNY,
+                player.Position + Vector(0, 30)
+            )
+            return
+        end
+        player:AddCollectible(CollectibleType.ABEL)
+    elseif rnd <= 50 then
+        if player:HasCollectible(CollectibleType.ROTTEN_BABY) then
+            sfxManager:Play(SoundEffect.BOSS_2_INTRO_ERROR_BUZZ)
+            spawnCoin(
+                nil,
+                CoinSubType.PENNY,
+                player.Position + Vector(0, 30)
+            )
+            return
+        end
+        player:AddCollectible(CollectibleType.ROTTEN_BABY)
+    elseif rnd <= 75 then
+        if player:HasCollectible(CollectibleType.LITTLE_STEVEN) then
+            sfxManager:Play(SoundEffect.BOSS_2_INTRO_ERROR_BUZZ)
+            spawnCoin(
+                nil,
+                CoinSubType.PENNY,
+                player.Position + Vector(0, 30)
+            )
+            return
+        end
+        player:AddCollectible(CollectibleType.LITTLE_STEVEN)
+    else
+        if player:HasCollectible(CollectibleType.LIL_BRIMSTONE) then
+            sfxManager:Play(SoundEffect.BOSS_2_INTRO_ERROR_BUZZ)
+            spawnCoin(
+                nil,
+                CoinSubType.PENNY,
+                player.Position + Vector(0, 30)
+            )
+            return
+        end
+        player:AddCollectible(CollectibleType.LIL_BRIMSTONE)
+    end
+end
+__TS__DecorateLegacy(
+    {Callback(nil, ModCallback.POST_USE_CARD)},
+    FetusCard.prototype,
+    "onSteamCardUse",
+    true
+)
+function FetusCard.prototype.getID(self)
+    if self.ID == CardType.NULL then
+        self.ID = Isaac.GetCardIdByName(self.name)
+    end
+    return self.ID
+end
+function FetusCard.prototype.canPathFind(self, card)
+    if self.pathsChecked:has(card.InitSeed) then
+        return true
+    end
+    for ____, player in ipairs(getPlayers(nil)) do
+        if EID and EID.UserConfig.DisableObstructionOnFlight and player.CanFly or EID and EID:HasPathToPosition(player.Position, card.Position) then
+            self.pathsChecked:add(card.InitSeed)
+            return true
+        end
+    end
+    return false
+end
+return ____exports
+ end,
 ["src.mod"] = function(...) 
 local ____exports = {}
 local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
 local ISCFeature = ____isaacscript_2Dcommon.ISCFeature
 local initModFeatures = ____isaacscript_2Dcommon.initModFeatures
 local upgradeMod = ____isaacscript_2Dcommon.upgradeMod
-local ____cards = require("src.features.cards")
-local Cards = ____cards.Cards
-local v = ____cards.v
+local ____data = require("src.data")
+local v = ____data.v
+local ____bandageCard = require("src.features.bandageCard")
+local BandageCard = ____bandageCard.BandageCard
+local ____deliriumCard = require("src.features.deliriumCard")
+local DeliriumCard = ____deliriumCard.DeliriumCard
+local ____godCard = require("src.features.godCard")
+local GodCard = ____godCard.GodCard
+local ____meatCard = require("src.features.meatCard")
+local MeatCard = ____meatCard.MeatCard
+local ____mirrorCard = require("src.features.mirrorCard")
+local MirrorCard = ____mirrorCard.MirrorCard
+local ____steamCard = require("src.features.steamCard")
+local SteamCard = ____steamCard.SteamCard
+local ____fetusCard = require("src.features.fetusCard")
+local FetusCard = ____fetusCard.FetusCard
 function ____exports.main(self)
-    local modVanilla = RegisterMod("VisibleCardsReduxAndBetterCards", 1)
+    local modVanilla = RegisterMod("CardsPack", 1)
     local mod = upgradeMod(nil, modVanilla, {ISCFeature.SAVE_DATA_MANAGER})
-    local MOD_FEATURES = {Cards}
+    local MOD_FEATURES = {
+        GodCard,
+        MirrorCard,
+        SteamCard,
+        DeliriumCard,
+        MeatCard,
+        BandageCard,
+        FetusCard
+    }
     initModFeatures(nil, mod, MOD_FEATURES)
-    mod:saveDataManager("Cards", v)
-    Isaac.DebugString("--------------------------")
-    Isaac.DebugString("Visible Cards Redux Loaded")
+    mod:saveDataManager("Cards Pack", v)
 end
 return ____exports
  end,

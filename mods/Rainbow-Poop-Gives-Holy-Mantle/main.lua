@@ -2777,147 +2777,60 @@ return {
   __TS__UsingAsync = __TS__UsingAsync
 }
  end,
-["src.features.cards"] = function(...) 
+["src.features.rainbowPoopGivesMantle"] = function(...) 
 local ____lualib = require("lualib_bundle")
-local Set = ____lualib.Set
-local __TS__New = ____lualib.__TS__New
 local __TS__Class = ____lualib.__TS__Class
 local __TS__ClassExtends = ____lualib.__TS__ClassExtends
-local __TS__StringPadStart = ____lualib.__TS__StringPadStart
+local Set = ____lualib.Set
+local __TS__New = ____lualib.__TS__New
 local __TS__DecorateLegacy = ____lualib.__TS__DecorateLegacy
 local ____exports = {}
 local ____isaac_2Dtypescript_2Ddefinitions = require("lua_modules.isaac-typescript-definitions.dist.index")
-local EntityType = ____isaac_2Dtypescript_2Ddefinitions.EntityType
-local ModCallback = ____isaac_2Dtypescript_2Ddefinitions.ModCallback
-local PickupVariant = ____isaac_2Dtypescript_2Ddefinitions.PickupVariant
+local CardType = ____isaac_2Dtypescript_2Ddefinitions.CardType
+local PlayerType = ____isaac_2Dtypescript_2Ddefinitions.PlayerType
+local PoopGridEntityVariant = ____isaac_2Dtypescript_2Ddefinitions.PoopGridEntityVariant
+local PoopState = ____isaac_2Dtypescript_2Ddefinitions.PoopState
+local UseFlag = ____isaac_2Dtypescript_2Ddefinitions.UseFlag
 local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
-local Callback = ____isaacscript_2Dcommon.Callback
+local arrayToBitFlags = ____isaacscript_2Dcommon.arrayToBitFlags
+local CallbackCustom = ____isaacscript_2Dcommon.CallbackCustom
 local getPlayers = ____isaacscript_2Dcommon.getPlayers
+local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
 local ModFeature = ____isaacscript_2Dcommon.ModFeature
-____exports.v = {level = {collectedCards = __TS__New(Set)}}
-____exports.Cards = __TS__Class()
-local Cards = ____exports.Cards
-Cards.name = "Cards"
-__TS__ClassExtends(Cards, ModFeature)
-function Cards.prototype.____constructor(self, ...)
+____exports.RainbowPoopGivesMantle = __TS__Class()
+local RainbowPoopGivesMantle = ____exports.RainbowPoopGivesMantle
+RainbowPoopGivesMantle.name = "RainbowPoopGivesMantle"
+__TS__ClassExtends(RainbowPoopGivesMantle, ModFeature)
+function RainbowPoopGivesMantle.prototype.____constructor(self, ...)
     ModFeature.prototype.____constructor(self, ...)
-    self.shouldReplaceCard = __TS__New(Set, {
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        42,
-        44,
-        46,
-        48,
-        52,
-        53,
-        54,
-        56,
-        57,
-        58,
-        59,
-        60,
-        61,
-        62,
-        63,
-        64,
-        65,
-        66,
-        67,
-        68,
-        69,
-        70,
-        71,
-        72,
-        73,
-        74,
-        75,
-        76,
-        77,
-        79
-    })
-    self.cardAnm = "gfx/VisibleCard.anm2"
-    self.pathsChecked = __TS__New(Set)
+    self.destroyedPoops = __TS__New(Set)
 end
-function Cards.prototype.onPostPickupInit(self, card)
-    if not self.shouldReplaceCard:has(card.SubType) then
-        return
-    end
-    local spawnerEntity = card.SpawnerEntity
-    if not ____exports.v.level.collectedCards:has(card.InitSeed) and EID then
-        local cardDescriptionObj = EID:getDescriptionObjByEntity(card)
-        if EID:getEntityData(card, "EID_DontHide") then
+function RainbowPoopGivesMantle.prototype.onPoopUpdate(self, poop)
+    if poop.State == PoopState.COMPLETELY_DESTROYED then
+        if self.destroyedPoops:has(poop:GetRNG():GetSeed()) then
             return
         end
-        local isShopItem = card:IsShopItem() and not EID.UserConfig.DisplayCardInfoShop
-        local obstructed = not EID.UserConfig.DisplayObstructedCardInfo and not self:canPathFind(card)
-        if (isShopItem or obstructed) and not cardDescriptionObj.ShowWhenUnidentified then
-            return
+        self.destroyedPoops:add(poop:GetRNG():GetSeed())
+        for ____, player in ipairs(getPlayers(nil)) do
+            do
+                if player:GetPlayerType() ~= PlayerType.LOST_B then
+                    goto __continue5
+                end
+                player:UseCard(
+                    CardType.HOLY,
+                    arrayToBitFlags(nil, {UseFlag.NO_ANIMATION, UseFlag.NO_HUD, UseFlag.NO_ANNOUNCER_VOICE})
+                )
+            end
+            ::__continue5::
         end
-        ____exports.v.level.collectedCards:add(card.InitSeed)
-    end
-    if ____exports.v.level.collectedCards:has(card.InitSeed) or spawnerEntity and spawnerEntity.Type == EntityType.PLAYER then
-        local sprite = card:GetSprite()
-        local previousAnimation = sprite:GetAnimation()
-        local spritesheet = ("gfx/ui/Card_" .. __TS__StringPadStart(
-            tostring(card.SubType),
-            2,
-            "0"
-        )) .. ".png"
-        sprite:Load(self.cardAnm, false)
-        sprite:ReplaceSpritesheet(0, spritesheet)
-        sprite:ReplaceSpritesheet(1, spritesheet)
-        sprite:LoadGraphics()
-        sprite:Play(previousAnimation, false)
-        ____exports.v.level.collectedCards:add(card.InitSeed)
     end
 end
 __TS__DecorateLegacy(
-    {Callback(nil, ModCallback.POST_PICKUP_INIT, PickupVariant.CARD)},
-    Cards.prototype,
-    "onPostPickupInit",
+    {CallbackCustom(nil, ModCallbackCustom.POST_POOP_UPDATE, PoopGridEntityVariant.RAINBOW)},
+    RainbowPoopGivesMantle.prototype,
+    "onPoopUpdate",
     true
 )
-function Cards.prototype.canPathFind(self, card)
-    if self.pathsChecked:has(card.InitSeed) then
-        return true
-    end
-    for ____, player in ipairs(getPlayers(nil)) do
-        if EID and EID.UserConfig.DisableObstructionOnFlight and player.CanFly or EID and EID:HasPathToPosition(player.Position, card.Position) then
-            self.pathsChecked:add(card.InitSeed)
-            return true
-        end
-    end
-    return false
-end
 return ____exports
  end,
 ["lua_modules.isaacscript-common.dist.index"] = function(...) 
@@ -68739,21 +68652,39 @@ return ____exports
  end,
 ["src.mod"] = function(...) 
 local ____exports = {}
+local ____isaac_2Dtypescript_2Ddefinitions = require("lua_modules.isaac-typescript-definitions.dist.index")
+local GridEntityType = ____isaac_2Dtypescript_2Ddefinitions.GridEntityType
+local PoopGridEntityVariant = ____isaac_2Dtypescript_2Ddefinitions.PoopGridEntityVariant
 local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
-local ISCFeature = ____isaacscript_2Dcommon.ISCFeature
 local initModFeatures = ____isaacscript_2Dcommon.initModFeatures
+local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
 local upgradeMod = ____isaacscript_2Dcommon.upgradeMod
-local ____cards = require("src.features.cards")
-local Cards = ____cards.Cards
-local v = ____cards.v
+local ____rainbowPoopGivesMantle = require("src.features.rainbowPoopGivesMantle")
+local RainbowPoopGivesMantle = ____rainbowPoopGivesMantle.RainbowPoopGivesMantle
 function ____exports.main(self)
-    local modVanilla = RegisterMod("VisibleCardsReduxAndBetterCards", 1)
-    local mod = upgradeMod(nil, modVanilla, {ISCFeature.SAVE_DATA_MANAGER})
-    local MOD_FEATURES = {Cards}
+    local DEBUG = false
+    local modVanilla = RegisterMod("RainbowPoopGivesHolyMantle", 1)
+    local mod = upgradeMod(nil, modVanilla)
+    local MOD_FEATURES = {RainbowPoopGivesMantle}
     initModFeatures(nil, mod, MOD_FEATURES)
-    mod:saveDataManager("Cards", v)
-    Isaac.DebugString("--------------------------")
-    Isaac.DebugString("Visible Cards Redux Loaded")
+    if DEBUG then
+        mod:AddCallbackCustom(
+            ModCallbackCustom.POST_GAME_STARTED_REORDERED,
+            function()
+                Isaac.GridSpawn(
+                    GridEntityType.POOP,
+                    PoopGridEntityVariant.RAINBOW,
+                    Vector(300, 300)
+                )
+                Isaac.GridSpawn(
+                    GridEntityType.POOP,
+                    PoopGridEntityVariant.RAINBOW,
+                    Vector(200, 300)
+                )
+            end,
+            nil
+        )
+    end
 end
 return ____exports
  end,
