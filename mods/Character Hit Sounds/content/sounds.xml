@@ -1,0 +1,68 @@
+<sounds root="sfx/">
+	<sound name="hit_blue">
+		<sample weight="1" path="hit_blue_0.wav" />
+		<sample weight="1" path="hit_blue_1.wav" />
+		<sample weight="1" path="hit_blue_2.wav" />
+	</sound>
+	<sound name="death_blue">
+		<sample weight="1" path="death_blue_0.wav" />
+		<sample weight="1" path="death_blue_1.wav" />
+		<sample weight="1" path="death_blue_2.wav" />
+	</sound>
+	<sound name="hit_blue_v2">
+		<sample weight="1" path="hit_blue_v2_0.wav" />
+		<sample weight="1" path="hit_blue_v2_1.wav" />
+		<sample weight="1" path="hit_blue_v2_2.wav" />
+	</sound>
+	<sound name="death_blue_v2">
+		<sample weight="1" path="death_blue_v2_0.wav" />
+	</sound>
+	<sound name="hit_bone">
+		<sample weight="1" path="hit_bone_0.wav" />
+		<sample weight="1" path="hit_bone_1.wav" />
+		<sample weight="1" path="hit_bone_2.wav" />
+	</sound>
+	<sound name="death_bone">
+		<sample weight="1" path="death_bone_0.wav" />
+		<sample weight="1" path="death_bone_1.wav" />
+		<sample weight="1" path="death_bone_2.wav" />
+	</sound>
+	<sound name="hit_ghost">
+		<sample weight="1" path="hit_ghost_0.wav" />
+		<sample weight="1" path="hit_ghost_1.wav" />
+		<sample weight="1" path="hit_ghost_2.wav" />
+	</sound>
+	<sound name="death_ghost">
+		<sample weight="1" path="death_ghost_0.wav" />
+		<sample weight="1" path="death_ghost_1.wav" />
+		<sample weight="1" path="death_ghost_2.wav" />
+	</sound>
+	<sound name="hit_stone">
+		<sample weight="1" path="hit_stone_0.wav" />
+		<sample weight="1" path="hit_stone_1.wav" />
+		<sample weight="1" path="hit_stone_2.wav" />
+	</sound>
+	<sound name="death_stone">
+		<sample weight="1" path="death_stone_0.wav" />
+		<sample weight="1" path="death_stone_1.wav" />
+		<sample weight="1" path="death_stone_2.wav" />
+	</sound>
+	<sound name="hit_magdalene">
+		<sample weight="1" path="hit_magdalene_0.wav" />
+		<sample weight="1" path="hit_magdalene_1.wav" />
+		<sample weight="1" path="hit_magdalene_2.wav" />
+	</sound>
+	<sound name="death_magdalene">
+		<sample weight="1" path="death_magdalene_0.wav" />
+		<sample weight="1" path="death_magdalene_1.wav" />
+		<sample weight="1" path="death_magdalene_2.wav" />
+	</sound>
+	<sound name="hit_demon">
+		<sample weight="1" path="hit_demon_0.wav" />
+		<sample weight="1" path="hit_demon_1.wav" />
+		<sample weight="1" path="hit_demon_2.wav" />
+	</sound>
+	<sound name="death_demon">
+		<sample weight="1" path="death_demon_0.wav" />
+	</sound>
+</sounds>
