@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <rooms>
-	<room variant="1" name="Yama0.Rainy Coins [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="1" name="Yama0.Rainy Coins [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -153,7 +153,7 @@
 			<entity type="3000" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="2" name="Yama0.Bucket of Keys [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="2" name="Yama0.Bucket of Keys [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -291,7 +291,7 @@
 			<entity type="3000" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="3" name="Yama0.Floating Bombs [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="3" name="Yama0.Floating Bombs [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -432,7 +432,7 @@
 			<entity type="5" variant="40" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="4" name="Yama0.Locked Runes [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="4" name="Yama0.Locked Runes [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -552,7 +552,7 @@
 			<entity type="5" variant="301" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="5" name="Yama0.Throwing Batteries into the Ocean [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="5" name="Yama0.Throwing Batteries into the Ocean [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -717,7 +717,7 @@
 			<entity type="1002" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="6" name="Yama0.Sacked and Sold [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="6" name="Yama0.Sacked and Sold [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -849,7 +849,7 @@
 			<entity type="3000" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="7" name="Yama0.Non-Eternal [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="7" name="Yama0.Non-Eternal [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -918,7 +918,7 @@
 			<entity type="1002" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="8" name="Yama0.Soulless Run [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="8" name="Yama0.Soulless Run [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -990,7 +990,7 @@
 			<entity type="1002" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="9" name="Yama0.Infested Waters [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="9" name="Yama0.Infested Waters [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -1077,7 +1077,7 @@
 			<entity type="1000" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="10" name="Yama0.Lurking Below [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="10" name="Yama0.Lurking Below [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -1152,7 +1152,7 @@
 			<entity type="1002" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="11" name="Yama0. Fissure Missed [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="11" name="Yama0. Fissure Missed [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -1368,7 +1368,7 @@
 			<entity type="3000" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="12" name="Yama0.Nervous [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="12" name="Yama0.Nervous [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -1431,7 +1431,7 @@
 			<entity type="33" variant="4" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="13" name="Yama0.Fake Dross [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="13" name="Yama0.Fake Dross [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -1479,7 +1479,7 @@
 			<entity type="13" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="14" name="Yama0.Mysterious Currents [DP][Rare]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="0.25" lastTestTime="2023-01-18T03:24+00:00">
+	<room variant="14" name="Yama0.Mysterious Currents [DP][Rare]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="0.25">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -1623,7 +1623,7 @@
 			<entity type="3000" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="15" name="Yama0.Faker Dross [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="15" name="Yama0.Faker Dross [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -1680,7 +1680,7 @@
 			<entity type="1500" variant="0" subtype="1" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="16" name="Yama0.Fakest Dross [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="16" name="Yama0.Fakest Dross [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -1710,7 +1710,7 @@
 			<entity type="1500" variant="0" subtype="1" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="17" name="Yama0.Welcome to the Warp Zone [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="17" name="Yama0.Welcome to the Warp Zone [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -1893,7 +1893,7 @@
 			<entity type="3000" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="18" name="Yama0.Flooded Momroom [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="18" name="Yama0.Flooded Momroom [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -1998,7 +1998,7 @@
 			<entity type="1940" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="19" name="Yama0.Generic Room Design [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="19" name="Yama0.Generic Room Design [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
@@ -2046,7 +2046,7 @@
 			<entity type="1940" variant="0" subtype="0" weight="1.0"/>
 		</spawn>
 	</room>
-	<room variant="20" name="Yama0.Sogginess [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5" lastTestTime="2023-01-14T23:33+00:00">
+	<room variant="20" name="Yama0.Sogginess [DP]" type="27" subtype="1" shape="1" width="13" height="7" difficulty="1" weight="1.5">
 		<door exists="True" x="-1" y="3"/>
 		<door exists="True" x="6" y="-1"/>
 		<door exists="True" x="6" y="7"/>
