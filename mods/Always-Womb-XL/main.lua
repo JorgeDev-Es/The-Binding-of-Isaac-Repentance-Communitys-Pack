@@ -2797,11 +2797,7 @@ local AlwaysWombXL = ____exports.AlwaysWombXL
 AlwaysWombXL.name = "AlwaysWombXL"
 __TS__ClassExtends(AlwaysWombXL, ModFeature)
 function AlwaysWombXL.prototype.onCurseEval(self, curses)
-    if game:IsGreedMode() then
-        return
-    end
-    local level = game:GetLevel()
-    if level:GetStage() ~= LevelStage.WOMB_1 then
+    if game:IsGreedMode() or game:GetLevel():GetStage() ~= LevelStage.WOMB_1 then
         return
     end
     return arrayToBitFlags(nil, {curses, LevelCurse.LABYRINTH})
@@ -68635,24 +68631,14 @@ return ____exports
 local ____exports = {}
 local ____isaacscript_2Dcommon = require("lua_modules.isaacscript-common.dist.index")
 local initModFeatures = ____isaacscript_2Dcommon.initModFeatures
-local ModCallbackCustom = ____isaacscript_2Dcommon.ModCallbackCustom
 local upgradeMod = ____isaacscript_2Dcommon.upgradeMod
 local ____alwaysWombXL = require("src.features.alwaysWombXL")
 local AlwaysWombXL = ____alwaysWombXL.AlwaysWombXL
 function ____exports.main(self)
-    local DEBUG = false
     local modVanilla = RegisterMod("AlwaysWombXL", 1)
     local mod = upgradeMod(nil, modVanilla)
     local MOD_FEATURES = {AlwaysWombXL}
     initModFeatures(nil, mod, MOD_FEATURES)
-    if DEBUG then
-        mod:AddCallbackCustom(
-            ModCallbackCustom.POST_GAME_STARTED_REORDERED,
-            function()
-            end,
-            nil
-        )
-    end
 end
 return ____exports
  end,
